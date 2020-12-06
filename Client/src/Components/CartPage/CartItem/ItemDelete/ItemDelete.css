@@ -1,0 +1,9 @@
+.c-ItemDelete {
+  margin-left: 30px;
+  text-decoration: underline;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  font-size: 14px;
+  outline: none;
+}

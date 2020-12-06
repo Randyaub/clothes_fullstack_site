@@ -1,0 +1,34 @@
+.c-CategoryProduct {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 80%;
+}
+
+.c-CategoryProduct__product {
+  margin: 4px;
+}
+
+.c-CategoryProduct__image {
+  width: 100%;
+}
+
+.c-CategoryProduct__image:hover {
+  transform: scale(1.03);
+  overflow: hidden;
+}
+
+.c-CategoryProduct__details {
+  margin: 15px 0px;
+}
+
+.c-CategoryProduct__title {
+  font-size: 17px;
+  font-weight: 200;
+}
+
+.c-CategoryProduct__price {
+  display: inline-block;
+  margin-top: 3px;
+  font-size: 18px;
+  font-weight: 500;
+}

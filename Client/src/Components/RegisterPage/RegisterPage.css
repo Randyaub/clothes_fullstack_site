@@ -1,0 +1,37 @@
+.c-RegisterPage {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  margin-bottom: 50px;
+}
+
+.c-RegisterPage__arrow {
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.c-RegisterPage-have {
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.c-RegisterPage__register {
+  padding: 20px;
+}
+
+.c-RegisterPage__join {
+  margin-bottom: 30px;
+}
+
+.c-RegisterPage__join > h1 {
+  margin-bottom: 5px;
+}
+
+.c-RegisterPage__button {
+  margin-top: 15px;
+  color: white;
+  background-color: #1b1b1b;
+  border: none;
+  width: 200px;
+  padding: 12px 20px;
+  cursor: pointer;
+}

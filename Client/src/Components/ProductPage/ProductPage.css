@@ -1,0 +1,11 @@
+.c-ProductPage {
+  position: relative;
+  width: 70%;
+}
+
+.l-ProductPage__images {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}

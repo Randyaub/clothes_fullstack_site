@@ -1,0 +1,86 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+import "./ProductPage.css";
+import { useParams } from "react-router-dom";
+import ProductDetails from "./ProductDetails";
+import ProductImage from "./ProductImages";
+
+const ProductPage = (props) => {
+  const [product, setProduct] = useState([]);
+  const [variants, setVariants] = useState([{}]);
+  const [error, setError] = useState("");
+  const [size, setSize] = useState("");
+
+  const { sku } = useParams();
+
+  useEffect(() => {
+    //retrieve selected product and its variations
+    axios.get(`http://localhost:4000/Product-Page/${sku}`).then((result) => {
+      setProduct(result.data.product_information);
+      setVariants(result.data.product_variants);
+    });
+  }, [sku]);
+
+  const addDuplicateToCart = (product) => {
+    product.quantity += 1;
+    props.setCartCount(props.cartCount + 1);
+    props.setCartCostTotal(props.cartCostTotal + parseFloat(product.price));
+  };
+
+  const addItemToCart = (product) => {
+    props.setCartCount(props.cartCount + 1);
+    props.setCartItems([product, ...props.cartItems]);
+    props.setCartCostTotal(props.cartCostTotal + parseFloat(product.price));
+  };
+
+  const addItemToLocalStorage = () => {
+    localStorage.setItem("guestCart", JSON.stringify(props.cartItems));
+    localStorage.setItem("guestCartAmount", JSON.stringify(props.cartCount));
+  };
+
+  const handleAddItem = () => {
+    if (size) {
+      setError("");
+      const itemToBeAdded = { ...product, size: size, quantity: 1 };
+      props.displayMiniCart(true);
+      const isItemInCart = props.cartItems.some((item) => {
+        if (item.sku === product.sku && item.size === size) {
+          addDuplicateToCart(item);
+          addItemToLocalStorage();
+          return true;
+        }
+      });
+      if (isItemInCart !== true) {
+        addItemToCart(itemToBeAdded);
+        addItemToLocalStorage();
+      }
+    } else {
+      setError("Please select a size");
+    }
+  };
+
+  return (
+    <>
+      <main className="c-ProductPage">
+        <>
+          <div className="l-ProductPage__images">
+            <ProductImage product={product} number={"1"} />
+            <ProductImage product={product} number={"2"} />
+          </div>
+          <ProductDetails
+            variants={variants}
+            product={product}
+            setError={setError}
+            setSize={setSize}
+            size={size}
+            error={error}
+            handleAddItem={handleAddItem}
+          />
+        </>
+      </main>
+    </>
+  );
+};
+
+export default ProductPage;

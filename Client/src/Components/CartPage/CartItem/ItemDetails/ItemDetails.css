@@ -1,0 +1,22 @@
+.c-ItemDetails {
+  display: flex;
+  width: 60%;
+}
+
+.c-ItemDetails__image {
+  max-width: 150px;
+}
+
+.c-ItemDetails__detail > p {
+  font-size: 14px;
+  padding: 2px 0px;
+  outline: none;
+}
+
+.c-ItemDetails__detail {
+  padding: 0px 20px;
+}
+
+.c-CartDetails__name {
+  font-size: 24px;
+}

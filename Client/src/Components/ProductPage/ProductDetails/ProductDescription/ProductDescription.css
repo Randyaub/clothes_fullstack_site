@@ -1,0 +1,15 @@
+.c-ProductDescription {
+  margin: 20px 0px;
+  padding: 50px 125px;
+  background-color: #e4e4e4;
+}
+
+.c-ProductDescription__description {
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+.c-ProductDescription__lighter {
+  font-size: 0.8em;
+  color: #444444;
+}

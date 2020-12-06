@@ -1,0 +1,17 @@
+.c-LoginSection {
+  width: 49%;
+}
+
+.c-LoginSection__error {
+  color: red;
+}
+
+.c-LoginSection__label {
+  margin-bottom: 10px;
+}
+
+.c-LoginSection__input {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 7px;
+}

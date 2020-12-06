@@ -1,0 +1,24 @@
+.c-Input__row {
+  margin: 10px 0px;
+}
+
+.c-Input__label {
+  width: 25%;
+  display: inline-block;
+}
+
+.c-Input__asterix {
+  color: red;
+  margin-left: 3px;
+}
+
+.c-Input__input {
+  margin-bottom: 10px;
+  width: 35%;
+  padding: 7px;
+}
+
+.c-Input__error {
+  margin-left: 20px;
+  color: red;
+}

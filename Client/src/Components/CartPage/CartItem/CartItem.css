@@ -1,0 +1,29 @@
+.l-CartItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px;
+  border-bottom: 1px solid grey;
+  margin-bottom: 15px 0px;
+}
+
+.l-CartItem:first-child {
+  padding-top: 0px;
+}
+
+.l-CartItem:last-child {
+  padding-bottom: 0px;
+}
+
+.l-CartItem:last-child {
+  border-bottom: none;
+}
+
+.l-CartItem__quantity {
+  display: flex;
+  margin: 15px 0px;
+}
+
+.c-CartItem__quantity {
+  width: 30%;
+  margin-top: 5px;
+}

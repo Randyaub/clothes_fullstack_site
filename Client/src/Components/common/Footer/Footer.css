@@ -1,0 +1,12 @@
+.c-Footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.l-footer {
+  background-color: #e4e4e4;
+  max-width: none;
+  padding: 50px 0px;
+}

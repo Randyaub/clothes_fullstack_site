@@ -1,0 +1,14 @@
+.c-CartPage {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.c-CartPage__title {
+  margin-bottom: 30px;
+}
+
+.l-CartPage__products {
+  padding: 30px 0px;
+  width: 60%;
+}

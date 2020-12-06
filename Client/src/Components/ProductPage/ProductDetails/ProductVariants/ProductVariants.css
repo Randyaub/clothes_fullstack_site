@@ -1,0 +1,16 @@
+.c-ProductVariants {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin-bottom: 30px;
+  gap: 5px;
+}
+
+.c-ProductVariants-selected {
+  border: 2px solid black;
+}
+
+.c-ProductVariants__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
