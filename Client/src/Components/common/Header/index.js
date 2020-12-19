@@ -13,10 +13,17 @@ const Header = (props) => {
         </span>
         <div>
           <span className="c-Header__lrc">
-            <Link className="c-Header__lr" to="/account/login">
-              {" "}
-              <i className="fas fa-user"></i> LOG IN / REGISTER
-            </Link>
+            {props.userLoggedIn ? (
+              <Link className="c-Header__lr" to="/account">
+                {" "}
+                <i className="fas fa-user"></i> ACCOUNT
+              </Link>
+            ) : (
+              <Link className="c-Header__lr" to="/account/login">
+                {" "}
+                <i className="fas fa-user"></i> LOG IN / REGISTER
+              </Link>
+            )}
           </span>
           <span className="c-Header__lrcB">
             <Link className="c-Header__lr" to="/cart">

@@ -15,10 +15,10 @@ const Input = (props) => {
           type={props.pass ? "password" : "text"}
           name="lastName"
           value={props.value}
+          placeholder={props.placeholder}
           onChange={(e) => {
             props.setFunction(e.target.value);
           }}
-          autoComplete="off"
         ></input>
         <span className="c-Input__error">{props.error}</span>
       </label>

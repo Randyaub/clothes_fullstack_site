@@ -15,11 +15,7 @@
 }
 
 .c-RegisterPage__register {
-  padding: 20px;
-}
-
-.c-RegisterPage__join {
-  margin-bottom: 30px;
+  padding: 25px;
 }
 
 .c-RegisterPage__join > h1 {
@@ -34,4 +30,9 @@
   width: 200px;
   padding: 12px 20px;
   cursor: pointer;
+}
+
+.c-RegisterPage__error {
+  margin: 20px 0px;
+  color: red;
 }

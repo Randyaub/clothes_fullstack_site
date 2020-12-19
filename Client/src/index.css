@@ -18,3 +18,7 @@ ul,
 li {
   list-style: none;
 }
+
+input[type] {
+  outline: none;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import "./App.css";
 
 import Header from "./Components/common/Header";
@@ -13,6 +13,9 @@ import NotFoundPage from "./Components/NotFoundPage";
 import Footer from "./Components/common/Footer";
 
 function App() {
+  let history = useHistory();
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
   const [cartCount, setCartCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [cartCostTotal, setCartCostTotal] = useState(0);
@@ -29,6 +32,11 @@ function App() {
 
   //cart pop up displays for 3 seconds on add
   //if clicked again resets timer
+
+  const goToHomePage = () => {
+    history.push("/");
+  };
+
   useEffect(() => {
     if (productAdded) {
       console.log(productAdded);
@@ -48,6 +56,7 @@ function App() {
           cartCostTotal={cartCostTotal}
           productAdded={productAdded}
           displayMiniCart={displayMiniCart}
+          userLoggedIn={userLoggedIn}
         />
         <Switch>
           <Route exact path="/">
@@ -66,7 +75,10 @@ function App() {
             />
           </Route>
           <Route exact path="/account/login">
-            <LogInPage />
+            <LogInPage
+              goToHomePage={goToHomePage}
+              setUserLoggedIn={setUserLoggedIn}
+            />
           </Route>
           <Route exact path="/account/register">
             <RegisterPage />

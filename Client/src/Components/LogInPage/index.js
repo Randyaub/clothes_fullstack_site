@@ -4,11 +4,14 @@ import "./LogInPage.css";
 import LoginSection from "./LoginSection";
 import RegisterSection from "./RegisterSection";
 
-const LogInPage = () => {
+const LogInPage = (props) => {
   return (
     <section className="c-LogInPage">
       <div className="c-LogInPage-flex">
-        <LoginSection />
+        <LoginSection
+          goToHomePage={props.goToHomePage}
+          setUserLoggedIn={props.setUserLoggedIn}
+        />
         <div className="c-LogInPage__horizontal"></div>
         <RegisterSection />
       </div>

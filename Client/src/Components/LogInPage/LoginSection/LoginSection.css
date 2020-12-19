@@ -4,6 +4,7 @@
 
 .c-LoginSection__error {
   color: red;
+  margin-bottom: 15px;
 }
 
 .c-LoginSection__label {

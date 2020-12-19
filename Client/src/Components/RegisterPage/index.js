@@ -35,7 +35,7 @@ const RegisterPage = () => {
     if (password.length < 8) {
       passwordError = "Your password must be at least 8 characters in length";
     }
-    if (password !== confirmPassword) {
+    if (confirmPassword !== password) {
       confirmPasswordError = "Passwords do not match";
     }
 
@@ -60,11 +60,14 @@ const RegisterPage = () => {
     event.preventDefault();
     if (isValid()) {
       axios
-        .post("/user/register", {
+        .post("user/register", {
           email: email.trim(),
           password: password.trim(),
         })
-        .then(() => {})
+        .then(() => {
+          resetErrors();
+          setGeneralError("ACCOUNT CREATED");
+        })
         .catch((err) => {
           if (err.response.status === 409) {
             resetErrors();
@@ -87,7 +90,8 @@ const RegisterPage = () => {
         <h3>ALREADY HAVE AN ACCOUNT?</h3>
         <Link to="/account/login">
           <button className="c-RegisterPage__button">
-            <i class="fas fa-arrow-left c-RegisterPage__arrow"></i>BACK TO LOGIN
+            <i className="fas fa-arrow-left c-RegisterPage__arrow"></i>BACK TO
+            LOGIN
           </button>
         </Link>
       </div>
@@ -97,22 +101,26 @@ const RegisterPage = () => {
             <h1>PLEASE ENTER YOUR INFORMATION BELOW</h1>
             <h4>SIGN UP TO KEEP TRACK OFF YOUR ORDERS</h4>
           </div>
+          <div className="c-RegisterPage__error">{generalError}</div>
           <form onSubmit={handleCreateAccount}>
             <Input
               name={"EMAIL ADDRESS"}
               value={email}
+              placeholder={"Email"}
               setFunction={setEmail}
               error={emailError}
             />
             <Input
               name={"CONFIRM EMAIL ADDRESS"}
               value={confirmEmail}
+              placeholder={"Confirm Email"}
               setFunction={setConfirmEmail}
               error={confirmEmailError}
             />
             <Input
               name={"PASSWORD"}
               pass={true}
+              placeholder={"Password"}
               value={password}
               setFunction={setPassword}
               error={passwordError}
@@ -120,6 +128,7 @@ const RegisterPage = () => {
             <Input
               name={"CONFIRM PASSWORD"}
               pass={true}
+              placeholder={"Confirm Password"}
               value={confirmPassword}
               setFunction={setConfirmPassword}
               error={confirmPasswordError}
