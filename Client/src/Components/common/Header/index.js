@@ -1,7 +1,8 @@
 import React from "react";
 import "./Header.css";
-import Cart from "../Cart";
+import CartDropDown from "../CartDropDown";
 import { NavLink, Link } from "react-router-dom";
+import UserDropDownMenu from "../UserDropDownMenu";
 
 const Header = (props) => {
   return (
@@ -12,33 +13,31 @@ const Header = (props) => {
           on Your 1st Order
         </span>
         <div>
-          <span className="c-Header__lrc">
+          <span className="c-Header__lrcB">
             {props.userLoggedIn ? (
-              <Link className="c-Header__lr" to="/account">
-                {" "}
-                <i className="fas fa-user"></i> ACCOUNT
-              </Link>
+              <UserDropDownMenu logOutUser={props.logOutUser} />
             ) : (
-              <Link className="c-Header__lr" to="/account/login">
+              <Link className="c-Header__link" to="/account/login">
                 {" "}
                 <i className="fas fa-user"></i> LOG IN / REGISTER
               </Link>
             )}
           </span>
           <span className="c-Header__lrcB">
-            <Link className="c-Header__lr" to="/cart">
+            <Link className="c-Header__link" to="/cart">
               {" "}
               <i className="fas fa-shopping-cart">
                 <span>{props.cartCount}</span>
               </i>{" "}
               CART
             </Link>
-            <Cart
+            <CartDropDown
               setProductAdded={props.setProductAdded}
               productAdded={props.productAdded}
               cartCount={props.cartCount}
               cartItems={props.cartItems}
               cartCostTotal={props.cartCostTotal}
+              userLoggedIn={props.userLoggedIn}
             />
           </span>
         </div>

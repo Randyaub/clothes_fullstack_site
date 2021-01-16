@@ -13,7 +13,7 @@ const Input = (props) => {
         <input
           className="c-Input__input"
           type={props.pass ? "password" : "text"}
-          name="lastName"
+          name={props.name}
           value={props.value}
           placeholder={props.placeholder}
           onChange={(e) => {

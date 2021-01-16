@@ -47,13 +47,11 @@ const ProductPage = (props) => {
       const isItemInCart = props.cartItems.some((item) => {
         if (item.sku === product.sku && item.size === size) {
           addDuplicateToCart(item);
-          addItemToLocalStorage();
           return true;
         }
       });
       if (isItemInCart !== true) {
         addItemToCart(itemToBeAdded);
-        addItemToLocalStorage();
       }
     } else {
       setError("Please select a size");
@@ -62,23 +60,21 @@ const ProductPage = (props) => {
 
   return (
     <>
-      <main className="c-ProductPage">
-        <>
-          <div className="l-ProductPage__images">
-            <ProductImage product={product} number={"1"} />
-            <ProductImage product={product} number={"2"} />
-          </div>
-          <ProductDetails
-            variants={variants}
-            product={product}
-            setError={setError}
-            setSize={setSize}
-            size={size}
-            error={error}
-            handleAddItem={handleAddItem}
-          />
-        </>
-      </main>
+      <section className="c-ProductPage">
+        <div className="l-ProductPage__images">
+          <ProductImage product={product} number={"1"} />
+          <ProductImage product={product} number={"2"} />
+        </div>
+        <ProductDetails
+          variants={variants}
+          product={product}
+          setError={setError}
+          setSize={setSize}
+          size={size}
+          error={error}
+          handleAddItem={handleAddItem}
+        />
+      </section>
     </>
   );
 };

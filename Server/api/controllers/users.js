@@ -47,10 +47,30 @@ exports.user_log_in = (req, res) => {
     });
 };
 
-exports.user_account = (req, res) => {};
+exports.user_account = (req, res) => {
+  const { user_id } = req.userData;
+  console.log(user_id);
+  pool
+    .query("SELECT * FROM customer WHERE id = $1", [user_id])
+    .then((user) => {
+      console.log(user);
+      if (user.rowCount !== 0) {
+        return res.status(200).json({
+          id: user.rows[0].id,
+          first_name: user.rows[0].first_name,
+          last_name: user.rows[0].last_name,
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      });
+    });
+};
 
 exports.user_create_account = (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, firstName, lastName } = req.body;
   const currentTime = new Date();
 
   if (password.length > 7) {
@@ -70,8 +90,8 @@ exports.user_create_account = (req, res) => {
             } else {
               pool
                 .query(
-                  "INSERT INTO customer (email, password, date_joined) VALUES ($1, $2, $3)",
-                  [email, hash, currentTime]
+                  "INSERT INTO customer (email, password, first_name, last_name, date_joined) VALUES ($1, $2, $3, $4, $5)",
+                  [email, hash, firstName, lastName, currentTime]
                 )
                 .then(() => {
                   res.status(200).json({

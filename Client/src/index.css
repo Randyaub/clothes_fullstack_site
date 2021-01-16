@@ -1,3 +1,13 @@
+:root {
+  --border-colour: grey;
+  --highlight-text: red;
+  --error-colour: red;
+  --main-text-colour: #1b1b1b;
+  --lighter-text-colour: rgb(39, 39, 39);
+  --secondary-text-colour: white;
+  --secondary-background-colour: #e4e4e4;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,12 +16,12 @@
 }
 
 .active {
-  color: red;
+  color: var(--highlight-text);
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--main-text-colour);
 }
 
 ul,
@@ -21,4 +31,38 @@ li {
 
 input[type] {
   outline: none;
+}
+
+.default-btn {
+  margin-top: 15px;
+  color: white;
+  background-color: var(--main-text-colour);
+  border: none;
+  width: 200px;
+  padding: 12px 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.inverted-btn {
+  margin-top: 15px;
+  background-color: white;
+  color: var(--main-text-colour);
+  border: 1px solid var(--main-text-colour);
+  width: 200px;
+  padding: 12px 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.default-btn:hover {
+  opacity: 0.9;
+}
+
+.inverted-btn:hover {
+  opacity: 0.7;
+}
+
+.full {
+  width: 100%;
 }

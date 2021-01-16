@@ -28,10 +28,7 @@ const ProductDetails = (props) => {
           error={props.error}
           size={props.size}
         />
-        <button
-          onClick={props.handleAddItem}
-          className="c-ProductDetails__button"
-        >
+        <button onClick={props.handleAddItem} className="default-btn full">
           ADD
         </button>
       </div>

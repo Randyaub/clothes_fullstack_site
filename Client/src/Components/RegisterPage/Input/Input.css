@@ -1,5 +1,5 @@
 .c-Input__row {
-  margin: 10px 0px;
+  margin: 18px 0px;
 }
 
 .c-Input__label {
@@ -8,17 +8,16 @@
 }
 
 .c-Input__asterix {
-  color: red;
+  color: var(--error-colour);
   margin-left: 3px;
 }
 
 .c-Input__input {
-  margin-bottom: 10px;
   width: 35%;
-  padding: 7px;
+  padding: 8px;
 }
 
 .c-Input__error {
   margin-left: 20px;
-  color: red;
+  color: var(--error-colour);
 }

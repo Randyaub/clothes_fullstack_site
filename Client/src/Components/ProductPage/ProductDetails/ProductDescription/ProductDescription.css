@@ -1,7 +1,7 @@
 .c-ProductDescription {
   margin: 20px 0px;
   padding: 50px 125px;
-  background-color: #e4e4e4;
+  background-color: var(--secondary-background-colour);
 }
 
 .c-ProductDescription__description {

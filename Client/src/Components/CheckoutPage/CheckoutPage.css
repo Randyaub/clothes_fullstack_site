@@ -1,0 +1,35 @@
+.c-CheckoutPage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.c-CheckoutPage__title {
+  margin-bottom: 20px;
+}
+
+.c-CheckoutPage__summary {
+  border: 1px solid var(--border-colour);
+  width: 39%;
+  padding: 20px 30px;
+  margin: 30px;
+}
+
+.l-CheckoutPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.c-CheckoutPage__list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
+.c-CheckoutPage__details {
+  margin-top: 30px;
+}

@@ -14,7 +14,7 @@ const RegisterSection = () => {
           delivered through email
         </p>
         <Link to="/account/register">
-          <button className="c-LogInPage__button">CREATE AN ACCOUNT </button>
+          <button className="default-btn">CREATE AN ACCOUNT </button>
         </Link>
       </div>
     </div>

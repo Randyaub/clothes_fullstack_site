@@ -1,7 +1,11 @@
 .c-RegisterPage {
-  border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
-  margin-bottom: 50px;
+  margin: 50px 0px;
+}
+
+.c-RegisterPage__container {
+  border-top: 1px solid var(--border-colour);
+  border-bottom: 1px solid var(--border-colour);
+  padding: 25px;
 }
 
 .c-RegisterPage__arrow {
@@ -9,30 +13,15 @@
   font-size: 12px;
 }
 
-.c-RegisterPage-have {
-  margin-top: 50px;
+.c-RegisterPage__back {
   padding: 20px;
 }
 
-.c-RegisterPage__register {
-  padding: 25px;
-}
-
-.c-RegisterPage__join > h1 {
+.c-RegisterPage__message > h1 {
   margin-bottom: 5px;
-}
-
-.c-RegisterPage__button {
-  margin-top: 15px;
-  color: white;
-  background-color: #1b1b1b;
-  border: none;
-  width: 200px;
-  padding: 12px 20px;
-  cursor: pointer;
 }
 
 .c-RegisterPage__error {
   margin: 20px 0px;
-  color: red;
+  color: var(--error-colour);
 }

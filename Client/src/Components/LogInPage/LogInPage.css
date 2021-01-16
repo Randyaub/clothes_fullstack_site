@@ -1,7 +1,7 @@
 .c-LogInPage {
   margin: 50px 0px;
   padding: 20px;
-  border: 1px solid grey;
+  border: 1px solid var(--border-colour);
 }
 
 .c-LogInPage-flex {
@@ -9,16 +9,12 @@
 }
 
 .c-LogInPage__horizontal {
-  border-left: 1px solid grey;
+  border-left: 1px solid var(--border-colour);
   margin: 0px 20px;
 }
 
-.c-LogInPage__title {
-  margin-bottom: 15px;
-}
-
 .c-LogInPage__header > h1 {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .c-LogInPage__header > p {
@@ -28,16 +24,6 @@
 .c-LogInPage__header > h5,
 .c-LogInPage__header > h4 {
   margin-bottom: 15px;
-}
-
-.c-LogInPage__button {
-  margin-top: 15px;
-  color: white;
-  background-color: #1b1b1b;
-  border: none;
-  width: 200px;
-  padding: 12px 20px;
-  cursor: pointer;
 }
 
 .c-LogInPage__button > a {

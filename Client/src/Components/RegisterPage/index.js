@@ -15,6 +15,10 @@ const RegisterPage = () => {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
   const [generalError, setGeneralError] = useState("");
 
   const isValid = () => {
@@ -22,9 +26,17 @@ const RegisterPage = () => {
     let confirmError = "";
     let passwordError = "";
     let confirmPasswordError = "";
+    let firstNameError = "";
+    let lastNameError = "";
 
     if (!email) {
       emailError = "Please enter an email address";
+    }
+    if (!firstName) {
+      firstNameError = "Please enter your name";
+    }
+    if (!lastName) {
+      lastNameError = "Please enter your last name";
     }
     if (!email.includes("@") || !email.includes(".")) {
       emailError = "Please enter a valid email address";
@@ -39,11 +51,20 @@ const RegisterPage = () => {
       confirmPasswordError = "Passwords do not match";
     }
 
-    if (emailError || confirmError || passwordError || confirmPasswordError) {
+    if (
+      emailError ||
+      confirmError ||
+      passwordError ||
+      confirmPasswordError ||
+      firstNameError ||
+      lastNameError
+    ) {
       setEmailError(emailError);
       setConfirmEmailError(confirmError);
       setPasswordError(passwordError);
       setConfirmPasswordError(confirmPasswordError);
+      setFirstNameError(firstNameError);
+      setLastNameError(lastNameError);
       return false;
     }
     return true;
@@ -54,6 +75,8 @@ const RegisterPage = () => {
     setConfirmEmailError("");
     setPasswordError("");
     setConfirmPasswordError("");
+    setFirstNameError("");
+    setLastNameError("");
   };
 
   const handleCreateAccount = (event) => {
@@ -63,6 +86,8 @@ const RegisterPage = () => {
         .post("user/register", {
           email: email.trim(),
           password: password.trim(),
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
         })
         .then(() => {
           resetErrors();
@@ -85,65 +110,77 @@ const RegisterPage = () => {
   };
 
   return (
-    <>
-      <div className="c-RegisterPage-have">
+    <div className="c-RegisterPage">
+      <div className="c-RegisterPage__back">
         <h3>ALREADY HAVE AN ACCOUNT?</h3>
         <Link to="/account/login">
-          <button className="c-RegisterPage__button">
+          <button className="default-btn">
             <i className="fas fa-arrow-left c-RegisterPage__arrow"></i>BACK TO
             LOGIN
           </button>
         </Link>
       </div>
-      <section className="c-RegisterPage">
-        <div className="c-RegisterPage__register">
-          <div className="c-RegisterPage__join">
-            <h1>PLEASE ENTER YOUR INFORMATION BELOW</h1>
-            <h4>SIGN UP TO KEEP TRACK OFF YOUR ORDERS</h4>
-          </div>
-          <div className="c-RegisterPage__error">{generalError}</div>
-          <form onSubmit={handleCreateAccount}>
-            <Input
-              name={"EMAIL ADDRESS"}
-              value={email}
-              placeholder={"Email"}
-              setFunction={setEmail}
-              error={emailError}
-            />
-            <Input
-              name={"CONFIRM EMAIL ADDRESS"}
-              value={confirmEmail}
-              placeholder={"Confirm Email"}
-              setFunction={setConfirmEmail}
-              error={confirmEmailError}
-            />
-            <Input
-              name={"PASSWORD"}
-              pass={true}
-              placeholder={"Password"}
-              value={password}
-              setFunction={setPassword}
-              error={passwordError}
-            />
-            <Input
-              name={"CONFIRM PASSWORD"}
-              pass={true}
-              placeholder={"Confirm Password"}
-              value={confirmPassword}
-              setFunction={setConfirmPassword}
-              error={confirmPasswordError}
-            />
-            <div>
-              <input
-                className="c-RegisterPage__button"
-                type="submit"
-                value="CONFIRM"
-              ></input>
-            </div>
-          </form>
+      <section className="c-RegisterPage__container">
+        <div className="c-RegisterPage__message">
+          <h1>PLEASE ENTER YOUR INFORMATION BELOW</h1>
+          <h4>SIGN UP TO KEEP TRACK OFF YOUR ORDERS</h4>
         </div>
+        <div className="c-RegisterPage__error">{generalError}</div>
+        <form onSubmit={handleCreateAccount}>
+          <Input
+            name={"EMAIL ADDRESS"}
+            value={email}
+            placeholder={"Email"}
+            setFunction={setEmail}
+            error={emailError}
+          />
+          <Input
+            name={"CONFIRM EMAIL ADDRESS"}
+            value={confirmEmail}
+            placeholder={"Confirm Email"}
+            setFunction={setConfirmEmail}
+            error={confirmEmailError}
+          />
+          <Input
+            name={"PASSWORD"}
+            pass={true}
+            placeholder={"Password"}
+            value={password}
+            setFunction={setPassword}
+            error={passwordError}
+          />
+          <Input
+            name={"CONFIRM PASSWORD"}
+            pass={true}
+            placeholder={"Confirm Password"}
+            value={confirmPassword}
+            setFunction={setConfirmPassword}
+            error={confirmPasswordError}
+          />
+          <Input
+            name={"FIRST NAME"}
+            placeholder={"First Name"}
+            value={firstName}
+            setFunction={setFirstName}
+            error={firstNameError}
+          />
+          <Input
+            name={"LAST NAME"}
+            placeholder={"Last Name"}
+            value={lastName}
+            setFunction={setLastName}
+            error={lastNameError}
+          />
+          <div>
+            <input
+              className="default-btn"
+              type="submit"
+              value="CONFIRM"
+            ></input>
+          </div>
+        </form>
       </section>
-    </>
+    </div>
   );
 };
 

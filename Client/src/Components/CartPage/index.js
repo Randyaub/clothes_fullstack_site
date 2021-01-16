@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 
 import "./CartPage.css";
@@ -33,10 +33,20 @@ const CartPage = (props) => {
         {props.cartCount === 0 ? (
           ""
         ) : (
-          <CartSummary
-            cartCount={props.cartCount}
-            cartCostTotal={props.cartCostTotal}
-          />
+          <div className="c-CartPage__summary">
+            <CartSummary
+              cartCount={props.cartCount}
+              cartCostTotal={props.cartCostTotal}
+            />
+            <div className="c-CartPage__disclaimer">
+              <h5>* Item prices exclude tax</h5>
+            </div>
+            <Link to={props.userLoggedIn ? "checkout" : "login/checkout"}>
+              <button className="c-CartPage__btn">
+                <h3>PROCEED TO CHECKOUT</h3>
+              </button>
+            </Link>
+          </div>
         )}
       </div>
     </>

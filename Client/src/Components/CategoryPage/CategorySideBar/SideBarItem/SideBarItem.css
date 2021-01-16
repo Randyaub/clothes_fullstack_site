@@ -1,9 +1,9 @@
 .c-SideBarItem-active {
-  color: red;
+  color: var(--highlight-text);
 }
 
 .c-SideBarItem__sublink-active {
-  color: red;
+  color: var(--highlight-text);
   text-decoration: underline;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .c-SideBarItem__link-active {
-  color: red;
+  color: var(--highlight-text);
 }
 
 .c-SideBarItem__submenu {
@@ -37,7 +37,7 @@
 
 .c-SideBarItem__sublink:hover,
 .c-SideBarItem__link:hover {
-  color: red;
+  color: var(--highlight-text);
 }
 
 .c-SideBarItem__sublink:hover {
