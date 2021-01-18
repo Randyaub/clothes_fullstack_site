@@ -13,4 +13,15 @@
 .c-ShippingInput__subInfo {
   color: rgb(87, 87, 87);
   font-size: 12px;
+  margin-top: 3px;
+}
+
+.c-ShippingInput__error {
+  color: red;
+  font-size: 12px;
+}
+
+.c-ShippingInput__asterix {
+  color: red;
+  margin-left: 2px;
 }

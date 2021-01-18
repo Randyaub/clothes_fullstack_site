@@ -11,6 +11,7 @@ const ShippingInputRowHalf = (props) => {
         value={props.value}
         setFunction={props.setFunction}
         subInfo={props.subInfo}
+        error={props.error}
       />
     </div>
   );

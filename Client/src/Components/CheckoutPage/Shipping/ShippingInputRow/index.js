@@ -13,6 +13,7 @@ const ShippingInputRow = (props) => {
             value={row.value}
             setFunction={row.setFunction}
             subInfo={row.subInfo}
+            error={row.error}
           />
         );
       })}

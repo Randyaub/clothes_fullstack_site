@@ -2,7 +2,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 
 .c-CheckoutPage__title {
@@ -13,7 +13,7 @@
   border: 1px solid var(--border-colour);
   width: 39%;
   padding: 20px 30px;
-  margin: 30px;
+  margin: 30px 0px 30px 30px;
 }
 
 .l-CheckoutPage {
@@ -32,4 +32,28 @@
 
 .c-CheckoutPage__details {
   margin-top: 30px;
+}
+
+.c-CheckoutPage__sections {
+  display: flex;
+  margin: 30px 0px;
+  font-size: 20px;
+}
+
+.c-CheckoutPage__tag {
+  width: 33.3%;
+  color: var(--border-colour);
+  text-align: center;
+  padding: 10px 0px;
+  border-bottom: 1px solid var(--border-colour);
+  border-right: 1px solid var(--border-colour);
+}
+
+.c-CheckoutPage__tag:last-child {
+  border-right: none;
+}
+
+.c-CheckoutPage-active {
+  color: var(--main-text-colour);
+  border-bottom: 5px solid red;
 }
