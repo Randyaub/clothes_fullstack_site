@@ -76,7 +76,9 @@ const Shipping = (props) => {
   const handleNavigateToPayment = (event) => {
     event.preventDefault();
     if (isValid()) {
-      history.push("checkout/payment");
+      props.setOnShipping(false);
+      props.setOnPayment(true);
+      props.setOnOrder(false);
     }
   };
 
