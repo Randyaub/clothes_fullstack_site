@@ -36,6 +36,11 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("guestCart", JSON.stringify(cartItems));
+    localStorage.setItem("guestCartAmount", JSON.stringify(cartCount));
+  }, [cartItems, cartCount]);
+
   //inital load
   useEffect(() => {
     getCurrentUser();

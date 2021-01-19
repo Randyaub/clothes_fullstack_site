@@ -34,11 +34,6 @@ const ProductPage = (props) => {
     props.setCartCostTotal(props.cartCostTotal + parseFloat(product.price));
   };
 
-  const addItemToLocalStorage = () => {
-    localStorage.setItem("guestCart", JSON.stringify(props.cartItems));
-    localStorage.setItem("guestCartAmount", JSON.stringify(props.cartCount));
-  };
-
   const handleAddItem = () => {
     if (size) {
       setError("");
@@ -47,7 +42,10 @@ const ProductPage = (props) => {
       const isItemInCart = props.cartItems.some((item) => {
         if (item.sku === product.sku && item.size === size) {
           addDuplicateToCart(item);
+
           return true;
+        } else {
+          return false;
         }
       });
       if (isItemInCart !== true) {
