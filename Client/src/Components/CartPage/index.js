@@ -17,7 +17,7 @@ const CartPage = (props) => {
             props.cartItems.map((item, index) => {
               return (
                 <CartItem
-                  index={index}
+                  key={index}
                   item={item}
                   cartCount={props.cartCount}
                   setCartCount={props.setCartCount}

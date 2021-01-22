@@ -30,6 +30,7 @@ const ItemQuantity = (props) => {
       );
     }
     props.setCartItems(editedCart);
+    console.log(editedCart);
   };
 
   return (

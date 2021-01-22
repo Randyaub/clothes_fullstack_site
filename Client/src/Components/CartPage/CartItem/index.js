@@ -7,7 +7,7 @@ import ItemQuantity from "./ItemQuantity";
 
 const CartItem = (props) => {
   return (
-    <div key={props.index} className="l-CartItem">
+    <div className="l-CartItem">
       <ItemDetails item={props.item} />
       <div className="c-CartItem__quantity">
         <h4>QUANTITY</h4>

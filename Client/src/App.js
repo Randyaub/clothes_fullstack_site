@@ -29,17 +29,20 @@ function App() {
   useEffect(() => {
     if (
       localStorage.getItem("guestCart") !== null &&
-      localStorage.getItem("guestCartAmount") !== null
+      localStorage.getItem("guestCartAmount") !== null &&
+      localStorage.getItem("guestCartTotalCost") !== null
     ) {
       setCartItems(JSON.parse(localStorage.getItem("guestCart")));
       setCartCount(JSON.parse(localStorage.getItem("guestCartAmount")));
+      setCartCostTotal(JSON.parse(localStorage.getItem("guestCartTotalCost")));
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("guestCart", JSON.stringify(cartItems));
     localStorage.setItem("guestCartAmount", JSON.stringify(cartCount));
-  }, [cartItems, cartCount]);
+    localStorage.setItem("guestCartTotalCost", JSON.stringify(cartCostTotal));
+  }, [cartItems, cartCount, cartCostTotal]);
 
   //inital load
   useEffect(() => {
