@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import Label from "../Label";
+
 import "./LoginForm.css";
 
 const LoginForm = (props) => {
@@ -55,29 +57,25 @@ const LoginForm = (props) => {
     <>
       <div className="c-LoginForm__error">{error}</div>
       <form onSubmit={handleLogIn}>
-        <label>
-          <div className="c-LoginForm__label">EMAIL ADDRESS:</div>
-          <input
-            className="c-LoginForm__input"
-            type="text"
-            placeholder="Email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          <div className="c-LoginForm__label">PASSWORD:</div>
-          <input
-            className="c-LoginForm__input"
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            autoComplete="off"
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </label>
+        <Label name={"EMAIL ADDRESS:"} />
+        <input
+          className="c-LoginForm__input"
+          type="text"
+          placeholder="Email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        ></input>
+        <Label name={"PASSWORD:"} />
+        <input
+          className="c-LoginForm__input"
+          type="password"
+          placeholder="Password"
+          name="password"
+          value={password}
+          autoComplete="off"
+          onChange={(e) => setPassword(e.target.value)}
+        ></input>
         <div>
           <input className="default-btn" type="submit" value="LOG IN"></input>
         </div>

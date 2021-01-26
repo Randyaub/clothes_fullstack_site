@@ -1,10 +1,6 @@
 .c-Input__row {
   margin: 18px 0px;
-}
-
-.c-Input__label {
-  width: 25%;
-  display: inline-block;
+  display: flex;
 }
 
 .c-Input__asterix {
@@ -18,6 +14,11 @@
 }
 
 .c-Input__error {
+  width: 35%;
   margin-left: 20px;
   color: var(--error-colour);
+}
+
+.l-Input__label {
+  width: 30%;
 }

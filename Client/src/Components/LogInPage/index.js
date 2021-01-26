@@ -7,7 +7,7 @@ import RegisterSection from "./RegisterSection";
 const LogInPage = (props) => {
   return (
     <section className="c-LogInPage">
-      <div className="c-LogInPage-flex">
+      <div className="l-LogInPage-flex">
         <LoginSection
           goToHomePage={props.goToHomePage}
           setUserLoggedIn={props.setUserLoggedIn}

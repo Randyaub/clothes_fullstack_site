@@ -66,3 +66,7 @@ input[type] {
 .full {
   width: 100%;
 }
+
+.flex {
+  display: flex;
+}

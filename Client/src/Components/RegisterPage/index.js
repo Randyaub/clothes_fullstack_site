@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 import Input from "./Input";
 
 import "./RegisterPage.css";
+import BackButton from "../common/BackButton";
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
@@ -113,12 +113,7 @@ const RegisterPage = () => {
     <div className="c-RegisterPage">
       <div className="c-RegisterPage__back">
         <h3>ALREADY HAVE AN ACCOUNT?</h3>
-        <Link to="/account/login">
-          <button className="default-btn">
-            <i className="fas fa-arrow-left c-RegisterPage__arrow"></i>BACK TO
-            LOGIN
-          </button>
-        </Link>
+        <BackButton url={"/account/login"} buttonText={"BACK TO LOGIN"} />
       </div>
       <section className="c-RegisterPage__container">
         <div className="c-RegisterPage__message">
