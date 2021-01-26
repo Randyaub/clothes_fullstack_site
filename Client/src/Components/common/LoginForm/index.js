@@ -77,7 +77,7 @@ const LoginForm = (props) => {
           autoComplete="off"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <div>
+        <div className="l-LoginForm__button">
           <SubmitButton buttonText={"LOG IN"} />
         </div>
       </form>

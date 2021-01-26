@@ -1,3 +1,7 @@
 .c-CheckoutForm__headers {
   margin-top: 15px;
 }
+
+.l-CheckoutForm__button {
+  width: 200px;
+}

@@ -1,5 +1,7 @@
 import React from "react";
 
+import Button from "../../../common/buttons/Button";
+
 import "./ItemDelete.css";
 
 const ItemDelete = (props) => {
@@ -14,8 +16,8 @@ const ItemDelete = (props) => {
   };
 
   return (
-    <button
-      className="c-ItemDelete"
+    <Button
+      buttonText={"DELETE"}
       onClick={() =>
         removeItem(
           props.item.sku,
@@ -24,9 +26,8 @@ const ItemDelete = (props) => {
           props.item.price
         )
       }
-    >
-      <span>DELETE</span>
-    </button>
+      className={"c-ItemDelete"}
+    />
   );
 };
 

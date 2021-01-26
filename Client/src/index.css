@@ -38,7 +38,7 @@ input[type] {
   color: white;
   background-color: var(--main-text-colour);
   border: none;
-  width: 200px;
+  width: 100%;
   padding: 12px 20px;
   cursor: pointer;
   outline: none;
@@ -49,8 +49,19 @@ input[type] {
   background-color: white;
   color: var(--main-text-colour);
   border: 1px solid var(--main-text-colour);
-  width: 200px;
+  width: 100%;
   padding: 12px 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.red-btn {
+  width: 100%;
+  font-size: 15px;
+  background-color: #f22;
+  color: white;
+  border: none;
+  padding: 15px 10px;
   cursor: pointer;
   outline: none;
 }
@@ -61,6 +72,10 @@ input[type] {
 
 .inverted-btn:hover {
   opacity: 0.7;
+}
+
+.red-btn:hover {
+  background-color: var(--highlight-text);
 }
 
 .full {

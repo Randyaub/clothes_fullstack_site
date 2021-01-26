@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import SubmitButton from "../../common/buttons/SubmitButton";
 
 import CheckoutInputRow from "./CheckoutInputRow";
 import CheckoutPaymentInformation from "./CheckoutPaymentInformation";
+
+import "./CheckoutForm.css";
 
 const CheckoutForm = (props) => {
   const [emailError, setEmailError] = useState("");
@@ -184,10 +187,9 @@ const CheckoutForm = (props) => {
             cardNumberError={cardNumberError}
           />
         )}
-
-      <button type="submit" className="default-btn">
-        Continue To {props.formInfo.goTo}
-      </button>
+      <div className="l-CheckoutForm__button">
+        <SubmitButton buttonText={`Continue to ${props.goTo}`} />
+      </div>
     </form>
   );
 };

@@ -40,13 +40,6 @@
   border-top: 1px solid var(--border-colour);
 }
 
-.c-Cart__buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .hidden {
   visibility: hidden;
   opacity: 0;

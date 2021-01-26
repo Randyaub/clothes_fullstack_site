@@ -19,7 +19,11 @@ const ShippingPage = (props) => {
       <div className="l-Shipping">
         <div className="c-Shipping">
           <h2 className="c-CheckoutForm__headers">SHIPPING ADDRESS</h2>
-          <CheckoutForm formInfo={props.formInfo} goToFunction={goToPayment} />
+          <CheckoutForm
+            formInfo={props.formInfo}
+            goToFunction={goToPayment}
+            goTo={"Payment"}
+          />
         </div>
         <CheckoutSummary
           cartItems={props.cartItems}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LinkButton from "../common/buttons/LinkButton";
 import LoginForm from "../common/LoginForm";
 import "./MemberOrGuest.css";
 
@@ -20,9 +21,12 @@ const MemberOrGuest = (props) => {
           <div className="c-MemberOrGuest__guest">
             <h1>GUEST CHECKOUT</h1>
             <div>If you dont have an account, you can use guest checkout</div>
-            <Link to="/shipping-checkout">
-              <button className="default-btn">GUEST CHECKOUT</button>
-            </Link>
+            <div className="c-MemberOrGuest__button">
+              <LinkButton
+                url={"/shipping-checkout"}
+                buttonText={"GUEST CHECKOUT"}
+              />
+            </div>
           </div>
         </div>
       </div>

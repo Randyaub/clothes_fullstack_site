@@ -22,6 +22,7 @@ const PaymentPage = (props) => {
           <CheckoutForm
             formInfo={props.formInfo}
             goToFunction={goToOrder}
+            goTo={"Order"}
             checkoutPosition={"payment"}
           />
         </div>

@@ -6,6 +6,7 @@ import "./ProductDetails.css";
 import ProductDescription from "./ProductDescription";
 import ProductSizes from "./ProductSizes";
 import ProductVariants from "./ProductVariants";
+import Button from "../../common/buttons/Button";
 
 const ProductDetails = (props) => {
   return (
@@ -28,9 +29,9 @@ const ProductDetails = (props) => {
           error={props.error}
           size={props.size}
         />
-        <button onClick={props.handleAddItem} className="default-btn full">
-          ADD
-        </button>
+        <div className="full">
+          <Button onClick={props.handleAddItem} buttonText={"ADD"} />
+        </div>
       </div>
       <ProductDescription product={props.product} />
     </>

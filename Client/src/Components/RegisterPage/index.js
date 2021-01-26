@@ -4,7 +4,7 @@ import axios from "axios";
 import Input from "./Input";
 
 import "./RegisterPage.css";
-import BackButton from "../common/buttons/BackButton";
+import LinkButton from "../common/buttons/LinkButton";
 import SubmitButton from "../common/buttons/SubmitButton";
 
 const RegisterPage = () => {
@@ -114,7 +114,13 @@ const RegisterPage = () => {
     <div className="c-RegisterPage">
       <div className="c-RegisterPage__back">
         <h3>ALREADY HAVE AN ACCOUNT?</h3>
-        <BackButton url={"/account/login"} buttonText={"BACK TO LOGIN"} />
+        <div className="l-RegisterPage__button">
+          <LinkButton
+            url={"/account/login"}
+            buttonText={"BACK TO LOGIN"}
+            leftArrow={true}
+          />
+        </div>
       </div>
       <section className="c-RegisterPage__container">
         <div className="c-RegisterPage__message">
@@ -167,7 +173,7 @@ const RegisterPage = () => {
             setFunction={setLastName}
             error={lastNameError}
           />
-          <div>
+          <div className="l-RegisterPage__button">
             <SubmitButton buttonText={"CONFIRM"} />
           </div>
         </form>

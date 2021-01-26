@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import CartDropDownList from "./CartDropDownList";
 
 import "./Cart.css";
+import LinkButton from "../buttons/LinkButton";
 
 const CartDropDown = (props) => {
   return (
@@ -23,14 +23,17 @@ const CartDropDown = (props) => {
               <h3>TOTAL ({props.cartCount})</h3>
               <h3>${props.cartCostTotal.toFixed(2)}</h3>
             </div>
-            <div className="c-Cart__buttons">
-              <Link to={props.userLoggedIn ? "/checkout" : "/login/checkout"}>
-                <button className="default-btn">CHECKOUT</button>
-              </Link>
-              <Link to="/cart">
-                <button className="inverted-btn">VIEW BAG</button>
-              </Link>
-            </div>
+            <LinkButton
+              url={
+                props.userLoggedIn ? "/shipping-checkout" : "/login/checkout"
+              }
+              buttonText={"CHECKOUT"}
+            />
+            <LinkButton
+              url={"/cart"}
+              buttonText={"VIEWBAG"}
+              className={"inverted-btn"}
+            />
           </div>
         )}
       </div>

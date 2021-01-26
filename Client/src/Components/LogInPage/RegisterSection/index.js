@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import LinkButton from "../../common/buttons/LinkButton";
 import "./RegisterSection.css";
 
 const RegisterSection = () => {
@@ -13,9 +13,12 @@ const RegisterSection = () => {
           Create an account to take advantage of special deals and coupons
           delivered through email
         </p>
-        <Link to="/account/register">
-          <button className="default-btn">CREATE AN ACCOUNT </button>
-        </Link>
+        <div className="l-RegisterSection__button">
+          <LinkButton
+            url={"/account/register"}
+            buttonText={"CREATE AN ACCOUNT"}
+          />
+        </div>
       </div>
     </div>
   );

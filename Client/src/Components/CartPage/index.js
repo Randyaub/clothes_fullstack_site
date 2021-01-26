@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import LinkButton from "../common/buttons/LinkButton";
 import CartItem from "./CartItem";
 
 import "./CartPage.css";
@@ -41,11 +41,13 @@ const CartPage = (props) => {
             <div className="c-CartPage__disclaimer">
               <h5>* Item prices exclude tax</h5>
             </div>
-            <Link to={props.userLoggedIn ? "checkout" : "login/checkout"}>
-              <button className="c-CartPage__btn">
-                <h3>PROCEED TO CHECKOUT</h3>
-              </button>
-            </Link>
+            <LinkButton
+              url={
+                props.userLoggedIn ? "/shipping-checkout" : "/login/checkout"
+              }
+              buttonText={"PROCEED TO CHECKOUT"}
+              className={"red-btn"}
+            />
           </div>
         )}
       </div>

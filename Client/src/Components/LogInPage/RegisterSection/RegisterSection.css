@@ -1,3 +1,7 @@
 .c-RegisterSection {
   width: 49%;
 }
+
+.l-RegisterSection__button {
+  width: 200px;
+}
