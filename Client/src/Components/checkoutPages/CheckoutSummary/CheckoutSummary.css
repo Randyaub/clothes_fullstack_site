@@ -1,0 +1,22 @@
+.c-CheckoutSummary__title {
+  margin-bottom: 20px;
+}
+
+.c-CheckoutSummary {
+  border: 1px solid var(--border-colour);
+  width: 39%;
+  padding: 20px 30px;
+  margin: 30px 0px 30px 30px;
+}
+
+.c-CheckoutSummary__list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
+.c-CheckoutSummary__details {
+  margin-top: 30px;
+}

@@ -1,14 +1,15 @@
 import React from "react";
-import ShippingRowHalf from "./ShippingInputRowHalf";
+import CheckoutInputRowHalf from "../CheckoutInputRowHalf";
 
-import "./ShippingInputRow.css";
+import "./CheckoutInputRow.css";
 
-const ShippingInputRow = (props) => {
+const CheckoutInputRow = (props) => {
   return (
     <div className="c-ShippingInputRow">
-      {props.rows.map((row) => {
+      {props.rows.map((row, index) => {
         return (
-          <ShippingRowHalf
+          <CheckoutInputRowHalf
+            key={index}
             name={row.name}
             value={row.value}
             setFunction={row.setFunction}
@@ -21,4 +22,4 @@ const ShippingInputRow = (props) => {
   );
 };
 
-export default ShippingInputRow;
+export default CheckoutInputRow;

@@ -14,7 +14,10 @@ import Footer from "./Components/common/Footer";
 import AccountPage from "./Components/AccountPage";
 import axios from "axios";
 import MemberOrGuest from "./Components/MemberOrGuestPage";
-import CheckoutPage from "./Components/CheckoutPage";
+
+import Shipping from "./Components/checkoutPages/ShippingPage";
+import Payment from "./Components/checkoutPages/PaymentPage";
+import Order from "./Components/checkoutPages/OrderPage";
 
 function App() {
   let history = useHistory();
@@ -24,6 +27,29 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [cartCostTotal, setCartCostTotal] = useState(0);
   const [productAdded, displayMiniCart] = useState(false);
+
+  //Form for shipping
+  const [shippingEmail, setShippingEmail] = useState("");
+  const [shippingFirstName, setShippingFirstName] = useState("");
+  const [shippingLastName, setShippingLastName] = useState("");
+  const [shippingAddressLine1, setShippingAddressLine1] = useState("");
+  const [shippingAddressLine2, setShippingAddressLine2] = useState("");
+  const [shippingCity, setShippingCity] = useState("");
+  const [shippingProvince, setShippingProvince] = useState("");
+  const [shippingZipCode, setShippingZipCode] = useState("");
+
+  //Form for Billing
+  const [billingFirstName, setBillingFirstName] = useState("");
+  const [billingLastName, setBillingLastName] = useState("");
+  const [billingAddressLine1, setBillingAddressLine1] = useState("");
+  const [billingAddressLine2, setBillingAddressLine2] = useState("");
+  const [billingCity, setBillingCity] = useState("");
+  const [billingProvince, setBillingProvince] = useState("");
+  const [billingZipCode, setBillingZipCode] = useState("");
+
+  //Form for Payment
+  const [nameOnCard, setNameOnCard] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
 
   //Retrive cart
   useEffect(() => {
@@ -114,8 +140,60 @@ function App() {
               setUserLoggedIn={setUserLoggedIn}
             />
           </Route>
-          <Route exact path="/checkout">
-            <CheckoutPage
+          <Route exact path="/shipping-checkout">
+            <Shipping
+              cartItems={cartItems}
+              cartCount={cartCount}
+              cartCostTotal={cartCostTotal}
+              formInfo={{
+                email: shippingEmail,
+                setEmail: setShippingEmail,
+                firstName: shippingFirstName,
+                setFirstName: setShippingFirstName,
+                lastName: shippingLastName,
+                setLastName: setShippingLastName,
+                addressLine1: shippingAddressLine1,
+                setAddressLine1: setShippingAddressLine1,
+                addressLine2: shippingAddressLine2,
+                setAddressLine2: setShippingAddressLine2,
+                city: shippingCity,
+                setCity: setShippingCity,
+                province: shippingProvince,
+                setProvince: setShippingProvince,
+                zipCode: shippingZipCode,
+                setZipCode: setShippingZipCode,
+              }}
+            />
+          </Route>
+          <Route exact path="/billing-checkout">
+            <Payment
+              cartItems={cartItems}
+              cartCount={cartCount}
+              cartCostTotal={cartCostTotal}
+              formInfo={{
+                firstName: billingFirstName,
+                setFirstName: setBillingFirstName,
+                lastName: billingLastName,
+                setLastName: setBillingLastName,
+                addressLine1: billingAddressLine1,
+                setAddressLine1: setBillingAddressLine1,
+                addressLine2: billingAddressLine2,
+                setAddressLine2: setBillingAddressLine2,
+                city: billingCity,
+                setCity: setBillingCity,
+                province: billingProvince,
+                setProvince: setBillingProvince,
+                zipCode: billingZipCode,
+                setZipCode: setBillingZipCode,
+                nameOnCard: nameOnCard,
+                setNameOnCard: setNameOnCard,
+                cardNumber: cardNumber,
+                setCardNumber: setCardNumber,
+              }}
+            />
+          </Route>
+          <Route exact path="/order-checkout">
+            <Order
               cartItems={cartItems}
               cartCount={cartCount}
               cartCostTotal={cartCostTotal}

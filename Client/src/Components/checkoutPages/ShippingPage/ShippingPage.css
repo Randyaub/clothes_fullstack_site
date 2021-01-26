@@ -1,0 +1,10 @@
+.l-Shipping {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.c-Shipping {
+  width: 59%;
+}

@@ -20,7 +20,7 @@ const MemberOrGuest = (props) => {
           <div className="c-MemberOrGuest__guest">
             <h1>GUEST CHECKOUT</h1>
             <div>If you dont have an account, you can use guest checkout</div>
-            <Link to="/checkout">
+            <Link to="/shipping-checkout">
               <button className="default-btn">GUEST CHECKOUT</button>
             </Link>
           </div>

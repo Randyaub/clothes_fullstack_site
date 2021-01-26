@@ -1,0 +1,22 @@
+.c-BreadCrumbIndicator {
+  display: flex;
+  margin: 30px 2px;
+  font-size: 20px;
+}
+.c-BreadCrumbIndicator__crumb {
+  width: 33.3%;
+  color: var(--border-colour);
+  text-align: center;
+  padding: 10px 0px;
+  border-bottom: 1px solid var(--border-colour);
+  border-right: 1px solid var(--border-colour);
+}
+
+.c-BreadCrumbIndicator__crumb:last-child {
+  border-right: none;
+}
+
+.c-BreadCrumbIndicator-active {
+  color: var(--main-text-colour);
+  border-bottom: 5px solid red;
+}

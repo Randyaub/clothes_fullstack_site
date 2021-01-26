@@ -1,0 +1,14 @@
+.l-Order {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.c-Order {
+  width: 59%;
+}
+
+.c-Order__button {
+  margin-bottom: 30px;
+}

@@ -1,0 +1,14 @@
+.l-Payment {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.c-Payment {
+  width: 59%;
+}
+
+.c-Payment__button {
+  margin-bottom: 30px;
+}

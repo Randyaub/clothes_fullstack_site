@@ -19,7 +19,7 @@ const ItemQuantity = (props) => {
             parseFloat(price * (quantity - previousQuantity))
         )
       );
-      //descrease quantity
+      //decrease quantity
     } else if (previousQuantity > quantity) {
       props.setCartCount(props.cartCount - (previousQuantity - quantity));
       props.setCartCostTotal(
