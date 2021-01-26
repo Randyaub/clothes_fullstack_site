@@ -4,7 +4,8 @@ import axios from "axios";
 import Input from "./Input";
 
 import "./RegisterPage.css";
-import BackButton from "../common/BackButton";
+import BackButton from "../common/buttons/BackButton";
+import SubmitButton from "../common/buttons/SubmitButton";
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
@@ -167,11 +168,7 @@ const RegisterPage = () => {
             error={lastNameError}
           />
           <div>
-            <input
-              className="default-btn"
-              type="submit"
-              value="CONFIRM"
-            ></input>
+            <SubmitButton buttonText={"CONFIRM"} />
           </div>
         </form>
       </section>

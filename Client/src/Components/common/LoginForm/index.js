@@ -4,6 +4,7 @@ import axios from "axios";
 import Label from "../Label";
 
 import "./LoginForm.css";
+import SubmitButton from "../buttons/SubmitButton";
 
 const LoginForm = (props) => {
   const [email, setEmail] = useState("");
@@ -77,7 +78,7 @@ const LoginForm = (props) => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <div>
-          <input className="default-btn" type="submit" value="LOG IN"></input>
+          <SubmitButton buttonText={"LOG IN"} />
         </div>
       </form>
     </>

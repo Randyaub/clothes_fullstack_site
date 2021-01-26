@@ -4,7 +4,7 @@ import axios from "axios";
 import "./ProductPage.css";
 import { useParams } from "react-router-dom";
 import ProductDetails from "./ProductDetails";
-import ProductImage from "./ProductImages";
+import ProductImage from "./ProductImage";
 
 const ProductPage = (props) => {
   const [product, setProduct] = useState([]);
