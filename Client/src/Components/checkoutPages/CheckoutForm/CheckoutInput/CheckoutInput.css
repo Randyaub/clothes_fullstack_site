@@ -1,8 +1,3 @@
-.c-CheckingInput__label {
-  padding-top: 10px;
-  padding-bottom: 5px;
-}
-
 .c-CheckingInput__input {
   width: 100%;
   border-radius: 0px;
@@ -19,9 +14,4 @@
 .c-CheckingInput__error {
   color: red;
   font-size: 12px;
-}
-
-.c-CheckingInput__asterix {
-  color: red;
-  margin-left: 2px;
 }

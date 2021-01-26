@@ -1,0 +1,10 @@
+.c-DropDownItem {
+  padding: 10px 15px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.1s ease-in;
+}
+
+.c-DropDownItem:hover {
+  background-color: lightgrey;
+}

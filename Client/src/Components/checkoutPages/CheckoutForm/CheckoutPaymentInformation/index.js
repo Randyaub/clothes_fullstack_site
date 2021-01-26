@@ -2,6 +2,7 @@ import React from "react";
 
 import CheckoutInputRowHalf from "../CheckoutInputRowHalf";
 import "./CheckoutPaymentInformation.css";
+import CreditCardExpiration from "./CreditCardExpiration";
 
 const CheckoutPaymentInformation = (props) => {
   return (
@@ -20,6 +21,7 @@ const CheckoutPaymentInformation = (props) => {
         setFunction={props.setCardNumber}
         error={props.cardNumberError}
       />
+      <CreditCardExpiration />
     </div>
   );
 };

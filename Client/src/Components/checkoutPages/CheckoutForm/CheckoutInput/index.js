@@ -1,14 +1,12 @@
 import React from "react";
+import Label from "../../../common/Label";
 
 import "./CheckoutInput.css";
 
 const CheckoutInput = (props) => {
   return (
-    <label>
-      <div className="c-CheckingInput__label">
-        {props.name}
-        {props.error && <span className="c-CheckingInput__asterix">*</span>}
-      </div>
+    <>
+      <Label name={props.name} error={props.error} />
       <input
         className="c-CheckingInput__input"
         type="text"
@@ -23,7 +21,7 @@ const CheckoutInput = (props) => {
       {props.error && (
         <span className="c-CheckingInput__error">{props.error}</span>
       )}
-    </label>
+    </>
   );
 };
 
