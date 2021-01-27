@@ -8,6 +8,26 @@
   --secondary-background-colour: #e4e4e4;
 }
 
+.container {
+  margin: 50px 0px 100px 0px;
+}
+
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 16px;
+}
+h4 {
+  font-size: 14px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -42,6 +62,10 @@ input[type] {
   padding: 12px 20px;
   cursor: pointer;
   outline: none;
+}
+
+.small-btn {
+  width: 200px;
 }
 
 .inverted-btn {
@@ -84,4 +108,9 @@ input[type] {
 
 .flex {
   display: flex;
+}
+
+.lighter-font {
+  font-size: 0.8em;
+  color: #444444;
 }

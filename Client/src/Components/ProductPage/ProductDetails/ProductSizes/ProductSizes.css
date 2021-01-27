@@ -1,13 +1,15 @@
 .c-ProductSizes-error {
   margin-top: 5px;
   color: var(--error-colour);
+  font-size: 17px;
+  font-weight: 500;
+  height: 20px;
 }
 
-.c-ProductSizes {
+.c-ProductSizes__list {
   margin-top: 5px;
   margin-bottom: 20px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  flex-wrap: wrap;
 }
 
 .c-ProductSizes-unavailable {
@@ -24,8 +26,8 @@
   align-items: center;
   justify-content: center;
   padding: 8px;
-  height: 3.125rem;
-  min-width: 3.125rem;
+  height: 3rem;
+  min-width: 3rem;
   font-size: 15px;
   margin: 4px 4px 0px 0px;
   cursor: pointer;

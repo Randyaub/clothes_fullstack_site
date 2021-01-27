@@ -1,14 +1,10 @@
 .c-LoginForm__error {
   color: red;
-  margin-bottom: 15px;
-}
-
-.c-LoginForm__label {
-  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .c-LoginForm__input {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   width: 100%;
   padding: 7px;
 }

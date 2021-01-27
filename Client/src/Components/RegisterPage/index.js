@@ -1,74 +1,65 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import Input from "./Input";
-
 import "./RegisterPage.css";
 import LinkButton from "../common/buttons/LinkButton";
 import SubmitButton from "../common/buttons/SubmitButton";
+import FormItem from "../common/FormItem";
+import {
+  emailValid,
+  firstNameValid,
+  lastNameValid,
+  passwordValid,
+  emailsAreEqual,
+  passwordsAreEqual,
+} from "../../utilities";
 
 const RegisterPage = () => {
+  //Forms Inputs
   const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
-  const [confirmEmailError, setConfirmEmailError] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordError, setPasswordError] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [firstNameError, setFirstNameError] = useState("");
   const [lastName, setLastName] = useState("");
+
+  //Forms Erros
+  const [emailError, setEmailError] = useState("");
+  const [confirmEmailError, setConfirmEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
+  const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
   const [generalError, setGeneralError] = useState("");
 
   const isValid = () => {
-    let emailError = "";
-    let confirmError = "";
-    let passwordError = "";
-    let confirmPasswordError = "";
-    let firstNameError = "";
-    let lastNameError = "";
-
-    if (!email) {
-      emailError = "Please enter an email address";
-    }
-    if (!firstName) {
-      firstNameError = "Please enter your name";
-    }
-    if (!lastName) {
-      lastNameError = "Please enter your last name";
-    }
-    if (!email.includes("@") || !email.includes(".")) {
-      emailError = "Please enter a valid email address";
-    }
-    if (email !== confirmEmail) {
-      confirmError = "Email addresses do not match";
-    }
-    if (password.length < 8) {
-      passwordError = "Your password must be at least 8 characters in length";
-    }
-    if (confirmPassword !== password) {
-      confirmPasswordError = "Passwords do not match";
-    }
+    let emailValidation = emailValid(email, setEmailError);
+    let passwordValidation = passwordValid(password, setPasswordError);
+    let firstNameValidation = firstNameValid(firstName, setFirstNameError);
+    let lastNameValidation = lastNameValid(lastName, setLastNameError);
+    let confirmEmailValidation = emailsAreEqual(
+      email,
+      confirmEmail,
+      setConfirmEmailError
+    );
+    let confirmPasswordValidation = passwordsAreEqual(
+      password,
+      confirmPassword,
+      setConfirmPasswordError
+    );
 
     if (
-      emailError ||
-      confirmError ||
-      passwordError ||
-      confirmPasswordError ||
-      firstNameError ||
-      lastNameError
+      emailValidation === false ||
+      passwordValidation === false ||
+      firstNameValidation === false ||
+      lastNameValidation === false ||
+      confirmEmailValidation === false ||
+      confirmPasswordValidation === false
     ) {
-      setEmailError(emailError);
-      setConfirmEmailError(confirmError);
-      setPasswordError(passwordError);
-      setConfirmPasswordError(confirmPasswordError);
-      setFirstNameError(firstNameError);
-      setLastNameError(lastNameError);
       return false;
+    } else {
+      return true;
     }
-    return true;
   };
 
   const resetErrors = () => {
@@ -82,6 +73,8 @@ const RegisterPage = () => {
 
   const handleCreateAccount = (event) => {
     event.preventDefault();
+    //Allows erros to refresh on resubmit
+    resetErrors();
     if (isValid()) {
       axios
         .post("user/register", {
@@ -111,16 +104,15 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="c-RegisterPage">
-      <div className="c-RegisterPage__back">
+    <div className="c-RegisterPage contianer">
+      <div className="c-RegisterPage__backBtn">
         <h3>ALREADY HAVE AN ACCOUNT?</h3>
-        <div className="l-RegisterPage__button">
-          <LinkButton
-            url={"/account/login"}
-            buttonText={"BACK TO LOGIN"}
-            leftArrow={true}
-          />
-        </div>
+        <LinkButton
+          url={"/account/login"}
+          buttonText={"BACK TO LOGIN"}
+          leftArrow={true}
+          className={"default-btn small-btn"}
+        />
       </div>
       <section className="c-RegisterPage__container">
         <div className="c-RegisterPage__message">
@@ -129,52 +121,77 @@ const RegisterPage = () => {
         </div>
         <div className="c-RegisterPage__error">{generalError}</div>
         <form onSubmit={handleCreateAccount}>
-          <Input
-            name={"EMAIL ADDRESS"}
-            value={email}
-            placeholder={"Email"}
-            setFunction={setEmail}
-            error={emailError}
-          />
-          <Input
-            name={"CONFIRM EMAIL ADDRESS"}
-            value={confirmEmail}
-            placeholder={"Confirm Email"}
-            setFunction={setConfirmEmail}
-            error={confirmEmailError}
-          />
-          <Input
-            name={"PASSWORD"}
-            pass={true}
-            placeholder={"Password"}
-            value={password}
-            setFunction={setPassword}
-            error={passwordError}
-          />
-          <Input
-            name={"CONFIRM PASSWORD"}
-            pass={true}
-            placeholder={"Confirm Password"}
-            value={confirmPassword}
-            setFunction={setConfirmPassword}
-            error={confirmPasswordError}
-          />
-          <Input
-            name={"FIRST NAME"}
-            placeholder={"First Name"}
-            value={firstName}
-            setFunction={setFirstName}
-            error={firstNameError}
-          />
-          <Input
-            name={"LAST NAME"}
-            placeholder={"Last Name"}
-            value={lastName}
-            setFunction={setLastName}
-            error={lastNameError}
-          />
+          <div className="c-RegisterPage__formItem flex">
+            <FormItem
+              labelName={"EMAIL ADDRESS"}
+              labelClassName={"c-RegisterPage__label"}
+              inputName={"email"}
+              inputValue={email}
+              inputPlaceHolder={"Email"}
+              inputSetFunction={setEmail}
+              error={emailError}
+            />
+          </div>
+          <div className="c-RegisterPage__formItem flex">
+            <FormItem
+              labelName={"CONFIRM EMAIL ADDRESS"}
+              labelClassName={"c-RegisterPage__label"}
+              inputName={"confirmEmail"}
+              inputValue={confirmEmail}
+              inputPlaceHolder={"Confirm Email"}
+              inputSetFunction={setConfirmEmail}
+              error={confirmEmailError}
+            />
+          </div>
+          <div className="c-RegisterPage__formItem flex">
+            <FormItem
+              labelName={"PASSWORD"}
+              labelClassName={"c-RegisterPage__label"}
+              inputName={"password"}
+              inputValue={password}
+              inputPlaceHolder={"Password"}
+              inputSetFunction={setPassword}
+              error={passwordError}
+            />
+          </div>
+          <div className="c-RegisterPage__formItem flex">
+            <FormItem
+              labelName={"CONFIRM PASSWORD"}
+              labelClassName={"c-RegisterPage__label"}
+              inputName={"confirmPassword"}
+              inputValue={confirmPassword}
+              inputPlaceHolder={"Confirm Password"}
+              inputSetFunction={setConfirmPassword}
+              error={confirmPasswordError}
+            />
+          </div>
+          <div className="c-RegisterPage__formItem flex">
+            <FormItem
+              labelName={"FIRST NAME"}
+              labelClassName={"c-RegisterPage__label"}
+              inputName={"firstName"}
+              inputValue={firstName}
+              inputPlaceHolder={"First Name"}
+              inputSetFunction={setFirstName}
+              error={firstNameError}
+            />
+          </div>
+          <div className="c-RegisterPage__formItem flex">
+            <FormItem
+              labelName={"LAST NAME"}
+              labelClassName={"c-RegisterPage__label"}
+              inputName={"lastName"}
+              inputValue={lastName}
+              inputPlaceHolder={"Last Name"}
+              inputSetFunction={setLastName}
+              error={lastNameError}
+            />
+          </div>
           <div className="l-RegisterPage__button">
-            <SubmitButton buttonText={"CONFIRM"} />
+            <SubmitButton
+              buttonText={"CONFIRM"}
+              className={"default-btn small-btn"}
+            />
           </div>
         </form>
       </section>

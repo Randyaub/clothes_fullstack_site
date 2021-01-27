@@ -6,10 +6,9 @@ import LoginForm from "../../common/LoginForm";
 const LoginSection = (props) => {
   return (
     <div className="c-LoginSection">
-      <div className="c-LogInPage__header">
-        <h1>LOGIN</h1>
-        <h4>HAVE AN ACCOUNT?</h4>
-        <h5>PLEASE LOG IN USING YOUR EMAIL ADDRESS</h5>
+      <div>
+        <h1 className="c-LoginSection__title">LOGIN</h1>
+        <h3>HAVE AN ACCOUNT?</h3>
       </div>
       <LoginForm
         goToHomePage={props.goToHomePage}

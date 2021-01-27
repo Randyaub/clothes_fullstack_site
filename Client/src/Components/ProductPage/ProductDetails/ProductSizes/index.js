@@ -4,12 +4,10 @@ import "./ProductSizes.css";
 
 const ProductSizes = (props) => {
   return (
-    <div>
-      Size:
-      <div className="c-ProductSizes-error">
-        <h4>{!props.error ? "" : props.error}</h4>
-      </div>
-      <ul className="c-ProductSizes">
+    <div className="c-ProductSizes">
+      <span>Size:</span>
+      <h5 className="c-ProductSizes-error">{props.error ? props.error : ""}</h5>
+      <ul className="c-ProductSizes__list flex">
         {props.product.available &&
           props.product.available.map((item, index) => {
             return (

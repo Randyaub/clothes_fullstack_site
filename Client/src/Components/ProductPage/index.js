@@ -58,7 +58,7 @@ const ProductPage = (props) => {
 
   return (
     <>
-      <section className="c-ProductPage">
+      <section className="c-ProductPage container">
         <div className="l-ProductPage__images">
           <ProductImage product={product} number={"1"} />
           <ProductImage product={product} number={"2"} />

@@ -1,5 +1,5 @@
 .c-RegisterPage {
-  margin: 50px 0px;
+  margin: 0px 0px 150px;
 }
 
 .c-RegisterPage__container {
@@ -8,7 +8,7 @@
   padding: 25px;
 }
 
-.c-RegisterPage__back {
+.c-RegisterPage__backBtn {
   padding: 20px;
 }
 
@@ -17,10 +17,14 @@
 }
 
 .c-RegisterPage__error {
-  margin: 20px 0px;
+  margin: 10px 0px 15px 0px;
   color: var(--error-colour);
 }
 
-.l-RegisterPage__button {
-  width: 200px;
+.c-RegisterPage__label {
+  width: 20%;
+}
+
+.c-RegisterPage__formItem {
+  margin: 10px 0px;
 }

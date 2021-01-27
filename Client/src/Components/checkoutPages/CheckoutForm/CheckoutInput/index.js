@@ -1,5 +1,5 @@
 import React from "react";
-import Label from "../../../common/Label";
+import Label from "../../../common/FormItem/Label";
 
 import "./CheckoutInput.css";
 

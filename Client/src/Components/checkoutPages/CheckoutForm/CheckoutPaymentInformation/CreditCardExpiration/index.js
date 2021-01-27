@@ -1,7 +1,7 @@
 import React from "react";
 
 import DropDownList from "../../../../common/DropDownList";
-import Label from "../../../../common/Label";
+import Label from "../../../../common/FormItem/Label";
 
 import "./CreditCardExpiration.css";
 

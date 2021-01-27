@@ -2,6 +2,10 @@
   width: 49%;
 }
 
-.l-RegisterSection__button {
-  width: 200px;
+.c-RegisterSection__title {
+  margin: 5px 0px;
+}
+
+.c-RegisterSection__paragraph {
+  margin: 5px 0px;
 }

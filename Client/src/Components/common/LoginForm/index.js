@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import Label from "../Label";
-
 import "./LoginForm.css";
 import SubmitButton from "../buttons/SubmitButton";
+import FormItem from "../FormItem";
+
+import { emailValid, passwordValid } from "../../../utilities";
 
 const LoginForm = (props) => {
   const [email, setEmail] = useState("");
@@ -12,18 +13,8 @@ const LoginForm = (props) => {
   const [error, setError] = useState("");
 
   const isValid = () => {
-    if (!email) {
-      setError("Please enter your email");
-      return false;
-    }
-    if (!password) {
-      setError("Please enter your password");
-      return false;
-    }
-    if (password.length < 8) {
-      setError("Your password must be at least 8 character");
-      return false;
-    }
+    if (emailValid(email, setError) === false) return false;
+    if (passwordValid(password, setError) === false) return false;
     return true;
   };
 
@@ -58,25 +49,22 @@ const LoginForm = (props) => {
     <>
       <div className="c-LoginForm__error">{error}</div>
       <form onSubmit={handleLogIn}>
-        <Label name={"EMAIL ADDRESS:"} />
-        <input
-          className="c-LoginForm__input"
-          type="text"
-          placeholder="Email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-        <Label name={"PASSWORD:"} />
-        <input
-          className="c-LoginForm__input"
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={password}
-          autoComplete="off"
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
+        <FormItem
+          labelName={"EMAIL ADDRESS"}
+          inputName={email}
+          inputValue={email}
+          inputPlaceHolder={"Email"}
+          inputSetFunction={setEmail}
+          inputClassName={"c-LoginForm__input"}
+        />
+        <FormItem
+          labelName={"PASSWORD"}
+          inputName={password}
+          inputValue={password}
+          inputPlaceHolder={"Password"}
+          inputSetFunction={setPassword}
+          inputClassName={"c-LoginForm__input"}
+        />
         <div className="l-LoginForm__button">
           <SubmitButton buttonText={"LOG IN"} />
         </div>

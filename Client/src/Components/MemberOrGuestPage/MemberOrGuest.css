@@ -1,33 +1,9 @@
 .c-MemberOrGuest {
-  width: 80%;
-  margin: 0px auto;
-}
-
-.c-MemberOrGuest > h1 {
-  margin-bottom: 20px;
-}
-
-.c-MemberOrGuest__login > h1,
-.c-MemberOrGuest__guest > h1 {
-  margin-bottom: 5px;
-}
-
-.c-MemberOrGuest__login > div {
-  margin-bottom: 10px;
-}
-
-.c-MemberOrGuest__login,
-.c-MemberOrGuest__guest {
-  border: 1px solid var(--border-colour);
-  width: 49%;
-  padding: 30px;
+  width: 85%;
+  margin: 50px auto 150px auto;
 }
 
 .l-MemberOrGuest {
   display: flex;
   justify-content: space-between;
-}
-
-.c-MemberOrGuest__button {
-  width: 200px;
 }
