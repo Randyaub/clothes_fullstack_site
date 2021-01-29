@@ -28,3 +28,11 @@
   visibility: visible;
   display: block;
 }
+
+.c-DropDownList__arrow {
+  position: absolute;
+  right: 12px;
+  top: 6px;
+  font-size: 18px;
+  color: gray;
+}

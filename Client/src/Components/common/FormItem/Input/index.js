@@ -15,7 +15,8 @@ const Input = (props) => {
           props.setFunction(e.target.value);
         }}
       ></input>
-      <span className="c-Input__error">{props.error}</span>
+      {props.subInfo && <div className="c-Input__subInfo">{props.subInfo}</div>}
+      {props.error && <div className="c-Input__error">{props.error}</div>}
     </>
   );
 };

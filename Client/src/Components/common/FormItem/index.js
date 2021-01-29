@@ -17,6 +17,7 @@ const FormItem = (props) => {
         setFunction={props.inputSetFunction}
         className={props.inputClassName}
         error={props.error}
+        subInfo={props.subInfo}
       />
     </>
   );

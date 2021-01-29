@@ -2,6 +2,24 @@
   margin-top: 15px;
 }
 
-.l-CheckoutForm__button {
-  width: 200px;
+.c-CheckoutForm__label {
+  width: 100%;
+}
+
+.c-CheckoutForm__input {
+  width: 100%;
+}
+
+.c-CheckoutForm__row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-CheckoutForm__half {
+  width: 49%;
+  margin: 2px 0px;
+}
+
+.c-CheckoutForm__input {
+  width: 100%;
 }

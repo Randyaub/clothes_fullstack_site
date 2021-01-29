@@ -1,195 +1,263 @@
 import React, { useState } from "react";
 import SubmitButton from "../../common/buttons/SubmitButton";
 
-import CheckoutInputRow from "./CheckoutInputRow";
-import CheckoutPaymentInformation from "./CheckoutPaymentInformation";
+import CheckoutPaymentForm from "./CheckoutPaymentForm";
+
+import {
+  emailValid,
+  inputsNotEmpty,
+  isMonthSelected,
+  isYearSelected,
+  zipCodeValid,
+  cvvValid,
+} from "../../../utilities";
 
 import "./CheckoutForm.css";
+import FormItem from "../../common/FormItem";
 
 const CheckoutForm = (props) => {
   const [emailError, setEmailError] = useState("");
-  const [cityError, setCityError] = useState("");
-  const [provinceError, setProvinceError] = useState("");
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
+  const [cityError, setCityError] = useState("");
+  const [provinceError, setProvinceError] = useState("");
   const [address1Error, setAddress1Error] = useState("");
   const [zipCodeError, setZipCodeError] = useState("");
   const [nameOnCardError, setNameOnCardError] = useState("");
   const [cardNumberError, setCardNumberError] = useState("");
+  const [expirationMonthError, setExpirationMonthError] = useState("");
+  const [expirationYearError, setExpirationYearError] = useState("");
+  const [cvvError, setCvvError] = useState("");
 
   const isValid = () => {
-    let emailError = "";
-    let cityError = "";
-    let provinceError = "";
-    let firstNameError = "";
-    let lastNameError = "";
-    let address1Error = "";
-    let zipCodeError = "";
-    let nameOnCardError = "";
-    let cardNumberError = "";
+    let emailValidation;
+    if (props.formInfo.email != null) {
+      emailValidation = emailValid(props.formInfo.email, setEmailError);
+    }
+    let firstNameValidation = inputsNotEmpty(
+      props.formInfo.firstName,
+      setFirstNameError,
+      "Please enter your first name"
+    );
+    let lastNameValidation = inputsNotEmpty(
+      props.formInfo.lastName,
+      setLastNameError,
+      "Please enter your last name"
+    );
+    let cityValidation = inputsNotEmpty(
+      props.formInfo.city,
+      setCityError,
+      "Please enter your city"
+    );
+    let provinceValidation = inputsNotEmpty(
+      props.formInfo.province,
+      setProvinceError,
+      "Please enter your province"
+    );
+    let addressValidation = inputsNotEmpty(
+      props.formInfo.addressLine1,
+      setAddress1Error,
+      "Please enter your street address"
+    );
 
-    if (!props.formInfo.email && props.formInfo.email != null) {
-      emailError = "Please enter an email address";
-    }
-    if (!props.formInfo.firstName) {
-      firstNameError = "Please enter your name";
-    }
-    if (!props.formInfo.lastName) {
-      lastNameError = "Please enter your last name";
-    }
-    if (
-      props.formInfo.email &&
-      (!props.formInfo.email.includes("@") ||
-        !props.formInfo.email.includes("."))
-    ) {
-      emailError = "Please enter a valid email address";
-    }
-    if (!props.formInfo.city) {
-      cityError = "Please enter your city";
-    }
-    if (!props.formInfo.province) {
-      provinceError = "Please enter your province";
-    }
-    if (!props.formInfo.addressLine1) {
-      address1Error = "Please enter your address";
-    }
-    if (!props.formInfo.zipCode) {
-      zipCodeError = "Please enter your zipcode";
-    }
-    if (props.formInfo.zipCode.length !== 6) {
-      zipCodeError = "Your zip code must be 6 digits";
-    }
-    if (!props.formInfo.nameOnCard && props.formInfo.nameOnCard != null) {
-      nameOnCardError = "Please enter the name on your card";
-    }
-    if (!props.formInfo.cardNumber && props.formInfo.cardNumber != null) {
-      cardNumberError = "Please enter the number on your card";
+    let zipCodeValidation = zipCodeValid(
+      props.formInfo.zipCode,
+      setZipCodeError
+    );
+
+    let nameOnCardValidation;
+    let numberOnCardValidation;
+    let expirationMonthValidation;
+    let expirationYearValidation;
+    let cvvValidation;
+
+    if (props.formInfo.nameOnCard != null) {
+      nameOnCardValidation = inputsNotEmpty(
+        props.formInfo.nameOnCard,
+        setNameOnCardError,
+        "Please enter the name on your card"
+      );
     }
 
+    if (props.formInfo.cardNumber != null) {
+      numberOnCardValidation = inputsNotEmpty(
+        props.formInfo.cardNumber,
+        setCardNumberError,
+        "Please enter your cards number"
+      );
+    }
+
+    if (props.formInfo.cardExpirationMonth != null) {
+      expirationMonthValidation = isMonthSelected(
+        props.formInfo.cardExpirationMonth,
+        setExpirationMonthError
+      );
+    }
+
+    if (props.formInfo.cardExpirationYear != null) {
+      expirationYearValidation = isYearSelected(
+        props.formInfo.cardExpirationYear,
+        setExpirationYearError
+      );
+    }
+
+    if (props.formInfo.cardCVV != null) {
+      cvvValidation = cvvValid(props.formInfo.cardCVV, setCvvError);
+    }
+
+    console.log(lastNameValidation);
     if (
-      emailError ||
-      cityError ||
-      provinceError ||
-      firstNameError ||
-      lastNameError ||
-      zipCodeError ||
-      address1Error ||
-      nameOnCardError ||
-      cardNumberError
+      emailValidation === false ||
+      lastNameValidation === false ||
+      firstNameValidation === false ||
+      cityValidation === false ||
+      provinceValidation === false ||
+      addressValidation === false ||
+      zipCodeValidation === false ||
+      nameOnCardValidation === false ||
+      numberOnCardValidation === false ||
+      expirationMonthValidation === false ||
+      expirationYearValidation === false ||
+      cvvValidation === false
     ) {
-      setEmailError(emailError);
-      setCityError(cityError);
-      setProvinceError(provinceError);
-      setFirstNameError(firstNameError);
-      setLastNameError(lastNameError);
-      setZipCodeError(zipCodeError);
-      setAddress1Error(address1Error);
-      setNameOnCardError(nameOnCardError);
-      setCardNumberError(cardNumberError);
       return false;
+    } else {
+      return true;
     }
+  };
 
-    return true;
+  const resetErrors = () => {
+    setEmailError("");
+    setFirstNameError("");
+    setLastNameError("");
+    setCityError("");
+    setProvinceError("");
+    setAddress1Error("");
+    setZipCodeError("");
+    setNameOnCardError("");
+    setCardNumberError("");
+    setExpirationMonthError("");
+    setExpirationYearError("");
+    setCvvError("");
   };
 
   const handleNavigate = (event) => {
     event.preventDefault();
+    resetErrors();
     if (isValid()) {
+      console.log("attempt");
       props.goToFunction();
     }
   };
 
   return (
     <form onSubmit={handleNavigate}>
-      <div className="c-CheckoutForm__user">
+      <div className="c-CheckoutForm">
         {props.formInfo.email != null && (
-          <CheckoutInputRow
-            rows={[
-              {
-                name: "Email",
-                value: props.formInfo.email,
-                setFunction: props.formInfo.setEmail,
-                error: emailError,
-              },
-            ]}
+          <FormItem
+            inputClassName={"c-Input__input c-CheckoutForm__half"}
+            labelName={"Email Address"}
+            inputName={"email"}
+            inputValue={props.formInfo.email}
+            inputPlaceHolder={"Email"}
+            inputSetFunction={props.formInfo.setEmail}
+            error={emailError}
           />
         )}
-        <CheckoutInputRow
-          rows={[
-            {
-              name: "First Name",
-              value: props.formInfo.firstName,
-              setFunction: props.formInfo.setFirstName,
-              error: firstNameError,
-            },
-            {
-              name: "Last Name",
-              value: props.formInfo.lastName,
-              setFunction: props.formInfo.setLastName,
-              error: lastNameError,
-            },
-          ]}
-        />
-        <CheckoutInputRow
-          rows={[
-            {
-              name: "Address Line 1",
-              value: props.formInfo.addressLine1,
-              setFunction: props.formInfo.setAddressLine1,
-              subInfo: "Street Name, Street Number",
-              error: address1Error,
-            },
-            {
-              name: "Address Line 2",
-              value: props.formInfo.addressLine2,
-              setFunction: props.formInfo.setAddressLine2,
-              subInfo: "Building, Unit, Floor, etc",
-            },
-          ]}
-        />
-        <CheckoutInputRow
-          rows={[
-            {
-              name: "City",
-              value: props.formInfo.city,
-              setFunction: props.formInfo.setCity,
-              error: cityError,
-            },
-            {
-              name: "Province",
-              value: props.formInfo.province,
-              setFunction: props.formInfo.setProvince,
-              error: provinceError,
-            },
-          ]}
-        />
-        <CheckoutInputRow
-          rows={[
-            {
-              name: "Zip Code",
-              value: props.formInfo.zipCode,
-              setFunction: props.formInfo.setZipCode,
-              subInfo: "Enter your postal code",
-              error: zipCodeError,
-            },
-          ]}
+        <div className="c-CheckoutForm__row">
+          <div className="c-CheckoutForm__half">
+            <FormItem
+              inputClassName={"c-Input__input c-CheckoutForm__input"}
+              labelName={"First Name"}
+              inputName={"firstName"}
+              inputValue={props.formInfo.firstName}
+              inputPlaceHolder={"First Name"}
+              inputSetFunction={props.formInfo.setFirstName}
+              error={firstNameError}
+            />
+          </div>
+          <div className="c-CheckoutForm__half">
+            <FormItem
+              labelName={"Last Name"}
+              inputName={"lastName"}
+              inputValue={props.formInfo.lastName}
+              inputPlaceHolder={"First Name"}
+              inputSetFunction={props.formInfo.setLastName}
+              error={lastNameError}
+            />
+          </div>
+        </div>
+        <div className="c-CheckoutForm__row">
+          <div className="c-CheckoutForm__half">
+            <FormItem
+              labelName={"Address Line 1"}
+              inputName={"addressLine1"}
+              inputValue={props.formInfo.addressLine1}
+              inputPlaceHolder={"Address Line 1"}
+              inputSetFunction={props.formInfo.setAddressLine1}
+              error={address1Error}
+            />
+          </div>
+          <div className="c-CheckoutForm__half">
+            <FormItem
+              labelName={"Address Line 2"}
+              inputName={"addressLine2"}
+              inputValue={props.formInfo.addressLine2}
+              inputPlaceHolder={"Address Line 2"}
+              inputSetFunction={props.formInfo.setAddressLine2}
+              subInfo={"Building, Unit, Floor, etc"}
+            />
+          </div>
+        </div>
+        <div className="c-CheckoutForm__row">
+          <div className="c-CheckoutForm__half">
+            <FormItem
+              labelName={"City"}
+              inputName={"city"}
+              inputValue={props.formInfo.city}
+              inputPlaceHolder={"City"}
+              inputSetFunction={props.formInfo.setCity}
+              error={cityError}
+            />
+          </div>
+          <div className="c-CheckoutForm__half">
+            <FormItem
+              labelName={"Province"}
+              inputName={"province"}
+              inputValue={props.formInfo.province}
+              inputPlaceHolder={"Province"}
+              inputSetFunction={props.formInfo.setProvince}
+              error={provinceError}
+            />
+          </div>
+        </div>
+        <FormItem
+          inputClassName={"c-Input__input c-CheckoutForm__half"}
+          labelName={"Zip Code"}
+          inputName={"zipCode"}
+          inputValue={props.formInfo.zipCode}
+          inputPlaceHolder={"Zip Code"}
+          inputSetFunction={props.formInfo.setZipCode}
+          error={zipCodeError}
+          subInfo={"Enter your postal code"}
         />
       </div>
 
       {props.formInfo.cardNumber != null &&
         props.formInfo.nameOnCard != null && (
-          <CheckoutPaymentInformation
-            nameOnCard={props.formInfo.nameOnCard}
-            setNameOnCard={props.formInfo.setNameOnCard}
-            cardNumber={props.formInfo.cardNumber}
-            setCardNumber={props.formInfo.setCardNumber}
+          <CheckoutPaymentForm
+            cardPaymentInfo={props.formInfo}
             nameOnCardError={nameOnCardError}
             cardNumberError={cardNumberError}
+            expirationMonthError={expirationMonthError}
+            expirationYearError={expirationYearError}
+            cvvError={cvvError}
           />
         )}
-      <div className="l-CheckoutForm__button">
-        <SubmitButton buttonText={`Continue to ${props.goTo}`} />
-      </div>
+      <SubmitButton
+        buttonText={`Continue to ${props.goTo}`}
+        className="default-btn small-btn"
+      />
     </form>
   );
 };

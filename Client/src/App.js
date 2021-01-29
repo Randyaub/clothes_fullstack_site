@@ -50,6 +50,9 @@ function App() {
   //Form for Payment
   const [nameOnCard, setNameOnCard] = useState("");
   const [cardNumber, setCardNumber] = useState("");
+  const [cardExpirationMonth, setCardExpirationMonth] = useState("MONTH*");
+  const [cardExpirationYear, setCardExpirationYear] = useState("YEAR*");
+  const [cardCVV, setCardCVV] = useState("");
 
   //Retrive cart
   useEffect(() => {
@@ -189,6 +192,12 @@ function App() {
                 setNameOnCard: setNameOnCard,
                 cardNumber: cardNumber,
                 setCardNumber: setCardNumber,
+                cardExpirationMonth: cardExpirationMonth,
+                setCardExpirationMonth: setCardExpirationMonth,
+                cardExpirationYear: cardExpirationYear,
+                setCardExpirationYear: setCardExpirationYear,
+                cardCVV: cardCVV,
+                setCardCVV: setCardCVV,
               }}
             />
           </Route>

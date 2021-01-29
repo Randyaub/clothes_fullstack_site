@@ -5,7 +5,6 @@ import "./DropDownList.css";
 
 const DropDownList = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [value, setValue] = useState(props.list[0]);
 
   return (
     <div
@@ -14,15 +13,23 @@ const DropDownList = (props) => {
         setIsOpen(!isOpen);
       }}
     >
-      <span className="c-DropDownList__current">{value}</span>
+      {" "}
+      <i className="fas fa-sort-down c-DropDownList__arrow"></i>
+      <span className="c-DropDownList__current">{props.value}</span>
       <div>
         <ul
           className={`c-DropDownList__list ${
             isOpen && `c-DropDownList-active`
           }`}
         >
-          {props.list.map((item) => {
-            return <DropDownItem item={item} setValue={setValue} />;
+          {props.list.map((item, index) => {
+            return (
+              <DropDownItem
+                key={index}
+                item={item}
+                setFunction={props.setFunction}
+              />
+            );
           })}
         </ul>
       </div>

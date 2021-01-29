@@ -3,3 +3,8 @@
   padding-top: 25px;
   border-top: 1px solid var(--border-colour);
 }
+
+.c-CheckoutPaymentInformation__half {
+  width: 49%;
+  margin: 2px 0px;
+}

@@ -7,11 +7,10 @@ import SubmitButton from "../common/buttons/SubmitButton";
 import FormItem from "../common/FormItem";
 import {
   emailValid,
-  firstNameValid,
-  lastNameValid,
   passwordValid,
   emailsAreEqual,
   passwordsAreEqual,
+  inputsNotEmpty,
 } from "../../utilities";
 
 const RegisterPage = () => {
@@ -35,8 +34,16 @@ const RegisterPage = () => {
   const isValid = () => {
     let emailValidation = emailValid(email, setEmailError);
     let passwordValidation = passwordValid(password, setPasswordError);
-    let firstNameValidation = firstNameValid(firstName, setFirstNameError);
-    let lastNameValidation = lastNameValid(lastName, setLastNameError);
+    let firstNameValidation = inputsNotEmpty(
+      firstName,
+      setFirstNameError,
+      "Please enter your first name"
+    );
+    let lastNameValidation = inputsNotEmpty(
+      lastName,
+      setLastNameError,
+      "Please enter your last name"
+    );
     let confirmEmailValidation = emailsAreEqual(
       email,
       confirmEmail,

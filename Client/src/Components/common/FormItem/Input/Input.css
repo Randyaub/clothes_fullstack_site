@@ -4,16 +4,23 @@
 }
 
 .c-Input__input {
-  width: 35%;
+  width: 100%;
   padding: 8px;
+  min-width: 200px;
 }
 
 .c-Input__error {
-  width: 35%;
-  margin-left: 20px;
   color: var(--error-colour);
+  font-size: 14px;
+  margin-top: 3px;
 }
 
 .l-Input__label {
   width: 30%;
+}
+
+.c-Input__subInfo {
+  color: rgb(87, 87, 87);
+  font-size: 12px;
+  margin-top: 3px;
 }

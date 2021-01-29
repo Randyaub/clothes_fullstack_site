@@ -6,7 +6,7 @@ const DropDownItem = (props) => {
   return (
     <li
       onClick={() => {
-        props.setValue(props.item);
+        props.setFunction(props.item);
       }}
       className="c-DropDownItem"
     >

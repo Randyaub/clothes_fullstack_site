@@ -41,6 +41,18 @@ export const passwordValid = (password, setError) => {
   return true;
 };
 
+export const zipCodeValid = (zipCode, setError) => {
+  if (!zipCode) {
+    setError("Please enter your zipcode");
+    return false;
+  }
+  if (zipCode.length !== 6) {
+    setError("Your zipcode must be 6 character");
+    return false;
+  }
+  return true;
+};
+
 export const passwordsAreEqual = (password, secondPassword, setError) => {
   if (password !== secondPassword) {
     setError("Passwords do not match");
@@ -49,18 +61,50 @@ export const passwordsAreEqual = (password, secondPassword, setError) => {
   return true;
 };
 
-export const firstNameValid = (firstName, setError) => {
-  if (!firstName) {
-    setError("Please enter your first name");
+export const inputsNotEmpty = (input, setError, errorMessage) => {
+  if (!input) {
+    setError(errorMessage);
     return false;
   }
   return true;
 };
 
-export const lastNameValid = (lastName, setError) => {
-  if (!lastName) {
-    setError("Please enter your last name");
+export const isMonthSelected = (input, setError) => {
+  if (input === "MONTH*") {
+    setError("Month not selected");
     return false;
   }
   return true;
 };
+
+export const isYearSelected = (input, setError) => {
+  if (input === "YEAR*") {
+    setError("Year not selected");
+    return false;
+  }
+  return true;
+};
+
+export const cvvValid = (cvv, setError) => {
+  if (cvv.length !== 3) {
+    setError("Please include your 3 digit cvv");
+    return false;
+  }
+  return true;
+};
+
+export const months = [
+  "MONTH*",
+  "01 - January",
+  "02 - February",
+  "03 - March",
+  "04 - April",
+  "05 - May",
+  "06 - June",
+  "07 - July",
+  "08 - August",
+  "09 - September",
+  "10 - October",
+  "11 - November",
+  "12 - December",
+];

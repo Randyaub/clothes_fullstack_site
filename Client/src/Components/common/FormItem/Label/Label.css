@@ -1,6 +1,7 @@
 .c-Label {
   padding-top: 10px;
   padding-bottom: 5px;
+  min-width: 200px;
 }
 
 .c-Label__error {
