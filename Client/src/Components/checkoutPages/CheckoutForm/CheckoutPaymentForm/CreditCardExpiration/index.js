@@ -1,6 +1,6 @@
 import React from "react";
 
-import DropDownList from "../../../../common/DropDownList";
+import InputDropDownMenu from "../../../../common/InputDropDown";
 import Label from "../../../../common/FormItem/Label";
 
 import { months } from "../../../../../utilities";
@@ -31,14 +31,12 @@ const CreditCardExpiration = (props) => {
         error={props.expirationMonthError || props.expirationYearError}
       />
       <div className="c-CreditCardExpiration flex">
-        <div className="c-CreditCardExpiration__dropdown">
-          <DropDownList
-            list={months}
-            value={props.cardPaymentInfo.cardExpirationMonth}
-            setFunction={props.cardPaymentInfo.setCardExpirationMonth}
-          />
-        </div>
-        <DropDownList
+        <InputDropDownMenu
+          list={months}
+          value={props.cardPaymentInfo.cardExpirationMonth}
+          setFunction={props.cardPaymentInfo.setCardExpirationMonth}
+        />
+        <InputDropDownMenu
           list={years}
           value={props.cardPaymentInfo.cardExpirationYear}
           setFunction={props.cardPaymentInfo.setCardExpirationYear}

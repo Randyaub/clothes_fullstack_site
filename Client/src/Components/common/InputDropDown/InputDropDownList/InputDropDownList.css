@@ -1,0 +1,19 @@
+.c-InputDropDownList__list {
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  position: absolute;
+  display: none;
+  z-index: 5;
+  background-color: white;
+  width: 100%;
+  border: 2px solid lightgrey;
+  max-height: 285px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.c-InputDropDownList-active {
+  visibility: visible;
+  display: block;
+}

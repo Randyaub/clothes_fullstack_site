@@ -1,18 +1,18 @@
 import React from "react";
 
-import "./DropDownItem.css";
+import "./InputDropDownItem.css";
 
-const DropDownItem = (props) => {
+const InputDropDownItem = (props) => {
   return (
     <li
       onClick={() => {
         props.setFunction(props.item);
       }}
-      className="c-DropDownItem"
+      className="c-InputDropDownItem"
     >
       {props.item}
     </li>
   );
 };
 
-export default DropDownItem;
+export default InputDropDownItem;
