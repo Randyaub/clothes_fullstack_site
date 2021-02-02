@@ -1,0 +1,12 @@
+.c-CartDropDownItem__item {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.c-CartDropDownItem__item:hover {
+  opacity: 0.85;
+}
+
+.c-CartDropDownItem__image {
+  max-height: 130px;
+}

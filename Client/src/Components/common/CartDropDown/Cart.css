@@ -15,29 +15,11 @@
   z-index: 999999;
 }
 
-.l-Cart__products {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  overflow-y: scroll;
-  max-height: 265px;
-}
-
 .c-Header__lrcB:hover > .c-Cart,
 .c-Cart:hover {
   visibility: visible;
   opacity: 1;
   max-height: 500px;
-}
-
-.c-Cart__total {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0px;
-}
-
-.c-Cart__checkout {
-  border-top: 1px solid var(--border-colour);
 }
 
 .hidden {

@@ -1,0 +1,18 @@
+.c-CartDropDownItemDetails {
+  margin-left: 15px;
+}
+
+.c-CartDropDownItemDetails__title {
+  font-size: 16px;
+}
+
+.c-CartDropDownItemDetails__subdetail {
+  display: block;
+  font-size: 13px;
+  margin: 2px 0px;
+}
+
+.c-CartDropDownItemDetails__total {
+  font-size: 15px;
+  font-weight: bold;
+}
