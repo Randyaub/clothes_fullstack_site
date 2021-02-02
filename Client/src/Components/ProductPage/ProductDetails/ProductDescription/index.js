@@ -1,5 +1,4 @@
 import React from "react";
-import { formatCategory } from "../../../../utilities";
 
 import "./ProductDescription.css";
 import ProductFit from "./ProductFit";

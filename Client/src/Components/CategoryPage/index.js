@@ -25,9 +25,6 @@ const Category = () => {
             <Route path={`${path}/Shop-Category/:category`}>
               <CategoryProduct />
             </Route>
-            <Route path={path}>
-              <CategoryAds type={type} />
-            </Route>
           </Switch>
         </main>
       )}

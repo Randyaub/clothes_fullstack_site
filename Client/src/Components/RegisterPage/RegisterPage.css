@@ -28,3 +28,7 @@
 .c-RegisterPage__formItem {
   margin: 10px 0px;
 }
+
+.c-RegisterPage__input {
+  width: 50%;
+}

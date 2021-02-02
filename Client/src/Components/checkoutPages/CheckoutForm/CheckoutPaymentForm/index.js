@@ -13,7 +13,7 @@ const CheckoutPaymentForm = (props) => {
         inputClassName={"c-Input__input c-CheckoutPaymentInformation__half"}
         labelName={"Name On Card"}
         inputName={"nameOnCard"}
-        inputValue={props.nameOnCard}
+        inputValue={props.cardPaymentInfo.nameOnCard}
         inputPlaceHolder={"Name on Card"}
         inputSetFunction={props.cardPaymentInfo.setNameOnCard}
         error={props.nameOnCardError}
@@ -22,7 +22,7 @@ const CheckoutPaymentForm = (props) => {
         inputClassName={"c-Input__input c-CheckoutPaymentInformation__half"}
         labelName={"Card Number"}
         inputName={"numberOnCard"}
-        inputValue={props.cardNumber}
+        inputValue={props.cardPaymentInfo.cardNumber}
         inputPlaceHolder={"Card Number"}
         inputSetFunction={props.cardPaymentInfo.setCardNumber}
         error={props.cardNumberError}

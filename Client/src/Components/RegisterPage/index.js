@@ -132,6 +132,7 @@ const RegisterPage = () => {
             <FormItem
               labelName={"EMAIL ADDRESS"}
               labelClassName={"c-RegisterPage__label"}
+              inputClassName={"c-Input__input c-RegisterPage__input"}
               inputName={"email"}
               inputValue={email}
               inputPlaceHolder={"Email"}
@@ -143,6 +144,7 @@ const RegisterPage = () => {
             <FormItem
               labelName={"CONFIRM EMAIL ADDRESS"}
               labelClassName={"c-RegisterPage__label"}
+              inputClassName={"c-Input__input c-RegisterPage__input"}
               inputName={"confirmEmail"}
               inputValue={confirmEmail}
               inputPlaceHolder={"Confirm Email"}
@@ -154,6 +156,7 @@ const RegisterPage = () => {
             <FormItem
               labelName={"PASSWORD"}
               labelClassName={"c-RegisterPage__label"}
+              inputClassName={"c-Input__input c-RegisterPage__input"}
               inputName={"password"}
               inputValue={password}
               inputPlaceHolder={"Password"}
@@ -165,6 +168,7 @@ const RegisterPage = () => {
             <FormItem
               labelName={"CONFIRM PASSWORD"}
               labelClassName={"c-RegisterPage__label"}
+              inputClassName={"c-Input__input c-RegisterPage__input"}
               inputName={"confirmPassword"}
               inputValue={confirmPassword}
               inputPlaceHolder={"Confirm Password"}
@@ -176,6 +180,7 @@ const RegisterPage = () => {
             <FormItem
               labelName={"FIRST NAME"}
               labelClassName={"c-RegisterPage__label"}
+              inputClassName={"c-Input__input c-RegisterPage__input"}
               inputName={"firstName"}
               inputValue={firstName}
               inputPlaceHolder={"First Name"}
@@ -187,6 +192,7 @@ const RegisterPage = () => {
             <FormItem
               labelName={"LAST NAME"}
               labelClassName={"c-RegisterPage__label"}
+              inputClassName={"c-Input__input c-RegisterPage__input"}
               inputName={"lastName"}
               inputValue={lastName}
               inputPlaceHolder={"Last Name"}
