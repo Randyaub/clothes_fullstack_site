@@ -14,6 +14,7 @@ import {
 
 import "./CheckoutForm.css";
 import FormItem from "../../common/FormItem";
+import ShippingMethod from "./ShippingMethod";
 
 const CheckoutForm = (props) => {
   const [emailError, setEmailError] = useState("");
@@ -254,6 +255,13 @@ const CheckoutForm = (props) => {
             cvvError={cvvError}
           />
         )}
+
+      {props.formInfo.shippingMethod != null && (
+        <>
+          <h2 className="c-CheckoutForm__headers">SHIPPING METHOD</h2>
+          <ShippingMethod formInfo={props.formInfo} />
+        </>
+      )}
       <SubmitButton
         buttonText={`Continue to ${props.goTo}`}
         className="default-btn small-btn"

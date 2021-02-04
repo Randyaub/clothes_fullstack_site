@@ -37,6 +37,7 @@ function App() {
   const [shippingCity, setShippingCity] = useState("");
   const [shippingProvince, setShippingProvince] = useState("");
   const [shippingZipCode, setShippingZipCode] = useState("");
+  const [shippingMethod, setShippingMethod] = useState("Standard");
 
   //Form for Billing
   const [billingFirstName, setBillingFirstName] = useState("");
@@ -53,6 +54,54 @@ function App() {
   const [cardExpirationMonth, setCardExpirationMonth] = useState("MONTH*");
   const [cardExpirationYear, setCardExpirationYear] = useState("YEAR*");
   const [cardCVV, setCardCVV] = useState("");
+
+  const shippingInfo = {
+    email: shippingEmail,
+    setEmail: setShippingEmail,
+    firstName: shippingFirstName,
+    setFirstName: setShippingFirstName,
+    lastName: shippingLastName,
+    setLastName: setShippingLastName,
+    addressLine1: shippingAddressLine1,
+    setAddressLine1: setShippingAddressLine1,
+    addressLine2: shippingAddressLine2,
+    setAddressLine2: setShippingAddressLine2,
+    city: shippingCity,
+    setCity: setShippingCity,
+    province: shippingProvince,
+    setProvince: setShippingProvince,
+    zipCode: shippingZipCode,
+    setZipCode: setShippingZipCode,
+    shippingMethod: shippingMethod,
+    setShippingMethod: setShippingMethod,
+  };
+
+  const billingInfo = {
+    firstName: billingFirstName,
+    setFirstName: setBillingFirstName,
+    lastName: billingLastName,
+    setLastName: setBillingLastName,
+    addressLine1: billingAddressLine1,
+    setAddressLine1: setBillingAddressLine1,
+    addressLine2: billingAddressLine2,
+    setAddressLine2: setBillingAddressLine2,
+    city: billingCity,
+    setCity: setBillingCity,
+    province: billingProvince,
+    setProvince: setBillingProvince,
+    zipCode: billingZipCode,
+    setZipCode: setBillingZipCode,
+    nameOnCard: nameOnCard,
+    setNameOnCard: setNameOnCard,
+    cardNumber: cardNumber,
+    setCardNumber: setCardNumber,
+    cardExpirationMonth: cardExpirationMonth,
+    setCardExpirationMonth: setCardExpirationMonth,
+    cardExpirationYear: cardExpirationYear,
+    setCardExpirationYear: setCardExpirationYear,
+    cardCVV: cardCVV,
+    setCardCVV: setCardCVV,
+  };
 
   //Retrive cart
   useEffect(() => {
@@ -148,24 +197,7 @@ function App() {
               cartItems={cartItems}
               cartCount={cartCount}
               cartCostTotal={cartCostTotal}
-              formInfo={{
-                email: shippingEmail,
-                setEmail: setShippingEmail,
-                firstName: shippingFirstName,
-                setFirstName: setShippingFirstName,
-                lastName: shippingLastName,
-                setLastName: setShippingLastName,
-                addressLine1: shippingAddressLine1,
-                setAddressLine1: setShippingAddressLine1,
-                addressLine2: shippingAddressLine2,
-                setAddressLine2: setShippingAddressLine2,
-                city: shippingCity,
-                setCity: setShippingCity,
-                province: shippingProvince,
-                setProvince: setShippingProvince,
-                zipCode: shippingZipCode,
-                setZipCode: setShippingZipCode,
-              }}
+              formInfo={shippingInfo}
             />
           </Route>
           <Route exact path="/billing-checkout">
@@ -173,32 +205,7 @@ function App() {
               cartItems={cartItems}
               cartCount={cartCount}
               cartCostTotal={cartCostTotal}
-              formInfo={{
-                firstName: billingFirstName,
-                setFirstName: setBillingFirstName,
-                lastName: billingLastName,
-                setLastName: setBillingLastName,
-                addressLine1: billingAddressLine1,
-                setAddressLine1: setBillingAddressLine1,
-                addressLine2: billingAddressLine2,
-                setAddressLine2: setBillingAddressLine2,
-                city: billingCity,
-                setCity: setBillingCity,
-                province: billingProvince,
-                setProvince: setBillingProvince,
-                zipCode: billingZipCode,
-                setZipCode: setBillingZipCode,
-                nameOnCard: nameOnCard,
-                setNameOnCard: setNameOnCard,
-                cardNumber: cardNumber,
-                setCardNumber: setCardNumber,
-                cardExpirationMonth: cardExpirationMonth,
-                setCardExpirationMonth: setCardExpirationMonth,
-                cardExpirationYear: cardExpirationYear,
-                setCardExpirationYear: setCardExpirationYear,
-                cardCVV: cardCVV,
-                setCardCVV: setCardCVV,
-              }}
+              formInfo={billingInfo}
             />
           </Route>
           <Route exact path="/order-checkout">
@@ -206,6 +213,8 @@ function App() {
               cartItems={cartItems}
               cartCount={cartCount}
               cartCostTotal={cartCostTotal}
+              shippingInfo={shippingInfo}
+              billingInfo={billingInfo}
             />
           </Route>
           <Route exact path="/Product-Page/:sku">

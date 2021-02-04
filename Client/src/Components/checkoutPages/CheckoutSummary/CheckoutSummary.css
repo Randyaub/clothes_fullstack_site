@@ -12,8 +12,6 @@
 .c-CheckoutSummary__list {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  overflow-y: scroll;
   max-height: 400px;
 }
 

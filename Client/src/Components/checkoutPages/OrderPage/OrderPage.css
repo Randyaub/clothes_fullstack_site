@@ -1,14 +1,40 @@
+.c-Order {
+  margin-bottom: 100px;
+}
 .l-Order {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 100px;
+
+  width: 100%;
 }
 
-.c-Order {
+.c-Order__information {
   width: 59%;
 }
 
 .c-Order__button {
   margin-bottom: 30px;
+}
+
+.c-Order__review {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+}
+
+.c-Order__section {
+  width: 49%;
+}
+
+.c-OrderPage__title {
+  margin-top: 20px;
+  color: lightgrey;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-colour);
+}
+
+.c-OrderPage__btn {
+  display: flex;
 }

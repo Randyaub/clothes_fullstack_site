@@ -1,0 +1,16 @@
+.c-OrderInformation {
+  margin-bottom: 50px;
+}
+
+.c-OrderInformation:last-child {
+  margin-bottom: 0px;
+}
+
+.c-OrderInformation__title {
+  margin: 10px 0px;
+}
+
+.c-OrderInformation__row {
+  display: block;
+  margin: 3px 0px;
+}

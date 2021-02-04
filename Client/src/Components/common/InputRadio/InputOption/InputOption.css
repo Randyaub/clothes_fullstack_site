@@ -1,0 +1,52 @@
+.c-InputOption {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 35px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 10px 0px;
+}
+
+.c-InputOption input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.c-InputOption__checkmark {
+  position: absolute;
+  top: 2;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
+.c-InputOption__checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.c-InputOption input:checked ~ .c-InputOption__checkmark:after {
+  display: block;
+}
+
+.c-InputOption .c-InputOption__checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: black;
+}

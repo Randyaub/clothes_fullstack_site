@@ -64,10 +64,6 @@ input[type] {
   outline: none;
 }
 
-.small-btn {
-  width: 200px;
-}
-
 .inverted-btn {
   margin-top: 15px;
   background-color: white;
@@ -80,7 +76,6 @@ input[type] {
 }
 
 .red-btn {
-  width: 100%;
   font-size: 15px;
   background-color: #f22;
   color: white;
@@ -88,6 +83,16 @@ input[type] {
   padding: 15px 10px;
   cursor: pointer;
   outline: none;
+  width: 100%;
+}
+
+.small-btn {
+  width: 200px;
+}
+
+.large-btn {
+  width: 300px;
+  height: 60px;
 }
 
 .default-btn:hover {
