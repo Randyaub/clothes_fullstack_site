@@ -1,7 +1,7 @@
 import React from "react";
 import "./CartDropDownItemDetails.css";
 
-import { formatCategory } from "../../../../../../../../utilities";
+import { formatCategory } from "../../../../../../../../utility/utilities";
 
 const CartDropDownItemDetails = (props) => {
   return (

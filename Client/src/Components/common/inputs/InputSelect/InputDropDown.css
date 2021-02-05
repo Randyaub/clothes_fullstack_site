@@ -1,7 +1,7 @@
 .c-InputDropDown {
   border: 1px solid grey;
   position: relative;
-  min-width: 200px;
+  width: 100%;
 }
 
 .c-DropDownList__current {

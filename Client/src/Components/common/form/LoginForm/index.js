@@ -5,7 +5,7 @@ import "./LoginForm.css";
 import SubmitButton from "../../buttons/SubmitButton";
 import FormItem from "../FormItem";
 
-import { emailValid, passwordValid } from "../../../../utilities";
+import { emailValid, passwordValid } from "../../../../utility/utilities";
 
 const LoginForm = (props) => {
   const [email, setEmail] = useState("");

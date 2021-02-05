@@ -4,20 +4,20 @@ import "./App.css";
 
 import Header from "./Components/common/layouts/Header";
 import Footer from "./Components/common/layouts/Footer";
-import HomePage from "./Components/HomePage";
-import LogInPage from "./Components/LogInPage";
-import RegisterPage from "./Components/RegisterPage";
-import CartPage from "./Components/CartPage";
-import CategoryPage from "./Components/CategoryPage";
-import ProductPage from "./Components/ProductPage";
-import NotFoundPage from "./Components/NotFoundPage";
-import AccountPage from "./Components/AccountPage";
+import HomePage from "./Components/pages/HomePage";
+import LogInPage from "./Components/pages/LogInPage";
+import RegisterPage from "./Components/pages/RegisterPage";
+import CartPage from "./Components/pages/CartPage";
+import CategoryPage from "./Components/pages/CategoryPage";
+import ProductPage from "./Components/pages/ProductPage";
+import NotFoundPage from "./Components/pages/NotFoundPage";
+import AccountPage from "./Components/pages/AccountPage";
 import axios from "axios";
-import MemberOrGuest from "./Components/MemberOrGuestPage";
+import MemberOrGuest from "./Components/pages/MemberOrGuestPage";
 
-import Shipping from "./Components/checkoutPages/ShippingPage";
-import Payment from "./Components/checkoutPages/PaymentPage";
-import Order from "./Components/checkoutPages/OrderPage";
+import Shipping from "./Components/pages/checkoutPages/ShippingPage";
+import Payment from "./Components/pages/checkoutPages/PaymentPage";
+import Order from "./Components/pages/checkoutPages/OrderPage";
 
 function App() {
   let history = useHistory();
