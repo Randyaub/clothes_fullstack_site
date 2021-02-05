@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./LoginSection.css";
-import LoginForm from "../../common/LoginForm";
+import LoginForm from "../../common/form/LoginForm";
 
 const LoginSection = (props) => {
   return (

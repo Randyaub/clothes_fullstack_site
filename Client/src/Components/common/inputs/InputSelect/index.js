@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./InputDropDown.css";
 
-import InputDropDownCurrentValue from "./InputDropDownCurrentValue";
-import InputDropDownList from "./InputDropDownList";
+import InputSelectValue from "./InputSelectValue";
+import InputSelectMenu from "./InputSelectMenu";
 
-const InputDropDown = (props) => {
+const InputSelect = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,8 +17,8 @@ const InputDropDown = (props) => {
         setIsOpen(false);
       }}
     >
-      <InputDropDownCurrentValue value={props.value} />
-      <InputDropDownList
+      <InputSelectValue value={props.value} />
+      <InputSelectMenu
         isOpen={isOpen}
         list={props.list}
         setFunction={props.setFunction}
@@ -27,4 +27,4 @@ const InputDropDown = (props) => {
   );
 };
 
-export default InputDropDown;
+export default InputSelect;

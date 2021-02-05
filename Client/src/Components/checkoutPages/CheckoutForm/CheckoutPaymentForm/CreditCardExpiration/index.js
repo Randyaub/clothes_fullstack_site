@@ -1,12 +1,12 @@
 import React from "react";
 
-import InputDropDownMenu from "../../../../common/InputDropDown";
-import Label from "../../../../common/FormItem/Label";
+import InputSelect from "../../../../common/inputs/InputSelect";
+import Label from "../../../../common/form/FormItem/Label";
 
 import { months } from "../../../../../utilities";
 
 import "./CreditCardExpiration.css";
-import FormItem from "../../../../common/FormItem";
+import FormItem from "../../../../common/form/FormItem";
 
 const CreditCardExpiration = (props) => {
   const years = [
@@ -31,12 +31,12 @@ const CreditCardExpiration = (props) => {
         error={props.expirationMonthError || props.expirationYearError}
       />
       <div className="c-CreditCardExpiration flex">
-        <InputDropDownMenu
+        <InputSelect
           list={months}
           value={props.cardPaymentInfo.cardExpirationMonth}
           setFunction={props.cardPaymentInfo.setCardExpirationMonth}
         />
-        <InputDropDownMenu
+        <InputSelect
           list={years}
           value={props.cardPaymentInfo.cardExpirationYear}
           setFunction={props.cardPaymentInfo.setCardExpirationYear}

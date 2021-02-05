@@ -5,7 +5,6 @@ import "./ShippingPage.css";
 import CheckoutForm from "../CheckoutForm";
 import BreadCrumbIndicator from "../BreadCrumbIndicator";
 import CheckoutSummary from "../CheckoutSummary";
-import InputSelect from "../../common/InputRadio";
 
 const ShippingPage = (props) => {
   let history = useHistory();

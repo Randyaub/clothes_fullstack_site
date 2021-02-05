@@ -1,9 +1,9 @@
 import React from "react";
-import "./InputDropDownList.css";
+import "./InputSelectMenu.css";
 
-import InputDropDownMenuItem from "./InputDropDownItem";
+import InputSelectMenuItem from "./InputSelectMenuItem";
 
-const InputDropDownList = (props) => {
+const InputSelectMenu = (props) => {
   return (
     <div className="c-InputDropDownList">
       <ul
@@ -13,7 +13,7 @@ const InputDropDownList = (props) => {
       >
         {props.list.map((item, index) => {
           return (
-            <InputDropDownMenuItem
+            <InputSelectMenuItem
               key={index}
               item={item}
               setFunction={props.setFunction}
@@ -25,4 +25,4 @@ const InputDropDownList = (props) => {
   );
 };
 
-export default InputDropDownList;
+export default InputSelectMenu;

@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./InputDropDownItem.css";
+import "./InputSelectMenuItem.css";
 
-const InputDropDownItem = (props) => {
+const InputSelectMenuItem = (props) => {
   return (
     <li
       onClick={() => {
@@ -15,4 +15,4 @@ const InputDropDownItem = (props) => {
   );
 };
 
-export default InputDropDownItem;
+export default InputSelectMenuItem;

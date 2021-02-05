@@ -13,7 +13,7 @@ import {
 } from "../../../utilities";
 
 import "./CheckoutForm.css";
-import FormItem from "../../common/FormItem";
+import FormItem from "../../common/form/FormItem";
 import ShippingMethod from "./ShippingMethod";
 
 const CheckoutForm = (props) => {

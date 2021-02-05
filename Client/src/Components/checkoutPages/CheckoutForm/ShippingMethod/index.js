@@ -1,7 +1,7 @@
 import React from "react";
 import "./ShippingMethods.css";
 
-import InputSelect from "../../../common/InputRadio";
+import InputSelect from "../../../common/inputs/InputRadio";
 
 const ShippingMethod = (props) => {
   const selectInputOption = [{ value: "Standard", text: "STANDARD" }];

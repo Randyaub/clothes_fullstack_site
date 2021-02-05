@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./CheckoutPaymentForm.css";
-import FormItem from "../../../common/FormItem";
+import FormItem from "../../../common/form/FormItem";
 import CreditCardExpiration from "./CreditCardExpiration";
 
 const CheckoutPaymentForm = (props) => {

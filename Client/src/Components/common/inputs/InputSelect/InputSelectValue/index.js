@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputDropDownCurrentValue = (props) => {
+const InputSelectValue = (props) => {
   return (
     <div className="c-InputDropDownCurrentValue">
       <i className="fas fa-sort-down c-DropDownList__arrow"></i>
@@ -9,4 +9,4 @@ const InputDropDownCurrentValue = (props) => {
   );
 };
 
-export default InputDropDownCurrentValue;
+export default InputSelectValue;

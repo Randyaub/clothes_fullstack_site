@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import "./LoginForm.css";
-import SubmitButton from "../buttons/SubmitButton";
+import SubmitButton from "../../buttons/SubmitButton";
 import FormItem from "../FormItem";
 
-import { emailValid, passwordValid } from "../../../utilities";
+import { emailValid, passwordValid } from "../../../../utilities";
 
 const LoginForm = (props) => {
   const [email, setEmail] = useState("");

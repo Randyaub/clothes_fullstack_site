@@ -1,6 +1,6 @@
 import React from "react";
 
-import LoginForm from "../../common/LoginForm";
+import LoginForm from "../../common/form/LoginForm";
 
 import "./ReturningCustomerSection.css";
 

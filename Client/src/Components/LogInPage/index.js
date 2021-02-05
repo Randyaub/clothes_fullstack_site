@@ -1,6 +1,6 @@
 import React from "react";
-
 import "./LogInPage.css";
+
 import LoginSection from "./LoginSection";
 import RegisterSection from "./RegisterSection";
 

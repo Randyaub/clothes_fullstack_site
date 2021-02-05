@@ -4,7 +4,7 @@ import axios from "axios";
 import "./RegisterPage.css";
 import LinkButton from "../common/buttons/LinkButton";
 import SubmitButton from "../common/buttons/SubmitButton";
-import FormItem from "../common/FormItem";
+import FormItem from "../common/form/FormItem";
 import {
   emailValid,
   passwordValid,

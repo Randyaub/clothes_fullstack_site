@@ -1,8 +1,8 @@
 import React from "react";
 import "./Header.css";
-import CartDropDown from "../CartDropDown";
+import CartDropDown from "./CartDropDown";
 import { NavLink, Link } from "react-router-dom";
-import UserDropDownMenu from "../UserDropDownMenu";
+import UserDropDownMenu from "./UserDropDownMenu";
 
 const Header = (props) => {
   return (

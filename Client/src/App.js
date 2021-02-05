@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import "./App.css";
 
-import Header from "./Components/common/Header";
+import Header from "./Components/common/layouts/Header";
+import Footer from "./Components/common/layouts/Footer";
 import HomePage from "./Components/HomePage";
 import LogInPage from "./Components/LogInPage";
 import RegisterPage from "./Components/RegisterPage";
@@ -10,7 +11,6 @@ import CartPage from "./Components/CartPage";
 import CategoryPage from "./Components/CategoryPage";
 import ProductPage from "./Components/ProductPage";
 import NotFoundPage from "./Components/NotFoundPage";
-import Footer from "./Components/common/Footer";
 import AccountPage from "./Components/AccountPage";
 import axios from "axios";
 import MemberOrGuest from "./Components/MemberOrGuestPage";
