@@ -15,9 +15,9 @@ import AccountPage from "./Components/pages/AccountPage";
 import axios from "axios";
 import MemberOrGuest from "./Components/pages/MemberOrGuestPage";
 
-import Shipping from "./Components/pages/checkoutPages/ShippingPage";
-import Payment from "./Components/pages/checkoutPages/PaymentPage";
-import Order from "./Components/pages/checkoutPages/OrderPage";
+import ShippingPage from "./Components/pages/checkoutPages/ShippingPage";
+import PaymentPage from "./Components/pages/checkoutPages/PaymentPage";
+import OrderPage from "./Components/pages/checkoutPages/OrderPage";
 
 function App() {
   let history = useHistory();
@@ -193,7 +193,7 @@ function App() {
             />
           </Route>
           <Route exact path="/shipping-checkout">
-            <Shipping
+            <ShippingPage
               cartItems={cartItems}
               cartCount={cartCount}
               cartCostTotal={cartCostTotal}
@@ -201,7 +201,7 @@ function App() {
             />
           </Route>
           <Route exact path="/billing-checkout">
-            <Payment
+            <PaymentPage
               cartItems={cartItems}
               cartCount={cartCount}
               cartCostTotal={cartCostTotal}
@@ -209,12 +209,15 @@ function App() {
             />
           </Route>
           <Route exact path="/order-checkout">
-            <Order
+            <OrderPage
               cartItems={cartItems}
               cartCount={cartCount}
               cartCostTotal={cartCostTotal}
               shippingInfo={shippingInfo}
               billingInfo={billingInfo}
+              setCartCount={setCartCount}
+              setCartCostTotal={setCartCostTotal}
+              setCartItems={setCartItems}
             />
           </Route>
           <Route exact path="/Product-Page/:sku">

@@ -1,15 +1,36 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 import "./OrderPage.css";
 
 import BreadCrumbIndicator from "../BreadCrumbIndicator";
 import OrderInformation from "./OrderInformation";
-import SubmitButton from "../../../common/buttons/SubmitButton";
+import Button from "../../../common/buttons/Button";
 import CheckoutSummary from "../CheckoutSummary";
 
 const OrderPage = (props) => {
+  let history = useHistory();
   const { shippingInfo } = props;
   const { billingInfo } = props;
 
+  const handleClick = () => {
+    //place order
+    axios
+      .post("order/confirm-order", {
+        shippingInformation: shippingInfo,
+        checkoutItems: props.cartItems,
+      })
+      .then(() => {
+        localStorage.removeItem("guestCart");
+        localStorage.removeItem("guestCartAmount");
+        localStorage.removeItem("guestCartTotalCost");
+        props.setCartItems([]);
+        props.setCartCount(0);
+        props.setCartCostTotal(0);
+        history.push("/");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <>
       <BreadCrumbIndicator checkoutPosition={"order"} />
@@ -76,7 +97,8 @@ const OrderPage = (props) => {
             cartCostTotal={props.cartCostTotal}
           />
         </div>
-        <SubmitButton
+        <Button
+          onClick={handleClick}
           className="large-btn red-btn"
           buttonText="PLACE YOUR ORDER"
         />
