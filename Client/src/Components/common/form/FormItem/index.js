@@ -19,6 +19,7 @@ const FormItem = (props) => {
         error={props.error}
         type={props.type}
         subInfo={props.subInfo}
+        maxLength={props.maxLength}
       />
     </>
   );

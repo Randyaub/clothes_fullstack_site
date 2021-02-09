@@ -12,6 +12,7 @@ import {
   zipCodeValid,
   cvvValid,
   provinces,
+  creditCardNumberValidation,
 } from "../../../../utility/utilities";
 
 import "./CheckoutForm.css";
@@ -86,10 +87,9 @@ const CheckoutForm = (props) => {
     }
 
     if (props.formInfo.cardNumber != null) {
-      numberOnCardValidation = inputsNotEmpty(
+      numberOnCardValidation = creditCardNumberValidation(
         props.formInfo.cardNumber,
-        setCardNumberError,
-        "Please enter your cards number"
+        setCardNumberError
       );
     }
 

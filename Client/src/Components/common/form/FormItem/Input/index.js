@@ -14,6 +14,7 @@ const Input = (props) => {
         onChange={(e) => {
           props.setFunction(e.target.value);
         }}
+        maxLength={props.maxLength && props.maxLength}
       ></input>
       {props.subInfo && <div className="c-Input__subInfo">{props.subInfo}</div>}
       {props.error && <div className="c-Input__error">{props.error}</div>}

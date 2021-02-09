@@ -26,6 +26,7 @@ const CheckoutPaymentForm = (props) => {
         inputPlaceHolder={"Card Number"}
         inputSetFunction={props.cardPaymentInfo.setCardNumber}
         error={props.cardNumberError}
+        maxLength={"16"}
       />
       <CreditCardExpiration
         cardPaymentInfo={props.cardPaymentInfo}

@@ -69,6 +69,18 @@ export const inputsNotEmpty = (input, setError, errorMessage) => {
   return true;
 };
 
+export const creditCardNumberValidation = (input, setError) => {
+  if (!input) {
+    setError("Please enter your credit card number");
+    return false;
+  }
+  if (input.length !== 16) {
+    setError("Invalid credit card number. Enter the full 16 digits");
+    return false;
+  }
+  return true;
+};
+
 export const inputEqualTo = (input, otherValue, setError, errorMessage) => {
   if (input === otherValue) {
     setError(errorMessage);
