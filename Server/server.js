@@ -6,6 +6,7 @@ import _ from "./env";
 
 import productRoutes from "./api/routes/products";
 import userRoutes from "./api/routes/users";
+import orderRoutes from "./api/routes/orders";
 import { notFound, errorHandling } from "./api/middlewares/errorHandling";
 
 require("dotenv").config();
@@ -25,6 +26,7 @@ app.use(express.json());
 //Routes
 app.use("/", productRoutes);
 app.use("/user", userRoutes);
+app.use("/order", orderRoutes);
 
 //Error Handling
 app.use(notFound);
