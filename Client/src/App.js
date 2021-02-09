@@ -35,7 +35,7 @@ function App() {
   const [shippingAddressLine1, setShippingAddressLine1] = useState("");
   const [shippingAddressLine2, setShippingAddressLine2] = useState("");
   const [shippingCity, setShippingCity] = useState("");
-  const [shippingProvince, setShippingProvince] = useState("");
+  const [shippingProvince, setShippingProvince] = useState("PROVINCE*");
   const [shippingZipCode, setShippingZipCode] = useState("");
   const [shippingMethod, setShippingMethod] = useState("Standard");
 
@@ -45,7 +45,7 @@ function App() {
   const [billingAddressLine1, setBillingAddressLine1] = useState("");
   const [billingAddressLine2, setBillingAddressLine2] = useState("");
   const [billingCity, setBillingCity] = useState("");
-  const [billingProvince, setBillingProvince] = useState("");
+  const [billingProvince, setBillingProvince] = useState("PROVINCE*");
   const [billingZipCode, setBillingZipCode] = useState("");
 
   //Form for Payment

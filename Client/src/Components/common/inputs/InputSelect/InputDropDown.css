@@ -2,17 +2,5 @@
   border: 1px solid grey;
   position: relative;
   width: 100%;
-}
-
-.c-DropDownList__current {
-  display: inline-block;
-  padding: 10px 15px;
-}
-
-.c-DropDownList__arrow {
-  position: absolute;
-  right: 12px;
-  top: 6px;
-  font-size: 18px;
-  color: gray;
+  cursor: pointer;
 }

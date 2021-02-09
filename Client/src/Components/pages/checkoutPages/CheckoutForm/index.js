@@ -7,14 +7,18 @@ import {
   emailValid,
   inputsNotEmpty,
   isMonthSelected,
+  inputEqualTo,
   isYearSelected,
   zipCodeValid,
   cvvValid,
+  provinces,
 } from "../../../../utility/utilities";
 
 import "./CheckoutForm.css";
 import FormItem from "../../../common/form/FormItem";
 import ShippingMethod from "./ShippingMethod";
+import InputSelect from "../../../common/inputs/InputSelect";
+import Label from "../../../common/form/FormItem/Label";
 
 const CheckoutForm = (props) => {
   const [emailError, setEmailError] = useState("");
@@ -50,10 +54,11 @@ const CheckoutForm = (props) => {
       setCityError,
       "Please enter your city"
     );
-    let provinceValidation = inputsNotEmpty(
+    let provinceValidation = inputEqualTo(
       props.formInfo.province,
+      "PROVINCE*",
       setProvinceError,
-      "Please enter your province"
+      "Please select your province"
     );
     let addressValidation = inputsNotEmpty(
       props.formInfo.addressLine1,
@@ -222,14 +227,13 @@ const CheckoutForm = (props) => {
             />
           </div>
           <div className="c-CheckoutForm__half">
-            <FormItem
-              labelName={"Province"}
-              inputName={"province"}
-              inputValue={props.formInfo.province}
-              inputPlaceHolder={"Province"}
-              inputSetFunction={props.formInfo.setProvince}
-              error={provinceError}
+            <Label name={"Province"} />
+            <InputSelect
+              value={props.formInfo.province}
+              setFunction={props.formInfo.setProvince}
+              list={provinces}
             />
+            <div className="c-Input__error">{provinceError}</div>
           </div>
         </div>
         <FormItem

@@ -69,6 +69,14 @@ export const inputsNotEmpty = (input, setError, errorMessage) => {
   return true;
 };
 
+export const inputEqualTo = (input, otherValue, setError, errorMessage) => {
+  if (input === otherValue) {
+    setError(errorMessage);
+    return false;
+  }
+  return true;
+};
+
 export const isMonthSelected = (input, setError) => {
   if (input === "MONTH*") {
     setError("Month not selected");
@@ -107,4 +115,21 @@ export const months = [
   "10 - October",
   "11 - November",
   "12 - December",
+];
+
+export const provinces = [
+  "PROVINCE*",
+  "Alberta",
+  "British Columbia",
+  "Manitoba",
+  "New Brunswick",
+  "Newfoundland and Labrador",
+  "Nova Scotia",
+  "Ontario",
+  "Prince Edward Island",
+  "Quebec",
+  "Saskatchewan",
+  "Northwest Territories",
+  "Nunavut",
+  "Yukon",
 ];

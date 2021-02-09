@@ -1,10 +1,11 @@
 import React from "react";
+import "./InputSelectValue.css";
 
 const InputSelectValue = (props) => {
   return (
-    <div className="c-InputDropDownCurrentValue">
-      <i className="fas fa-sort-down c-DropDownList__arrow"></i>
-      <span className="c-DropDownList__current">{props.value}</span>
+    <div className="c-InputSelectValue">
+      <i className="fas fa-sort-down c-InputSelectValue__arrow"></i>
+      <span className="c-InputSelectValue__current">{props.value}</span>
     </div>
   );
 };
