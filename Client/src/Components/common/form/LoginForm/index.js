@@ -60,6 +60,7 @@ const LoginForm = (props) => {
         <FormItem
           labelName={"PASSWORD"}
           inputName={password}
+          type={"password"}
           inputValue={password}
           inputPlaceHolder={"Password"}
           inputSetFunction={setPassword}
