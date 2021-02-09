@@ -206,6 +206,7 @@ function App() {
               cartCount={cartCount}
               cartCostTotal={cartCostTotal}
               formInfo={billingInfo}
+              shippingInfo={shippingInfo}
             />
           </Route>
           <Route exact path="/order-checkout">

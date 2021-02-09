@@ -111,7 +111,6 @@ const CheckoutForm = (props) => {
       cvvValidation = cvvValid(props.formInfo.cardCVV, setCvvError);
     }
 
-    console.log(lastNameValidation);
     if (
       emailValidation === false ||
       lastNameValidation === false ||
@@ -151,7 +150,6 @@ const CheckoutForm = (props) => {
     event.preventDefault();
     resetErrors();
     if (isValid()) {
-      console.log("attempt");
       props.goToFunction();
     }
   };
@@ -187,7 +185,7 @@ const CheckoutForm = (props) => {
               labelName={"Last Name"}
               inputName={"lastName"}
               inputValue={props.formInfo.lastName}
-              inputPlaceHolder={"First Name"}
+              inputPlaceHolder={"Last Name"}
               inputSetFunction={props.formInfo.setLastName}
               error={lastNameError}
             />
