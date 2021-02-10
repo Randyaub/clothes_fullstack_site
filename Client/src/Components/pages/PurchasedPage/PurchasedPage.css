@@ -1,0 +1,25 @@
+.c-PurchasedPage__btns {
+  display: flex;
+  justify-content: center;
+}
+
+.l-PurchasedPage__btns {
+  margin-right: 10px;
+}
+
+.c-PurchasedPage__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.c-PurchasedPage__text > span {
+  margin-top: 10px;
+  width: 580px;
+}
+
+.c-PurchasedPage {
+  margin-bottom: 150px;
+}

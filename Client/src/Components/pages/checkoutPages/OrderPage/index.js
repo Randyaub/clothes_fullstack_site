@@ -21,12 +21,15 @@ const OrderPage = (props) => {
         checkoutItems: props.cartItems,
       })
       .then(() => {
+        //Empty local storage
         localStorage.removeItem("guestCart");
         localStorage.removeItem("guestCartAmount");
         localStorage.removeItem("guestCartTotalCost");
+        //Remove purchased items
         props.setCartItems([]);
         props.setCartCount(0);
         props.setCartCostTotal(0);
+        //
         history.push("/");
       })
       .catch((err) => console.log(err));

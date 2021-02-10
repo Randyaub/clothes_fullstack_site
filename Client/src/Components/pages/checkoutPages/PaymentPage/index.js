@@ -10,12 +10,12 @@ import InputCheckbox from "../../../common/inputs/InputCheckbox";
 const PaymentPage = (props) => {
   let history = useHistory();
 
+  //Use shipping information for billing toggle
+  const [sameAsShipping, setSameAsShipping] = useState(false);
+
   const goToOrder = () => {
     history.push("/order-checkout");
   };
-
-  //Use shipping information for billing toggle
-  const [sameAsShipping, setSameAsShipping] = useState(false);
 
   const handleChange = (event) => {
     setSameAsShipping(event.target.checked);

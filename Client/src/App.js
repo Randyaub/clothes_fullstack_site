@@ -18,6 +18,7 @@ import MemberOrGuest from "./Components/pages/MemberOrGuestPage";
 import ShippingPage from "./Components/pages/checkoutPages/ShippingPage";
 import PaymentPage from "./Components/pages/checkoutPages/PaymentPage";
 import OrderPage from "./Components/pages/checkoutPages/OrderPage";
+import PurchasedPage from "./Components/pages/PurchasedPage";
 
 function App() {
   let history = useHistory();
@@ -181,6 +182,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage />
+          </Route>
+          <Route path="/checkout/order-submitted">
+            <PurchasedPage />
           </Route>
           <Route exact path="/login/checkout">
             <MemberOrGuest setUserLoggedIn={setUserLoggedIn} />
