@@ -152,10 +152,6 @@ function App() {
   const logOutUser = () => {
     localStorage.removeItem("token");
     setUserLoggedIn(false);
-    goToHomePage();
-  };
-
-  const goToHomePage = () => {
     history.push("/");
   };
 
@@ -187,10 +183,7 @@ function App() {
             <HomePage />
           </Route>
           <Route exact path="/login/checkout">
-            <MemberOrGuest
-              goToHomePage={goToHomePage}
-              setUserLoggedIn={setUserLoggedIn}
-            />
+            <MemberOrGuest setUserLoggedIn={setUserLoggedIn} />
           </Route>
           <Route exact path="/shipping-checkout">
             <ShippingPage
@@ -234,10 +227,7 @@ function App() {
             />
           </Route>
           <Route exact path="/account/login">
-            <LogInPage
-              goToHomePage={goToHomePage}
-              setUserLoggedIn={setUserLoggedIn}
-            />
+            <LogInPage setUserLoggedIn={setUserLoggedIn} />
           </Route>
           <Route exact path="/account/register">
             <RegisterPage />

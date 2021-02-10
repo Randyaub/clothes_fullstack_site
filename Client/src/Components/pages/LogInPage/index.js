@@ -8,10 +8,7 @@ const LogInPage = (props) => {
   return (
     <section className="c-LogInPage container">
       <div className="flex">
-        <LoginSection
-          goToHomePage={props.goToHomePage}
-          setUserLoggedIn={props.setUserLoggedIn}
-        />
+        <LoginSection setUserLoggedIn={props.setUserLoggedIn} />
         <div className="c-LogInPage__horizontal"></div>
         <RegisterSection />
       </div>

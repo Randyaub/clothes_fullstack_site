@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import "./LoginForm.css";
@@ -8,9 +9,19 @@ import FormItem from "../FormItem";
 import { emailValid, passwordValid } from "../../../../utility/utilities";
 
 const LoginForm = (props) => {
+  const history = useHistory();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const goToHomePage = () => {
+    history.push("/");
+  };
+
+  const goToCheckoutPage = () => {
+    history.push("/shipping-checkout");
+  };
 
   const isValid = () => {
     if (emailValid(email, setError) === false) return false;
@@ -30,7 +41,7 @@ const LoginForm = (props) => {
           setError("");
           localStorage.setItem("token", res.data.JWT);
           props.setUserLoggedIn(true);
-          props.goToHomePage();
+          props.checkoutLogin ? goToCheckoutPage() : goToHomePage();
         })
         .catch((error) => {
           if (error.response) {

@@ -9,10 +9,7 @@ const MemberOrGuest = (props) => {
   return (
     <div className="c-MemberOrGuest container">
       <div className="l-MemberOrGuest">
-        <ReturningCustomerSection
-          goToHomePage={props.goToHomePage}
-          setUserLoggedIn={props.setUserLoggedIn}
-        />
+        <ReturningCustomerSection setUserLoggedIn={props.setUserLoggedIn} />
         <GuestCheckout />
       </div>
     </div>

@@ -10,10 +10,7 @@ const LoginSection = (props) => {
         <h1 className="c-LoginSection__title">LOGIN</h1>
         <h3>HAVE AN ACCOUNT?</h3>
       </div>
-      <LoginForm
-        goToHomePage={props.goToHomePage}
-        setUserLoggedIn={props.setUserLoggedIn}
-      />
+      <LoginForm setUserLoggedIn={props.setUserLoggedIn} />
     </div>
   );
 };
