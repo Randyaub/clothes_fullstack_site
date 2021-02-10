@@ -12,10 +12,6 @@
   padding: 20px;
 }
 
-.c-RegisterPage__message > h1 {
-  margin-bottom: 5px;
-}
-
 .c-RegisterPage__error {
   margin: 10px 0px 15px 0px;
   color: var(--error-colour);

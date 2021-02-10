@@ -6,7 +6,7 @@ import "./RegisterSection.css";
 const RegisterSection = () => {
   return (
     <div className="c-RegisterSection">
-      <h1 className="c-RegisterSection__title">REGISTER</h1>
+      <h1 className="main-header">REGISTER</h1>
       <h3>NEW TO THE SITE?</h3>
       <p className="c-RegisterSection__paragraph">
         Create an account to take advantage of special deals and coupons

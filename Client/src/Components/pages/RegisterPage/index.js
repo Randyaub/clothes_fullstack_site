@@ -123,7 +123,7 @@ const RegisterPage = () => {
       </div>
       <section className="c-RegisterPage__container">
         <div className="c-RegisterPage__message">
-          <h1>PLEASE ENTER YOUR INFORMATION BELOW</h1>
+          <h1 className="main-header">PLEASE ENTER YOUR INFORMATION BELOW</h1>
           <h4>SIGN UP TO KEEP TRACK OFF YOUR ORDERS</h4>
         </div>
         <div className="c-RegisterPage__error">{generalError}</div>

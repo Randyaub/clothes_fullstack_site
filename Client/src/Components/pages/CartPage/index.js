@@ -8,7 +8,7 @@ import CartSummary from "./CartSummary";
 const CartPage = (props) => {
   return (
     <>
-      <h1 className="c-CartPage__title">Shopping Cart</h1>
+      <h1 className="main-header">Shopping Cart</h1>
       <div className="c-CartPage">
         <div className="l-CartPage__products">
           {props.cartCount === 0 ? (

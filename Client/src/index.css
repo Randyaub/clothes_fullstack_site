@@ -119,3 +119,7 @@ input[type] {
   font-size: 0.8em;
   color: #444444;
 }
+
+.main-header {
+  margin-bottom: 5px;
+}
