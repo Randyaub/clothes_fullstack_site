@@ -158,6 +158,7 @@ const RegisterPage = () => {
               labelClassName={"c-RegisterPage__label"}
               inputClassName={"c-Input__input c-RegisterPage__input"}
               inputName={"password"}
+              type={"password"}
               inputValue={password}
               inputPlaceHolder={"Password"}
               inputSetFunction={setPassword}
@@ -170,6 +171,7 @@ const RegisterPage = () => {
               labelClassName={"c-RegisterPage__label"}
               inputClassName={"c-Input__input c-RegisterPage__input"}
               inputName={"confirmPassword"}
+              type={"password"}
               inputValue={confirmPassword}
               inputPlaceHolder={"Confirm Password"}
               inputSetFunction={setConfirmPassword}
