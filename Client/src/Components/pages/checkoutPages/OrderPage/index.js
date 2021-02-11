@@ -14,25 +14,55 @@ const OrderPage = (props) => {
   const { billingInfo } = props;
 
   const handleClick = () => {
-    //place order
-    axios
-      .post("order/confirm-order", {
-        shippingInformation: shippingInfo,
-        checkoutItems: props.cartItems,
+    if (props.userLoggedIn) {
+      axios({
+        method: "POST",
+        url: "order/confirm-order-user",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+        data: {
+          shippingInformation: shippingInfo,
+          checkoutItems: props.cartItems,
+        },
       })
-      .then(() => {
-        //Empty local storage
-        localStorage.removeItem("guestCart");
-        localStorage.removeItem("guestCartAmount");
-        localStorage.removeItem("guestCartTotalCost");
-        //Remove purchased items
-        props.setCartItems([]);
-        props.setCartCount(0);
-        props.setCartCostTotal(0);
-        //
-        history.push("/");
+        .then((respone) => {
+          //Empty local storage
+          localStorage.removeItem("guestCart");
+          localStorage.removeItem("guestCartAmount");
+          localStorage.removeItem("guestCartTotalCost");
+          //Remove purchased items
+          props.setCartItems([]);
+          props.setCartCount(0);
+          props.setCartCostTotal(0);
+          //
+          history.push("/checkout/order-submitted");
+        })
+        .catch((err) => console.log(err));
+    } else {
+      //place order
+      axios({
+        method: "POST",
+        url: "order/confirm-order-guest",
+        data: {
+          shippingInformation: shippingInfo,
+          checkoutItems: props.cartItems,
+        },
       })
-      .catch((err) => console.log(err));
+        .then(() => {
+          //Empty local storage
+          localStorage.removeItem("guestCart");
+          localStorage.removeItem("guestCartAmount");
+          localStorage.removeItem("guestCartTotalCost");
+          //Remove purchased items
+          props.setCartItems([]);
+          props.setCartCount(0);
+          props.setCartCostTotal(0);
+          //
+          history.push("/checkout/order-submitted");
+        })
+        .catch((err) => console.log(err));
+    }
   };
   return (
     <>

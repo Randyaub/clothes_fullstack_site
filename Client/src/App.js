@@ -22,6 +22,8 @@ import PurchasedPage from "./Components/pages/PurchasedPage";
 
 function App() {
   let history = useHistory();
+
+  //website globals
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [cartCount, setCartCount] = useState(0);
@@ -104,8 +106,8 @@ function App() {
     setCardCVV: setCardCVV,
   };
 
-  //Retrive cart
   useEffect(() => {
+    //Retrieve cart
     if (
       localStorage.getItem("guestCart") !== null &&
       localStorage.getItem("guestCartAmount") !== null &&
@@ -115,21 +117,8 @@ function App() {
       setCartCount(JSON.parse(localStorage.getItem("guestCartAmount")));
       setCartCostTotal(JSON.parse(localStorage.getItem("guestCartTotalCost")));
     }
-  }, []);
 
-  useEffect(() => {
-    localStorage.setItem("guestCart", JSON.stringify(cartItems));
-    localStorage.setItem("guestCartAmount", JSON.stringify(cartCount));
-    localStorage.setItem("guestCartTotalCost", JSON.stringify(cartCostTotal));
-  }, [cartItems, cartCount, cartCostTotal]);
-
-  //inital load
-  useEffect(() => {
-    getCurrentUser();
-  }, []);
-
-  //Check if token and logs user in
-  const getCurrentUser = () => {
+    //Checks if user was logged in before
     if (localStorage.getItem("token")) {
       const config = {
         headers: {
@@ -147,7 +136,13 @@ function App() {
           setUserLoggedIn(false);
         });
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("guestCart", JSON.stringify(cartItems));
+    localStorage.setItem("guestCartAmount", JSON.stringify(cartCount));
+    localStorage.setItem("guestCartTotalCost", JSON.stringify(cartCostTotal));
+  }, [cartItems, cartCount, cartCostTotal]);
 
   //Removes token and redirects to home page
   const logOutUser = () => {
@@ -165,7 +160,7 @@ function App() {
       }, 3000);
       return () => clearTimeout(timer);
     }
-  });
+  }, []);
 
   return (
     <div className="App">
@@ -216,6 +211,7 @@ function App() {
               setCartCount={setCartCount}
               setCartCostTotal={setCartCostTotal}
               setCartItems={setCartItems}
+              userLoggedIn={userLoggedIn}
             />
           </Route>
           <Route exact path="/Product-Page/:sku">
