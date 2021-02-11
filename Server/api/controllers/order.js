@@ -1,8 +1,7 @@
 import pool from "../../db";
 
-exports.order_confirm_order = (req, res) => {
+exports.order_confirm_order_guest = (req, res) => {
   const currentTime = new Date();
-  console.log(req.body);
   const {
     addressLine1,
     addressLine2,
@@ -34,19 +33,92 @@ exports.order_confirm_order = (req, res) => {
         lastName,
       ]
     )
-    .then((query) => {
+    .then(() => {
       for (let i in req.body.checkoutItems) {
-        pool.query(
-          "INSERT INTO order_item (sku, colour, size, quantity) VALUES ($1, $2, $3, $4)",
-          [
-            req.body.checkoutItems[i].sku,
-            req.body.checkoutItems[i].colour,
-            req.body.checkoutItems[i].size,
-            req.body.checkoutItems[i].quantity,
-          ]
-        );
+        pool
+          .query(
+            "INSERT INTO order_item (sku, colour, size, quantity) VALUES ($1, $2, $3, $4)",
+            [
+              req.body.checkoutItems[i].sku,
+              req.body.checkoutItems[i].colour,
+              req.body.checkoutItems[i].size,
+              req.body.checkoutItems[i].quantity,
+            ]
+          )
+          .then(() => {
+            console.log("Order Added to guest");
+          })
+          .catch((err) => {
+            res
+              .status(500)
+              .json({ error: err.message, message: "Adding Items Failed" });
+          });
       }
-      return res.status(200).json({ message: "Order Added" });
+      res.json({ message: "Order Successfully added for user" });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+};
+
+exports.order_confirm_order_user = (req, res) => {
+  const { user_id } = req.userData;
+  console.log(req.body);
+  const currentTime = new Date();
+  const {
+    addressLine1,
+    addressLine2,
+    zipCode,
+    city,
+    province,
+    shippingMethod,
+    email,
+    firstName,
+    lastName,
+  } = req.body.shippingInformation;
+
+  pool
+    .query(
+      `WITH new_address AS (INSERT INTO order_address (line_1, line_2, postal_code, city, province) VALUES ($1, $2, $3, $4, $5) returning id )
+     INSERT INTO orders (customer_id, order_address_id, order_status, order_placed, order_method, email, first_name, last_name) 
+     VALUES ($6, (SELECT id from new_address), $7, $8, $9, $10, $11, $12)`,
+      [
+        addressLine1,
+        addressLine2,
+        zipCode,
+        city,
+        province,
+        user_id,
+        "Processing",
+        currentTime,
+        shippingMethod,
+        email,
+        firstName,
+        lastName,
+      ]
+    )
+    .then(() => {
+      for (let i in req.body.checkoutItems) {
+        pool
+          .query(
+            "INSERT INTO order_item (sku, colour, size, quantity) VALUES ($1, $2, $3, $4)",
+            [
+              req.body.checkoutItems[i].sku,
+              req.body.checkoutItems[i].colour,
+              req.body.checkoutItems[i].size,
+              req.body.checkoutItems[i].quantity,
+            ]
+          )
+          .then(() => {
+            console.log("Order Added to User");
+          })
+          .catch((err) => {
+            return res
+              .status(500)
+              .json({ error: err.message, message: "Adding Items Failed" });
+          });
+      }
+      res.status(200).json({ message: "Order Successfully added for user" });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
