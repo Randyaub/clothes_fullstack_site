@@ -3,7 +3,6 @@ import { Route, Switch, useParams, useRouteMatch } from "react-router-dom";
 
 import "./Category.css";
 import CategorySideBar from "./CategorySideBar";
-import CategoryAds from "./CategoryAds";
 import CategoryProduct from "./CategoryProducts";
 import NotFoundPage from "../NotFoundPage";
 

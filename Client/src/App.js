@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
+import axios from "axios";
 import "./App.css";
 
 import Header from "./Components/common/layouts/Header";
@@ -12,8 +13,8 @@ import CategoryPage from "./Components/pages/CategoryPage";
 import ProductPage from "./Components/pages/ProductPage";
 import NotFoundPage from "./Components/pages/NotFoundPage";
 import AccountPage from "./Components/pages/AccountPage";
-import axios from "axios";
 import MemberOrGuest from "./Components/pages/MemberOrGuestPage";
+import GuestOrdersPage from "./Components/pages/GuestOrdersPage";
 
 import ShippingPage from "./Components/pages/checkoutPages/ShippingPage";
 import PaymentPage from "./Components/pages/checkoutPages/PaymentPage";
@@ -160,7 +161,7 @@ function App() {
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [productAdded]);
 
   return (
     <div className="App">
@@ -231,6 +232,9 @@ function App() {
           </Route>
           <Route exact path="/account/register">
             <RegisterPage />
+          </Route>
+          <Route exact path="/account/guest">
+            <GuestOrdersPage />
           </Route>
           <Route exact path="/account">
             <AccountPage logOutUser={logOutUser} user={user} />

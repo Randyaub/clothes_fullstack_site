@@ -14,6 +14,11 @@ const Header = (props) => {
         </span>
         <div>
           <span className="c-Header__lrcB">
+            <Link className="c-Header__link" to="/account/guest">
+              <span>GUEST ORDERS</span>
+            </Link>
+          </span>
+          <span className="c-Header__lrcB">
             {props.userLoggedIn ? (
               <UserDropDownMenu logOutUser={props.logOutUser} />
             ) : (
