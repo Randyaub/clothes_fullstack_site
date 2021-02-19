@@ -49,7 +49,6 @@ exports.user_log_in = (req, res) => {
 
 exports.user_account = (req, res) => {
   const { user_id } = req.userData;
-  console.log(user_id);
   pool
     .query("SELECT * FROM customer WHERE id = $1", [user_id])
     .then((user) => {
@@ -113,4 +112,68 @@ exports.user_create_account = (req, res) => {
       error: "Password was not greater or equal to 8",
     });
   }
+};
+
+//RETURNS THE 10 MOST RECENT GUEST ORDERS AND THE ORDERS ITEMS
+exports.user_guest_orders = (req, res) => {
+  //Select the 10 most recent guest orders
+  let response = [];
+
+  pool
+    .query(
+      `
+      SELECT 
+        * 
+      FROM 
+        orders     
+      WHERE orders.customer_id IS NULL
+      ORDER BY orders.order_placed DESC LIMIT 10     
+      `
+    )
+    .then((orders) => {
+      //Iterate through all orders
+      orders.rows.map((order, index) => {
+        //Find all items that has order_id equal to orders id
+        pool
+          .query(
+            `
+            SELECT
+              * 
+            FROM order_item
+            WHERE order_item.order_id IN ($1)`,
+            [order.id]
+          )
+          //Return the order and map out the orders items
+          .then((items) => {
+            //guest order details
+            let guest_order = {
+              order_number: order.id,
+              status: order.order_status,
+              method: order.order_method,
+              placed: order.order_placed,
+              items: items.rows.map((item) => {
+                return {
+                  item: {
+                    item_sku: item.sku,
+                    item_colour: item.colour,
+                    item_size: item.size,
+                    item_quantity: item.quantity,
+                  },
+                };
+              }),
+            };
+            //Append order to end of response
+            response.push(guest_order);
+            //return response when all orders iterated through
+            if (orders.rowCount === index + 1) {
+              res.status(200).json({ guest_orders: response });
+            }
+          });
+      });
+    })
+    .catch((error) => {
+      return res.status(500).json({
+        error: error.message,
+      });
+    });
 };

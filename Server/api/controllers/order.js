@@ -18,7 +18,8 @@ exports.order_confirm_order_guest = (req, res) => {
     .query(
       `WITH new_address AS (INSERT INTO order_address (line_1, line_2, postal_code, city, province) VALUES ($1, $2, $3, $4, $5) returning id )
        INSERT INTO orders (order_address_id, order_status, order_placed, order_method, email, first_name, last_name) 
-       VALUES ((SELECT id from new_address), $6, $7, $8, $9, $10, $11)`,
+       VALUES ((SELECT id from new_address), $6, $7, $8, $9, $10, $11)
+       RETURNING id`,
       [
         addressLine1,
         addressLine2,
@@ -33,12 +34,13 @@ exports.order_confirm_order_guest = (req, res) => {
         lastName,
       ]
     )
-    .then(() => {
+    .then((orders) => {
       for (let i in req.body.checkoutItems) {
         pool
           .query(
-            "INSERT INTO order_item (sku, colour, size, quantity) VALUES ($1, $2, $3, $4)",
+            "INSERT INTO order_item (order_id, sku, colour, size, quantity) VALUES ($1, $2, $3, $4, $5)",
             [
+              orders.rows[0].id,
               req.body.checkoutItems[i].sku,
               req.body.checkoutItems[i].colour,
               req.body.checkoutItems[i].size,
@@ -63,7 +65,6 @@ exports.order_confirm_order_guest = (req, res) => {
 
 exports.order_confirm_order_user = (req, res) => {
   const { user_id } = req.userData;
-  console.log(req.body);
   const currentTime = new Date();
   const {
     addressLine1,
@@ -80,8 +81,9 @@ exports.order_confirm_order_user = (req, res) => {
   pool
     .query(
       `WITH new_address AS (INSERT INTO order_address (line_1, line_2, postal_code, city, province) VALUES ($1, $2, $3, $4, $5) returning id )
-     INSERT INTO orders (customer_id, order_address_id, order_status, order_placed, order_method, email, first_name, last_name) 
-     VALUES ($6, (SELECT id from new_address), $7, $8, $9, $10, $11, $12)`,
+     INSERT INTO orders (id, customer_id, order_address_id, order_status, order_placed, order_method, email, first_name, last_name) 
+     VALUES (DEFAULT, $6, (SELECT id from new_address), $7, $8, $9, $10, $11, $12)
+     RETURNING id`,
       [
         addressLine1,
         addressLine2,
@@ -97,12 +99,13 @@ exports.order_confirm_order_user = (req, res) => {
         lastName,
       ]
     )
-    .then(() => {
+    .then((orders) => {
       for (let i in req.body.checkoutItems) {
         pool
           .query(
-            "INSERT INTO order_item (sku, colour, size, quantity) VALUES ($1, $2, $3, $4)",
+            "INSERT INTO order_item (order_id, sku, colour, size, quantity) VALUES ($1, $2, $3, $4, $5)",
             [
+              orders.rows[0].id,
               req.body.checkoutItems[i].sku,
               req.body.checkoutItems[i].colour,
               req.body.checkoutItems[i].size,
