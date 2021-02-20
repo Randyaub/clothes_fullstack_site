@@ -1,0 +1,19 @@
+.c-OrderItems {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-height: 285px;
+  margin: 20px 0px;
+  border-bottom: 1px solid var(--border-colour);
+  overflow-y: scroll;
+}
+
+.c-OrderItems__item {
+  display: flex;
+  width: 32%;
+  margin: 5px 0px;
+}
+
+.c-OrderItems__image {
+  max-height: 130px;
+}

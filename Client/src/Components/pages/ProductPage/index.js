@@ -42,7 +42,6 @@ const ProductPage = (props) => {
       const isItemInCart = props.cartItems.some((item) => {
         if (item.sku === product.sku && item.size === size) {
           addDuplicateToCart(item);
-
           return true;
         } else {
           return false;
