@@ -166,6 +166,7 @@ const CheckoutForm = (props) => {
             inputPlaceHolder={"Email"}
             inputSetFunction={props.formInfo.setEmail}
             error={emailError}
+            maxLength={"40"}
           />
         )}
         <div className="c-CheckoutForm__row">
@@ -178,6 +179,7 @@ const CheckoutForm = (props) => {
               inputPlaceHolder={"First Name"}
               inputSetFunction={props.formInfo.setFirstName}
               error={firstNameError}
+              maxLength={"40"}
             />
           </div>
           <div className="c-CheckoutForm__half">
@@ -188,6 +190,7 @@ const CheckoutForm = (props) => {
               inputPlaceHolder={"Last Name"}
               inputSetFunction={props.formInfo.setLastName}
               error={lastNameError}
+              maxLength={"40"}
             />
           </div>
         </div>
@@ -200,6 +203,7 @@ const CheckoutForm = (props) => {
               inputPlaceHolder={"Address Line 1"}
               inputSetFunction={props.formInfo.setAddressLine1}
               error={address1Error}
+              maxLength={"40"}
             />
           </div>
           <div className="c-CheckoutForm__half">
@@ -210,6 +214,7 @@ const CheckoutForm = (props) => {
               inputPlaceHolder={"Address Line 2"}
               inputSetFunction={props.formInfo.setAddressLine2}
               subInfo={"Building, Unit, Floor, etc"}
+              maxLength={"40"}
             />
           </div>
         </div>
@@ -222,6 +227,7 @@ const CheckoutForm = (props) => {
               inputPlaceHolder={"City"}
               inputSetFunction={props.formInfo.setCity}
               error={cityError}
+              maxLength={"40"}
             />
           </div>
           <div className="c-CheckoutForm__half">
@@ -243,6 +249,7 @@ const CheckoutForm = (props) => {
           inputSetFunction={props.formInfo.setZipCode}
           error={zipCodeError}
           subInfo={"Enter your postal code"}
+          maxLength={"6"}
         />
       </div>
 

@@ -7,7 +7,7 @@ import CreditCardExpiration from "./CreditCardExpiration";
 const CheckoutPaymentForm = (props) => {
   return (
     <div className="c-CheckoutPaymentInformation">
-      <h2>PAYMENT METHOD</h2>
+      <h2>PAYMENT METHOD - Credit Card</h2>
       <h5>Please do not put real card information</h5>
       <FormItem
         inputClassName={"c-Input__input c-CheckoutPaymentInformation__half"}
@@ -17,6 +17,7 @@ const CheckoutPaymentForm = (props) => {
         inputPlaceHolder={"Name on Card"}
         inputSetFunction={props.cardPaymentInfo.setNameOnCard}
         error={props.nameOnCardError}
+        maxLength={"40"}
       />
       <FormItem
         inputClassName={"c-Input__input c-CheckoutPaymentInformation__half"}

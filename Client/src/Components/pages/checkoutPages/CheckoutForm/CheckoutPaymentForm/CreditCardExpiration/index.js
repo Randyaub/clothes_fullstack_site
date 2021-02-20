@@ -53,6 +53,7 @@ const CreditCardExpiration = (props) => {
         subInfo={
           "Your card verification value, on the back of your credit card"
         }
+        maxLength={"3"}
       />
     </>
   );
