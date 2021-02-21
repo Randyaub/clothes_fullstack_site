@@ -1,5 +1,5 @@
 import React from "react";
-import { formatCategory } from "../../../../../../../utility/utilities";
+import { formatCategory } from "../../../../../../utility/utilities";
 import "./OrderItemDetails.css";
 
 const OrderItemDetails = (props) => {

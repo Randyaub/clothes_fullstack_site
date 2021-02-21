@@ -8,7 +8,7 @@
 }
 
 .c-AccountPage__sidebar {
-  width: 28%;
+  width: 25%;
 }
 
 .c-AccountPage__orders {
@@ -18,10 +18,6 @@
 .c-AccountPage__list {
   display: flex;
   justify-content: space-between;
-}
-
-.c-AccountPage__heading {
-  font-size: 20px;
 }
 
 .c-AccountPage__container {

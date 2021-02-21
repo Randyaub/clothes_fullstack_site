@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../../../../common/buttons/Button";
+import Button from "../../buttons/Button";
 import OrderDetail from "./OrderDetail";
 import OrderItems from "./OrderItems";
 

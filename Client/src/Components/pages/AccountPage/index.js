@@ -1,8 +1,19 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import Orders from "../../common/Orders";
+import axios from "axios";
 import "./AccountPage.css";
 
 const AccountPage = (props) => {
+  const [userOrders, setUserOrders] = useState([]);
+
+  useEffect(() => {
+    axios({ method: "GET", url: `user/account/user/${props.user.id}` }).then(
+      (result) => {
+        setUserOrders(result.data.user_orders);
+      }
+    );
+  }, [props.user.id]);
+
   return (
     <div className="c-AccountPage">
       <div className="c-AccountPage__sidebar">
@@ -14,8 +25,7 @@ const AccountPage = (props) => {
           <ul>
             <li>
               <div className="c-AccountPage__list">
-                <span>All Purchases</span>{" "}
-                <i className="fas fa-arrow-right"></i>
+                <span>Your Orders</span> <i className="fas fa-arrow-right"></i>
               </div>
             </li>
             <li>
@@ -30,10 +40,8 @@ const AccountPage = (props) => {
       </div>
       <div className="c-AccountPage__orders">
         <div>
-          <div div className="c-AccountPage__heading">
-            All Purchases
-          </div>
-          <div></div>
+          <h2>Orders</h2>
+          <Orders order={userOrders} />
         </div>
       </div>
     </div>

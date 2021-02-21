@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./GuestOrdersPage.css";
 
-import Orders from "./Orders";
+import Orders from "../../common/Orders";
 
 const GuestOrdersPage = () => {
   const [guestOrders, setGuestOrders] = useState([]);
@@ -16,7 +16,7 @@ const GuestOrdersPage = () => {
   return (
     <div>
       <h1>THE 10 MOST RECENT GUEST ORDERS</h1>
-      <Orders guestOrders={guestOrders} />
+      <Orders order={guestOrders} />
     </div>
   );
 };
