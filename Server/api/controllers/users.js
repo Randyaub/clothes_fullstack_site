@@ -153,20 +153,87 @@ exports.user_guest_orders = (req, res) => {
               placed: order.order_placed,
               items: items.rows.map((item) => {
                 return {
-                  item: {
-                    item_sku: item.sku,
-                    item_colour: item.colour,
-                    item_size: item.size,
-                    item_quantity: item.quantity,
-                  },
+                  name: item.name,
+                  sku: item.sku,
+                  colour: item.colour,
+                  size: item.size,
+                  quantity: item.quantity,
                 };
               }),
             };
             //Append order to end of response
             response.push(guest_order);
-            //return response when all orders iterated through
+          })
+          //return response when all orders iterated through
+          .then(() => {
             if (orders.rowCount === index + 1) {
               res.status(200).json({ guest_orders: response });
+            }
+          });
+      });
+    })
+    .catch((error) => {
+      return res.status(500).json({
+        error: error.message,
+      });
+    });
+};
+
+exports.user_user_orders = (req, res) => {
+  //Select the 10 most recent guest orders
+  const { id } = req.params;
+  let response = [];
+
+  pool
+    .query(
+      `
+      SELECT 
+        * 
+      FROM 
+        orders     
+      WHERE orders.customer_id = $1
+      ORDER BY orders.order_placed DESC LIMIT 10     
+      `,
+      [id]
+    )
+    .then((orders) => {
+      //Iterate through all orders
+      orders.rows.map((order, index) => {
+        //Find all items that has order_id equal to orders id
+        pool
+          .query(
+            `
+            SELECT
+              * 
+            FROM order_item
+            WHERE order_item.order_id IN ($1)`,
+            [order.id]
+          )
+          //Return the order and map out the orders items
+          .then((items) => {
+            //user order details
+            let user_order = {
+              order_number: order.id,
+              status: order.order_status,
+              method: order.order_method,
+              placed: order.order_placed,
+              items: items.rows.map((item) => {
+                return {
+                  name: item.name,
+                  sku: item.sku,
+                  colour: item.colour,
+                  size: item.size,
+                  quantity: item.quantity,
+                };
+              }),
+            };
+            //Append order to end of response
+            response.push(user_order);
+          })
+          //return response when all orders iterated through
+          .then(() => {
+            if (orders.rowCount === index + 1) {
+              res.status(200).json({ user_orders: response });
             }
           });
       });

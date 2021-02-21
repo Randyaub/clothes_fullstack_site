@@ -38,9 +38,10 @@ exports.order_confirm_order_guest = (req, res) => {
       for (let i in req.body.checkoutItems) {
         pool
           .query(
-            "INSERT INTO order_item (order_id, sku, colour, size, quantity) VALUES ($1, $2, $3, $4, $5)",
+            "INSERT INTO order_item (order_id, name, sku, colour, size, quantity) VALUES ($1, $2, $3, $4, $5, $6)",
             [
               orders.rows[0].id,
+              req.body.checkoutItems[i].name,
               req.body.checkoutItems[i].sku,
               req.body.checkoutItems[i].colour,
               req.body.checkoutItems[i].size,
@@ -103,9 +104,10 @@ exports.order_confirm_order_user = (req, res) => {
       for (let i in req.body.checkoutItems) {
         pool
           .query(
-            "INSERT INTO order_item (order_id, sku, colour, size, quantity) VALUES ($1, $2, $3, $4, $5)",
+            "INSERT INTO order_item (order_id, name, sku, colour, size, quantity) VALUES ($1, $2, $3, $4, $5, $6)",
             [
               orders.rows[0].id,
+              req.body.checkoutItems[i].name,
               req.body.checkoutItems[i].sku,
               req.body.checkoutItems[i].colour,
               req.body.checkoutItems[i].size,
