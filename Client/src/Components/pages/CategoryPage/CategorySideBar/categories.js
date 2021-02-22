@@ -20,20 +20,10 @@ export const women = [
   },
   {
     category: "pants",
-    subcategories: [
-      "leggings",
-      "joggers",
-      "cargo-pants",
-      "dress-pants",
-      "chinos",
-    ],
+    subcategories: ["leggings", "dress-pants", "chinos"],
   },
   {
     category: "shirts-and-blouses",
-    subcategories: ["shirts", "blouses", "denim"],
-  },
-  {
-    category: "jeans",
-    subcategories: ["regular", "relaxed", "skinny"],
+    subcategories: ["dress-shirts", "blouses"],
   },
 ];
