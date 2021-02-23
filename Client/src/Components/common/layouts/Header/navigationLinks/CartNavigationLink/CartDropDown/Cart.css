@@ -15,7 +15,7 @@
   z-index: 999999;
 }
 
-.c-Header__lrcB:hover > .c-Cart,
+.c-Header__column:hover > .c-Cart,
 .c-Cart:hover {
   visibility: visible;
   opacity: 1;

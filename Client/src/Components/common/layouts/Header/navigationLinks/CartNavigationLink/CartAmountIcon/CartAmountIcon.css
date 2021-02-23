@@ -1,0 +1,23 @@
+.c-CartAmountIcon {
+  padding: 5px;
+  color: var(--main-text-colour);
+  font-size: 16px;
+  position: relative;
+}
+
+.c-CartAmountIcon > span {
+  position: absolute;
+  left: 90%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 2px 5px;
+  padding-bottom: 1px;
+  background-color: var(--highlight-text);
+  color: var(--secondary-text-colour);
+  font-size: 17px;
+}
+
+.c-CartAmountIcon {
+  margin-right: 8px;
+}

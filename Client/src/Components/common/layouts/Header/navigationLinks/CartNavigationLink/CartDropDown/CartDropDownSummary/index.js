@@ -1,7 +1,7 @@
 import React from "react";
 import "./CartDropDownSummary.css";
 
-import LinkButton from "../../../../buttons/LinkButton";
+import LinkButton from "../../../../../../buttons/LinkButton";
 
 const CartDropDownSummary = (props) => {
   return (

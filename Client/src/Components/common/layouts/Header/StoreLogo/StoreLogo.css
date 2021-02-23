@@ -1,0 +1,10 @@
+.c-StoreLogo {
+  display: block;
+  margin: 20px auto;
+  height: 100px;
+  width: 150px;
+}
+
+.c-StoreLogo__image {
+  width: 100%;
+}

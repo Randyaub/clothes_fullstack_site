@@ -1,14 +1,14 @@
-.c-UserDropDownMenu__link:hover {
+.c-UserNavigation__link:hover {
   color: var(--highlight-text);
 }
 
-.c-Header__lrcB:hover > .c-UserDropDownMenu__menu,
-.c-UserDropDownMenu__menu:hover {
+.c-Header__column:hover > .c-UserNavigation__menu,
+.c-UserNavigation__menu:hover {
   visibility: visible;
   opacity: 1;
 }
 
-.c-UserDropDownMenu__menu {
+.c-UserNavigation__menu {
   position: absolute;
   background-color: white;
   -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
@@ -23,20 +23,20 @@
   z-index: 999999;
 }
 
-.c-UserDropDownMenu__menu > ul > li {
+.c-UserNavigation__menu > ul > li {
   margin-bottom: 8px;
   cursor: pointer;
 }
 
-.c-UserDropDownMenu__menu > ul > li:hover {
+.c-UserNavigation__menu > ul > li:hover {
   text-decoration: underline;
 }
 
-.c-UserDropDownMenu__menu > ul > li:last-child {
+.c-UserNavigation__menu > ul > li:last-child {
   margin-bottom: 0px;
 }
 
-.c-UserDropDownMenu__logout {
+.c-UserNavigation__logout {
   font-size: 14px;
   color: var(--lighter-text-colour);
 }

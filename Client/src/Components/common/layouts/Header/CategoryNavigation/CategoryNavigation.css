@@ -1,0 +1,25 @@
+.c-CategoryNavigation {
+  display: flex;
+  justify-content: center;
+}
+
+.c-CategoryNavigation__category {
+  font-size: 1.3em;
+  padding: 10px 15px;
+  text-align: center;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
+  border-right: 1px solid var(--border-colour);
+}
+
+.c-CategoryNavigation__category:last-child {
+  border-right: none;
+}
+
+.c-CategoryNavigation-equal {
+  width: 108px;
+}
+
+.c-CategoryNavigation__category:hover {
+  border-bottom: 3px solid var(--highlight-text);
+}

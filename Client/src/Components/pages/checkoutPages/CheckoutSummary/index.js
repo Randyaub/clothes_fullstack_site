@@ -1,7 +1,7 @@
 import React from "react";
 import "./CheckoutSummary.css";
 
-import CartDropDownList from "../../../common/layouts/Header/CartDropDown/CartDropDownList";
+import CartDropDownList from "../../../common/layouts/Header/navigationLinks/CartNavigationLink/CartDropDown/CartDropDownList";
 import CartSummary from "../../CartPage/CartSummary";
 
 const CheckoutSummary = (props) => {

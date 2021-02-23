@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CartDropDownItemDetails from "./CartDropDownItemDetails";
-
 import "./CartDropDownItem.css";
 
 const CartDropDownItem = (props) => {
