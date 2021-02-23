@@ -15,10 +15,12 @@ const ProductPage = (props) => {
   const { sku } = useParams();
 
   useEffect(() => {
+    props.setLoading(true);
     //retrieve selected product and its variations
     axios.get(`http://localhost:4000/Product-Page/${sku}`).then((result) => {
       setProduct(result.data.product_information);
       setVariants(result.data.product_variants);
+      props.setLoading(false);
     });
   }, [sku]);
 
@@ -55,7 +57,9 @@ const ProductPage = (props) => {
     }
   };
 
-  return (
+  return props.loading ? (
+    ""
+  ) : (
     <section className="c-ProductPage container">
       <div className="l-ProductPage__images">
         <ProductImage product={product} number={"1"} />

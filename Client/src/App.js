@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory, Redirect } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 
 import Header from "./Components/common/layouts/Header";
 import Footer from "./Components/common/layouts/Footer";
-import HomePage from "./Components/pages/HomePage";
 import LogInPage from "./Components/pages/LogInPage";
 import RegisterPage from "./Components/pages/RegisterPage";
 import CartPage from "./Components/pages/CartPage";
@@ -20,9 +19,11 @@ import ShippingPage from "./Components/pages/checkoutPages/ShippingPage";
 import PaymentPage from "./Components/pages/checkoutPages/PaymentPage";
 import OrderPage from "./Components/pages/checkoutPages/OrderPage";
 import PurchasedPage from "./Components/pages/PurchasedPage";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
   let history = useHistory();
+  const [loading, setLoading] = useState(true);
 
   //website globals
   const [userLoggedIn, setUserLoggedIn] = useState(false);
@@ -177,7 +178,7 @@ function App() {
         />
         <Switch>
           <Route exact path="/">
-            <HomePage />
+            <Redirect to="/men/Shop-Category/hoodies-and-sweatshirts" />
           </Route>
           <Route path="/checkout/order-submitted">
             <PurchasedPage />
@@ -225,6 +226,8 @@ function App() {
               cartItems={cartItems}
               setCartCostTotal={setCartCostTotal}
               cartCostTotal={cartCostTotal}
+              setLoading={setLoading}
+              loading={loading}
             />
           </Route>
           <Route exact path="/account/login">
@@ -234,11 +237,20 @@ function App() {
             <RegisterPage />
           </Route>
           <Route exact path="/account/guest">
-            <GuestOrdersPage />
+            <GuestOrdersPage setLoading={setLoading} loading={loading} />
           </Route>
-          <Route exact path="/account">
-            <AccountPage logOutUser={logOutUser} user={user} />
-          </Route>
+          <ProtectedRoute
+            exact
+            path="/account"
+            isAuth={userLoggedIn}
+            Component={AccountPage}
+            properties={{
+              logOutUser: logOutUser,
+              user: user,
+              setLoading: setLoading,
+              loading: loading,
+            }}
+          ></ProtectedRoute>
           <Route exact path="/cart">
             <CartPage
               cartItems={cartItems}

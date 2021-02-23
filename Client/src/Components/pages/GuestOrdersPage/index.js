@@ -4,16 +4,20 @@ import "./GuestOrdersPage.css";
 
 import Orders from "../../common/Orders";
 
-const GuestOrdersPage = () => {
+const GuestOrdersPage = ({ loading, setLoading }) => {
   const [guestOrders, setGuestOrders] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
     axios({ method: "GET", url: "user/account/guest" }).then((result) => {
       setGuestOrders(result.data.guest_orders);
+      setLoading(false);
     });
   }, []);
 
-  return (
+  return loading ? (
+    ""
+  ) : (
     <div>
       <h1>THE 10 MOST RECENT GUEST ORDERS</h1>
       <Orders order={guestOrders} />

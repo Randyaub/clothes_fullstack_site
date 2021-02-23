@@ -9,11 +9,14 @@ const CategoryNavigation = () => {
       <div className="c-CategoryNavigation">
         <NavLink
           className="c-CategoryNavigation__category c-CategoryNavigation-equal"
-          to="/men"
+          to="/men/Shop-Category/hoodies-and-sweatshirts"
         >
           MEN
         </NavLink>
-        <NavLink className="c-CategoryNavigation__category" to="/women">
+        <NavLink
+          className="c-CategoryNavigation__category"
+          to="/women/Shop-Category/jackets-and-coats"
+        >
           WOMEN
         </NavLink>
       </div>

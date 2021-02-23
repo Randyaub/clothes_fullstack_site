@@ -3,22 +3,26 @@ import Orders from "../../common/Orders";
 import axios from "axios";
 import "./AccountPage.css";
 
-const AccountPage = (props) => {
+const AccountPage = ({ user, logOutUser, loading, setLoading }) => {
   const [userOrders, setUserOrders] = useState([]);
 
   useEffect(() => {
-    axios({ method: "GET", url: `user/account/user/${props.user.id}` }).then(
+    setLoading(true);
+    axios({ method: "GET", url: `user/account/user/${user.id}` }).then(
       (result) => {
         setUserOrders(result.data.user_orders);
+        setLoading(false);
       }
     );
-  }, [props.user.id]);
+  }, [user.id, setLoading]);
 
-  return (
+  return loading ? (
+    ""
+  ) : (
     <div className="c-AccountPage">
       <div className="c-AccountPage__sidebar">
         <div className="c-AccountPage__user">
-          Welcome {props.user.first_name} {props.user.last_name}
+          Welcome {user.first_name} {user.last_name}
         </div>
         <div className="c-AccountPage__container">
           <div className="c-AccountPage__heading">My Account</div>
@@ -28,13 +32,13 @@ const AccountPage = (props) => {
                 <span>Your Orders</span> <i className="fas fa-arrow-right"></i>
               </div>
             </li>
-            <li>
+            {/* <li>
               <div className="c-AccountPage__list">
                 <span>Settings</span>
                 <i className="fas fa-arrow-right"></i>
               </div>
-            </li>
-            <li onClick={() => props.logOutUser()}>Sign Out</li>
+            </li> */}
+            <li onClick={() => logOutUser()}>Sign Out</li>
           </ul>
         </div>
       </div>

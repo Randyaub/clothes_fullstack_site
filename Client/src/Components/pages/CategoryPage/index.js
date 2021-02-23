@@ -21,7 +21,7 @@ const Category = () => {
             <Route exact path={`${path}/Shop-Category/:category/:subcategory`}>
               <CategoryProduct />
             </Route>
-            <Route path={`${path}/Shop-Category/:category`}>
+            <Route exact path={`${path}/Shop-Category/:category`}>
               <CategoryProduct />
             </Route>
           </Switch>
