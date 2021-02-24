@@ -25,9 +25,14 @@ const ProductPage = (props) => {
   }, [sku]);
 
   const addDuplicateToCart = (product) => {
-    product.quantity += 1;
-    props.setCartCount(props.cartCount + 1);
-    props.setCartCostTotal(props.cartCostTotal + parseFloat(product.price));
+    if (product.quantity < 10) {
+      console.log(product.quantity);
+      product.quantity += 1;
+      props.setCartCount(props.cartCount + 1);
+      props.setCartCostTotal(props.cartCostTotal + parseFloat(product.price));
+    } else {
+      setError("Only 10 of one item can be purchased.");
+    }
   };
 
   const addItemToCart = (product) => {
