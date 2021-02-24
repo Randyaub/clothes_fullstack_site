@@ -9,8 +9,8 @@ const OrderItems = (props) => {
       <div
         className={
           props.viewItems
-            ? "c-OrderItems__list show"
-            : "c-OrderItems__list hidden"
+            ? "c-OrderItems__list show-order"
+            : "c-OrderItems__list hidden-order"
         }
       >
         {Array.isArray(props.items) &&

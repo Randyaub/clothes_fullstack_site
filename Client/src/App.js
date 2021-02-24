@@ -29,6 +29,10 @@ function App() {
   const { token, setToken } = useToken();
   const { localStorageCart, setLocalStorageCart } = useLocalStorageCart();
 
+  const [hasVisitedShipping, setHasVisitedShipping] = useState();
+  const [hasVisitedPayment, setHasVisitedPayment] = useState();
+  const [hasCompletedOrder, setHasCompletedOrder] = useState();
+
   //website globals
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
@@ -181,7 +185,7 @@ function App() {
           </Route>
 
           <Route path="/checkout/order-submitted">
-            <PurchasedPage />
+            <PurchasedPage hasCompletedOrder={hasCompletedOrder} />
           </Route>
           <Route exact path="/login/checkout">
             <MemberOrGuest
@@ -196,6 +200,7 @@ function App() {
               cartCount={cartCount}
               cartCostTotal={cartCostTotal}
               formInfo={shippingInfo}
+              setHasVisitedShipping={setHasVisitedShipping}
             />
           </Route>
           <Route exact path="/billing-checkout">
@@ -205,6 +210,8 @@ function App() {
               cartCostTotal={cartCostTotal}
               formInfo={billingInfo}
               shippingInfo={shippingInfo}
+              hasVisitedShipping={hasVisitedShipping}
+              setHasVisitedPayment={setHasVisitedPayment}
             />
           </Route>
           <Route exact path="/order-checkout">
@@ -218,6 +225,9 @@ function App() {
               setCartCostTotal={setCartCostTotal}
               setCartItems={setCartItems}
               isLoggedIn={isLoggedIn}
+              hasVisitedShipping={hasVisitedShipping}
+              hasVisitedPayment={hasVisitedPayment}
+              setHasCompletedOrder={setHasCompletedOrder}
             />
           </Route>
           <Route exact path="/Product-Page/:sku">

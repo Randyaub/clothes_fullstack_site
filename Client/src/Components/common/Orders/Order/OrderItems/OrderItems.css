@@ -26,12 +26,12 @@
   z-index: 999999;
 }
 
-.hidden {
+.hidden-order {
   visibility: hidden;
   opacity: 0;
 }
 
-.show {
+.show-order {
   visibility: visible;
   opacity: 1;
   max-height: 285px;

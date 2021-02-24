@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import axios from "axios";
 import "./OrderPage.css";
 
@@ -17,53 +17,56 @@ const OrderPage = (props) => {
   const { setLocalStorageCart } = useLocalStorageCart();
   const { token } = useToken();
 
+  const goToOrderCompletedPage = () => {
+    history.push("/checkout/order-submitted");
+    props.setHasCompletedOrder(true);
+  };
+
+  const resetCartAndGoToNextPage = () => {
+    //Empty local storage
+    setLocalStorageCart();
+    //Remove purchased items
+    props.setCartItems([]);
+    props.setCartCount(0);
+    props.setCartCostTotal(0);
+    goToOrderCompletedPage();
+  };
+
+  const loggedInAxiosRequest = {
+    method: "POST",
+    url: "order/confirm-order-user",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+    data: {
+      shippingInformation: shippingInfo,
+      checkoutItems: props.cartItems,
+    },
+  };
+
+  const guestAxiosRequest = {
+    method: "POST",
+    url: "order/confirm-order-guest",
+    data: {
+      shippingInformation: shippingInfo,
+      checkoutItems: props.cartItems,
+    },
+  };
+
   const handleClick = () => {
     if (props.isLoggedIn) {
-      axios({
-        method: "POST",
-        url: "order/confirm-order-user",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-        data: {
-          shippingInformation: shippingInfo,
-          checkoutItems: props.cartItems,
-        },
-      })
-        .then((respone) => {
-          //Empty local storage
-          setLocalStorageCart();
-          //Remove purchased items
-          props.setCartItems([]);
-          props.setCartCount(0);
-          props.setCartCostTotal(0);
-          //
-          history.push("/checkout/order-submitted");
-        })
-        .catch((err) => console.log(err));
+      axios(loggedInAxiosRequest).then(() => {
+        resetCartAndGoToNextPage();
+      });
     } else {
-      axios({
-        method: "POST",
-        url: "order/confirm-order-guest",
-        data: {
-          shippingInformation: shippingInfo,
-          checkoutItems: props.cartItems,
-        },
-      })
-        .then(() => {
-          //Empty local storage
-          setLocalStorageCart();
-          //Remove purchased items
-          props.setCartItems([]);
-          props.setCartCount(0);
-          props.setCartCostTotal(0);
-          //
-          history.push("/checkout/order-submitted");
-        })
-        .catch((err) => console.log(err));
+      axios(guestAxiosRequest).then(() => {
+        resetCartAndGoToNextPage();
+      });
     }
   };
-  return (
+  return !props.hasVisitedPayment || !props.hasVisitedShipping ? (
+    <Redirect to="shipping-checkout" />
+  ) : (
     <>
       <BreadCrumbIndicator checkoutPosition={"order"} />
       <div className="c-Order">

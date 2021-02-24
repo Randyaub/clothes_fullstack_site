@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 import "./PaymentPage.css";
 import CheckoutForm from "../CheckoutForm";
@@ -15,6 +15,7 @@ const PaymentPage = (props) => {
 
   const goToOrder = () => {
     history.push("/order-checkout");
+    props.setHasVisitedPayment(true);
   };
 
   const handleChange = (event) => {
@@ -38,7 +39,9 @@ const PaymentPage = (props) => {
     }
   };
 
-  return (
+  return !props.hasVisitedShipping ? (
+    <Redirect to="shipping-checkout" />
+  ) : (
     <>
       <BreadCrumbIndicator checkoutPosition={"payment"} />
       <div className="l-Payment">

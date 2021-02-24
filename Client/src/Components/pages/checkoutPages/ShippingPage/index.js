@@ -11,6 +11,7 @@ const ShippingPage = (props) => {
 
   const goToPayment = () => {
     history.push("/billing-checkout");
+    props.setHasVisitedShipping(true);
   };
 
   return (

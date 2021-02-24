@@ -1,9 +1,12 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import LinkButton from "../../common/buttons/LinkButton";
 import "./PurchasedPage.css";
 
-const PurchasedPage = () => {
-  return (
+const PurchasedPage = (props) => {
+  return !props.hasCompletedOrder ? (
+    <Redirect to="/" />
+  ) : (
     <div className="c-PurchasedPage">
       <div className="c-PurchasedPage__text">
         <h1>THANK YOU FOR YOUR PURCHASE</h1>
