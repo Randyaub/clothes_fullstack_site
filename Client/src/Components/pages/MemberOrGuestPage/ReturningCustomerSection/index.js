@@ -9,7 +9,11 @@ const ReturningCustomerSection = (props) => {
     <div className="c-ReturningCustomerSection">
       <h1 className="main-header">RETURNING CUSTOMER</h1>
       <div>Already have an account sign in here.</div>
-      <LoginForm checkoutLogin={true} setUserLoggedIn={props.setUserLoggedIn} />
+      <LoginForm
+        checkoutLogin={true}
+        setLoggedIn={props.setLoggedIn}
+        setUser={props.setUser}
+      />
     </div>
   );
 };

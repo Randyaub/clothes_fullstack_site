@@ -13,7 +13,7 @@ const GuestOrdersPage = ({ loading, setLoading }) => {
       setGuestOrders(result.data.guest_orders);
       setLoading(false);
     });
-  }, []);
+  }, [setLoading]);
 
   return loading ? (
     ""

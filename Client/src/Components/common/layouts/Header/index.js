@@ -15,7 +15,7 @@ const Header = (props) => {
         </span>
         <span className="c-Header__column">
           <AccountNavigationLink
-            userLoggedIn={props.userLoggedIn}
+            isLoggedIn={props.isLoggedIn}
             logOutUser={props.logOutUser}
           />
         </span>
@@ -26,7 +26,7 @@ const Header = (props) => {
             cartCount={props.cartCount}
             cartItems={props.cartItems}
             cartCostTotal={props.cartCostTotal}
-            userLoggedIn={props.userLoggedIn}
+            isLoggedIn={props.isLoggedIn}
             total={props.cartCount}
           />
         </span>

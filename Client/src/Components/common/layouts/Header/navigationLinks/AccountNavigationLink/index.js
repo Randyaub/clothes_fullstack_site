@@ -4,7 +4,7 @@ import UserNavigation from "./UserNavigation";
 import "./AccountNavigationLink.css";
 
 const AccountNavigationLink = (props) => {
-  return props.userLoggedIn ? (
+  return props.isLoggedIn ? (
     <>
       <Link className="c-Header__link" to="/account">
         <i className="fas fa-user"></i> MY ACCOUNT

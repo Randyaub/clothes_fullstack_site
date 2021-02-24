@@ -25,7 +25,7 @@ const Order = (props) => {
           className="small-btn default-btn c-GuestOrderPage-btn"
         />
       </div>
-      {viewItems && <OrderItems items={props.order.items} />}
+      <OrderItems items={props.order.items} viewItems={viewItems} />
     </div>
   );
 };

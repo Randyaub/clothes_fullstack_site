@@ -11,7 +11,7 @@ const CartDropDownSummary = (props) => {
         <h3>${props.cartCostTotal.toFixed(2)}</h3>
       </div>
       <LinkButton
-        url={props.userLoggedIn ? "/shipping-checkout" : "/login/checkout"}
+        url={props.isLoggedIn ? "/shipping-checkout" : "/login/checkout"}
         buttonText={"CHECKOUT"}
       />
       <LinkButton

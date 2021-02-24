@@ -40,9 +40,7 @@ const CartPage = (props) => {
               <h5>* Item prices include tax</h5>
             </div>
             <LinkButton
-              url={
-                props.userLoggedIn ? "/shipping-checkout" : "/login/checkout"
-              }
+              url={props.isLoggedIn ? "/shipping-checkout" : "/login/checkout"}
               buttonText={"PROCEED TO CHECKOUT"}
               className={"red-btn"}
             />

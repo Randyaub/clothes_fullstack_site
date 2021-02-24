@@ -13,7 +13,7 @@ const CartDropDown = (props) => {
           <CartDropDownSummary
             cartCount={props.cartCount}
             cartCostTotal={props.cartCostTotal}
-            userLoggedIn={props.userLoggedIn}
+            isLoggedIn={props.isLoggedIn}
           />
         </>
       ) : (

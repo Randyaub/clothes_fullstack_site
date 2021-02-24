@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import useToken from "../../../../utility/useToken";
 import axios from "axios";
 
 import "./LoginForm.css";
@@ -10,6 +11,7 @@ import { emailValid, passwordValid } from "../../../../utility/utilities";
 
 const LoginForm = (props) => {
   const history = useHistory();
+  const { token, setToken } = useToken();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,8 +41,7 @@ const LoginForm = (props) => {
         })
         .then((res) => {
           setError("");
-          localStorage.setItem("token", res.data.JWT);
-          props.setUserLoggedIn(true);
+          setToken(res.data.JWT);
           props.checkoutLogin ? goToCheckoutPage() : goToHomePage();
         })
         .catch((error) => {
@@ -49,12 +50,32 @@ const LoginForm = (props) => {
               "The email and password you entered did not match our records. Please double check and try again"
             );
           }
+          props.setUser("");
+          props.setLoggedIn(false);
           setEmail("");
           setPassword("");
         });
       setError("");
     }
   };
+
+  useEffect(() => {
+    if (token) {
+      axios({
+        method: "GET",
+        url: "user/account",
+        headers: { Authorization: "Bearer " + token },
+      })
+        .then((res) => {
+          props.setUser(res.data);
+          props.setLoggedIn(true);
+        })
+        .catch(() => {
+          props.setUser("");
+          props.setLoggedIn(false);
+        });
+    }
+  }, [token]);
 
   return (
     <>

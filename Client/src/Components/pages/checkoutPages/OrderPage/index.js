@@ -7,19 +7,23 @@ import BreadCrumbIndicator from "../BreadCrumbIndicator";
 import OrderInformation from "./OrderInformation";
 import Button from "../../../common/buttons/Button";
 import CheckoutSummary from "../CheckoutSummary";
+import useLocalStorageCart from "../../../../utility/useLocalStorageCart";
+import useToken from "../../../../utility/useToken";
 
 const OrderPage = (props) => {
   let history = useHistory();
   const { shippingInfo } = props;
   const { billingInfo } = props;
+  const { setLocalStorageCart } = useLocalStorageCart();
+  const { token } = useToken();
 
   const handleClick = () => {
-    if (props.userLoggedIn) {
+    if (props.isLoggedIn) {
       axios({
         method: "POST",
         url: "order/confirm-order-user",
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: "Bearer " + token,
         },
         data: {
           shippingInformation: shippingInfo,
@@ -28,9 +32,7 @@ const OrderPage = (props) => {
       })
         .then((respone) => {
           //Empty local storage
-          localStorage.removeItem("guestCart");
-          localStorage.removeItem("guestCartAmount");
-          localStorage.removeItem("guestCartTotalCost");
+          setLocalStorageCart();
           //Remove purchased items
           props.setCartItems([]);
           props.setCartCount(0);
@@ -40,7 +42,6 @@ const OrderPage = (props) => {
         })
         .catch((err) => console.log(err));
     } else {
-      //place order
       axios({
         method: "POST",
         url: "order/confirm-order-guest",
@@ -51,9 +52,7 @@ const OrderPage = (props) => {
       })
         .then(() => {
           //Empty local storage
-          localStorage.removeItem("guestCart");
-          localStorage.removeItem("guestCartAmount");
-          localStorage.removeItem("guestCartTotalCost");
+          setLocalStorageCart();
           //Remove purchased items
           props.setCartItems([]);
           props.setCartCount(0);

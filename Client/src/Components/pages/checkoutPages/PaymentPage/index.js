@@ -19,7 +19,6 @@ const PaymentPage = (props) => {
 
   const handleChange = (event) => {
     setSameAsShipping(event.target.checked);
-
     if (event.target.checked) {
       props.formInfo.setFirstName(props.shippingInfo.firstName);
       props.formInfo.setLastName(props.shippingInfo.lastName);

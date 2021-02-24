@@ -4,12 +4,18 @@ import ReturningCustomerSection from "./ReturningCustomerSection";
 import GuestCheckout from "./GuestCheckout";
 
 import "./MemberOrGuest.css";
+import { Redirect } from "react-router-dom";
 
 const MemberOrGuest = (props) => {
-  return (
+  return props.isLoggedIn ? (
+    <Redirect to="/" />
+  ) : (
     <div className="c-MemberOrGuest container">
       <div className="l-MemberOrGuest">
-        <ReturningCustomerSection setUserLoggedIn={props.setUserLoggedIn} />
+        <ReturningCustomerSection
+          setLoggedIn={props.setLoggedIn}
+          setUser={props.setUser}
+        />
         <GuestCheckout />
       </div>
     </div>

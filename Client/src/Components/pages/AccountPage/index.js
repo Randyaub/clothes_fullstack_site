@@ -8,12 +8,12 @@ const AccountPage = ({ user, logOutUser, loading, setLoading }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios({ method: "GET", url: `user/account/user/${user.id}` }).then(
-      (result) => {
+    axios({ method: "GET", url: `user/account/user/${user.id}` })
+      .then((result) => {
         setUserOrders(result.data.user_orders);
         setLoading(false);
-      }
-    );
+      })
+      .catch(setLoading(false));
   }, [user.id, setLoading]);
 
   return loading ? (

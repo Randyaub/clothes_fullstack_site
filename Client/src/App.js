@@ -20,13 +20,17 @@ import PaymentPage from "./Components/pages/checkoutPages/PaymentPage";
 import OrderPage from "./Components/pages/checkoutPages/OrderPage";
 import PurchasedPage from "./Components/pages/PurchasedPage";
 import ProtectedRoute from "./ProtectedRoute";
+import useToken from "./utility/useToken";
+import useLocalStorageCart from "./utility/useLocalStorageCart";
 
 function App() {
   let history = useHistory();
   const [loading, setLoading] = useState(true);
+  const { token, setToken } = useToken();
+  const { localStorageCart, setLocalStorageCart } = useLocalStorageCart();
 
   //website globals
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [cartCount, setCartCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
@@ -108,48 +112,43 @@ function App() {
     setCardCVV: setCardCVV,
   };
 
+  //Retrieves the users previous cart
   useEffect(() => {
-    //Retrieve cart
-    if (
-      localStorage.getItem("guestCart") !== null &&
-      localStorage.getItem("guestCartAmount") !== null &&
-      localStorage.getItem("guestCartTotalCost") !== null
-    ) {
-      setCartItems(JSON.parse(localStorage.getItem("guestCart")));
-      setCartCount(JSON.parse(localStorage.getItem("guestCartAmount")));
-      setCartCostTotal(JSON.parse(localStorage.getItem("guestCartTotalCost")));
-    }
+    const parsedCart = JSON.parse(localStorageCart);
+    setCartItems(parsedCart.cartItems);
+    setCartCount(parsedCart.cartCount);
+    setCartCostTotal(parsedCart.cartCostTotal);
+    // eslint-disable-next-line
+  }, []);
 
-    //Checks if user was logged in before
-    if (localStorage.getItem("token")) {
-      const config = {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      };
-      axios
-        .get("user/account", config)
+  //Checks if the user was logged in previously
+  useEffect(() => {
+    if (token) {
+      axios({
+        method: "GET",
+        url: "user/account",
+        headers: { Authorization: "Bearer " + token },
+      })
         .then((res) => {
           setUser(res.data);
-          setUserLoggedIn(true);
+          setLoggedIn(true);
         })
         .catch(() => {
           setUser("");
-          setUserLoggedIn(false);
+          setLoggedIn(false);
         });
     }
-  }, []);
+  }, [token]);
 
+  //Sets localstorage when ever an item is added
   useEffect(() => {
-    localStorage.setItem("guestCart", JSON.stringify(cartItems));
-    localStorage.setItem("guestCartAmount", JSON.stringify(cartCount));
-    localStorage.setItem("guestCartTotalCost", JSON.stringify(cartCostTotal));
-  }, [cartItems, cartCount, cartCostTotal]);
+    setLocalStorageCart(cartItems, cartCount, cartCostTotal);
+  }, [setLocalStorageCart, cartItems, cartCount, cartCostTotal]);
 
   //Removes token and redirects to home page
   const logOutUser = () => {
-    localStorage.removeItem("token");
-    setUserLoggedIn(false);
+    setToken();
+    setLoggedIn(false);
     history.push("/");
   };
 
@@ -173,18 +172,23 @@ function App() {
           cartCostTotal={cartCostTotal}
           productAdded={productAdded}
           displayMiniCart={displayMiniCart}
-          userLoggedIn={userLoggedIn}
+          isLoggedIn={isLoggedIn}
           logOutUser={logOutUser}
         />
         <Switch>
           <Route exact path="/">
             <Redirect to="/men/Shop-Category/hoodies-and-sweatshirts" />
           </Route>
+
           <Route path="/checkout/order-submitted">
             <PurchasedPage />
           </Route>
           <Route exact path="/login/checkout">
-            <MemberOrGuest setUserLoggedIn={setUserLoggedIn} />
+            <MemberOrGuest
+              setLoggedIn={setLoggedIn}
+              setUser={setUser}
+              isLoggedIn={isLoggedIn}
+            />
           </Route>
           <Route exact path="/shipping-checkout">
             <ShippingPage
@@ -213,7 +217,7 @@ function App() {
               setCartCount={setCartCount}
               setCartCostTotal={setCartCostTotal}
               setCartItems={setCartItems}
-              userLoggedIn={userLoggedIn}
+              isLoggedIn={isLoggedIn}
             />
           </Route>
           <Route exact path="/Product-Page/:sku">
@@ -231,7 +235,11 @@ function App() {
             />
           </Route>
           <Route exact path="/account/login">
-            <LogInPage setUserLoggedIn={setUserLoggedIn} />
+            <LogInPage
+              setLoggedIn={setLoggedIn}
+              setUser={setUser}
+              isLoggedIn={isLoggedIn}
+            />
           </Route>
           <Route exact path="/account/register">
             <RegisterPage />
@@ -240,9 +248,8 @@ function App() {
             <GuestOrdersPage setLoading={setLoading} loading={loading} />
           </Route>
           <ProtectedRoute
-            exact
             path="/account"
-            isAuth={userLoggedIn}
+            isAuth={isLoggedIn}
             Component={AccountPage}
             properties={{
               logOutUser: logOutUser,
@@ -250,7 +257,7 @@ function App() {
               setLoading: setLoading,
               loading: loading,
             }}
-          ></ProtectedRoute>
+          />
           <Route exact path="/cart">
             <CartPage
               cartItems={cartItems}
@@ -259,7 +266,7 @@ function App() {
               setCartCount={setCartCount}
               cartCostTotal={cartCostTotal}
               setCartCostTotal={setCartCostTotal}
-              userLoggedIn={userLoggedIn}
+              isLoggedIn={isLoggedIn}
             />
           </Route>
           <Route path="/:type">

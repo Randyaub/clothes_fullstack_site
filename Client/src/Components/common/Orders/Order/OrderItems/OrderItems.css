@@ -1,19 +1,38 @@
 .c-OrderItems {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-height: 285px;
-  margin: 20px 0px;
-  border-bottom: 1px solid var(--border-colour);
-  overflow-y: scroll;
+  position: relative;
 }
 
 .c-OrderItems__item {
   display: flex;
-  width: 32%;
+  width: 33%;
   margin: 5px 0px;
 }
 
 .c-OrderItems__image {
   max-height: 130px;
+}
+
+.c-OrderItems__list {
+  position: block;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-height: 10px;
+  margin: 10px 0px;
+  border-bottom: 1px solid var(--border-colour);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: all 0.2s;
+  z-index: 999999;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+  max-height: 285px;
 }
