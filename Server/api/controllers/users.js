@@ -52,7 +52,6 @@ exports.user_account = (req, res) => {
   pool
     .query("SELECT * FROM customer WHERE id = $1", [user_id])
     .then((user) => {
-      console.log(user);
       if (user.rowCount !== 0) {
         return res.status(200).json({
           id: user.rows[0].id,
