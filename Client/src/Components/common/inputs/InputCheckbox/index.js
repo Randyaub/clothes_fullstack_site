@@ -10,7 +10,7 @@ const InputCheckbox = (props) => {
         type="checkbox"
         onChange={(event) => props.handleChange(event)}
       ></input>
-      <span class="c-InputCheckbox__checkmark"></span>
+      <span className="c-InputCheckbox__checkmark"></span>
     </label>
   );
 };

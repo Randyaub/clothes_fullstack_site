@@ -9,7 +9,7 @@ const ProductImage = (props) => {
       alt={props.product.name}
       src={
         props.product.image !== undefined
-          ? `http://localhost:4000/public/${props.product.image}-${props.number}.jpg`
+          ? `https://react-express-clothes.herokuapp.com/public/${props.product.image}-${props.number}.jpg`
           : ""
       }
     />

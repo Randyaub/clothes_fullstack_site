@@ -1,3 +1,15 @@
 .c-CategorySideBar {
   width: 18%;
+  min-width: 220px;
+}
+
+.c-CategorySideBar-container {
+  position: relative;
+}
+
+@media only screen and (max-width: 750px) {
+  .c-CategorySideBar {
+    width: 0%;
+    display: none;
+  }
 }

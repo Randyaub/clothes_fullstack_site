@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useParams, useRouteMatch } from "react-router-dom";
 
 import "./CategoryProducts.css";
 
-const CategoryProduct = () => {
+const CategoryProduct = (props) => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  let { category } = useParams();
   let { url } = useRouteMatch();
 
   useEffect(() => {
     axios.get(`${url}`).then((result) => {
       setProducts(result.data.products);
-      console.log(result.data);
+      setLoading(false);
+      props.setCurrentCategory(category);
     });
   }, [url]);
 
-  return (
+  return loading ? (
+    ""
+  ) : (
     <section className="c-CategoryProduct">
       {Array.isArray(products) &&
         products.map((item, i) => {
@@ -25,7 +30,7 @@ const CategoryProduct = () => {
                 <Link to={`/Product-Page/${item.SKU}`}>
                   <img
                     className="c-CategoryProduct__image"
-                    src={`http://localhost:4000/public/${item.image}-1.jpg`}
+                    src={`https://react-express-clothes.herokuapp.com/public/${item.image}-1.jpg`}
                     alt={item.name}
                   ></img>
                 </Link>

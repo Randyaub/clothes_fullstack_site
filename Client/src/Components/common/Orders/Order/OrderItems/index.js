@@ -3,7 +3,6 @@ import OrderItemDetails from "./OrderItemDetails";
 import "./OrderItems.css";
 
 const OrderItems = (props) => {
-  console.log(props.items);
   return (
     <div className="c-OrderItems">
       <div
@@ -19,7 +18,7 @@ const OrderItems = (props) => {
               <div className="c-OrderItems__item" key={index}>
                 <img
                   className="c-OrderItems__image"
-                  src={`http://localhost:4000/public/${item.sku}-1.jpg`}
+                  src={`https://react-express-clothes.herokuapp.com/public/${item.sku}-1.jpg`}
                   alt={item.name}
                 />
                 <OrderItemDetails item={item} />

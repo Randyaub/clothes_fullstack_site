@@ -3,18 +3,18 @@ import Orders from "../../common/Orders";
 import axios from "axios";
 import "./AccountPage.css";
 
-const AccountPage = ({ user, logOutUser, loading, setLoading }) => {
+const AccountPage = ({ user, logOutUser }) => {
+  const [loading, setLoading] = useState(true);
   const [userOrders, setUserOrders] = useState([]);
 
   useEffect(() => {
-    setLoading(true);
-    axios({ method: "GET", url: `user/account/user/${user.id}` })
-      .then((result) => {
+    axios({ method: "GET", url: `user/account/user/${user.id}` }).then(
+      (result) => {
         setUserOrders(result.data.user_orders);
         setLoading(false);
-      })
-      .catch(setLoading(false));
-  }, [user.id, setLoading]);
+      }
+    );
+  }, [user.id]);
 
   return loading ? (
     ""

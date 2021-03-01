@@ -10,7 +10,7 @@ const ItemDetails = (props) => {
       <Link to={`Product-Page/${props.item.sku}`}>
         <img
           className="c-ItemDetails__image"
-          src={`http://localhost:4000/public/${props.item.image}-1.jpg`}
+          src={`https://react-express-clothes.herokuapp.com/public/${props.item.image}-1.jpg`}
           alt={props.item.name}
         ></img>
       </Link>

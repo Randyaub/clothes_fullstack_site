@@ -13,7 +13,7 @@ const CartDropDownItem = (props) => {
       >
         <img
           className="c-CartDropDownItem__image"
-          src={`http://localhost:4000/public/${props.item.image}-1.jpg`}
+          src={`https://react-express-clothes.herokuapp.com/public/${props.item.image}-1.jpg`}
           alt={props.item.name}
         />
         <CartDropDownItemDetails item={props.item} />

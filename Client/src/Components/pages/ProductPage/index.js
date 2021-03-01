@@ -7,6 +7,7 @@ import ProductDetails from "./ProductDetails";
 import ProductImage from "./ProductImage";
 
 const ProductPage = (props) => {
+  const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState([]);
   const [variants, setVariants] = useState([{}]);
   const [error, setError] = useState("");
@@ -15,13 +16,14 @@ const ProductPage = (props) => {
   const { sku } = useParams();
 
   useEffect(() => {
-    props.setLoading(true);
     //retrieve selected product and its variations
-    axios.get(`http://localhost:4000/Product-Page/${sku}`).then((result) => {
-      setProduct(result.data.product_information);
-      setVariants(result.data.product_variants);
-      props.setLoading(false);
-    });
+    axios
+      .get(`https://react-express-clothes.herokuapp.com/Product-Page/${sku}`)
+      .then((result) => {
+        setProduct(result.data.product_information);
+        setVariants(result.data.product_variants);
+        setLoading(false);
+      });
   }, [sku]);
 
   const addDuplicateToCart = (product) => {
@@ -62,7 +64,7 @@ const ProductPage = (props) => {
     }
   };
 
-  return props.loading ? (
+  return loading ? (
     ""
   ) : (
     <section className="c-ProductPage container">

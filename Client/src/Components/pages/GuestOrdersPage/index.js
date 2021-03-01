@@ -4,11 +4,11 @@ import "./GuestOrdersPage.css";
 
 import Orders from "../../common/Orders";
 
-const GuestOrdersPage = ({ loading, setLoading }) => {
+const GuestOrdersPage = () => {
   const [guestOrders, setGuestOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
     axios({ method: "GET", url: "user/account/guest" }).then((result) => {
       setGuestOrders(result.data.guest_orders);
       setLoading(false);

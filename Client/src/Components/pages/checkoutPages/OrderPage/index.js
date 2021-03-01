@@ -18,8 +18,8 @@ const OrderPage = (props) => {
   const { token } = useToken();
 
   const goToOrderCompletedPage = () => {
-    history.push("/checkout/order-submitted");
     props.setHasCompletedOrder(true);
+    history.push("/checkout/order-submitted");
   };
 
   const resetCartAndGoToNextPage = () => {

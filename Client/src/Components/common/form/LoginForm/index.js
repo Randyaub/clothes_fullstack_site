@@ -12,10 +12,10 @@ import { emailValid, passwordValid } from "../../../../utility/utilities";
 const LoginForm = (props) => {
   const history = useHistory();
   const { token, setToken } = useToken();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { checkoutLogin, setUser, setLoggedIn } = props;
 
   const goToHomePage = () => {
     history.push("/");
@@ -42,7 +42,7 @@ const LoginForm = (props) => {
         .then((res) => {
           setError("");
           setToken(res.data.JWT);
-          props.checkoutLogin ? goToCheckoutPage() : goToHomePage();
+          checkoutLogin ? goToCheckoutPage() : goToHomePage();
         })
         .catch((error) => {
           if (error.response) {
@@ -50,8 +50,8 @@ const LoginForm = (props) => {
               "The email and password you entered did not match our records. Please double check and try again"
             );
           }
-          props.setUser("");
-          props.setLoggedIn(false);
+          setUser("");
+          setLoggedIn(false);
           setEmail("");
           setPassword("");
         });
@@ -67,15 +67,15 @@ const LoginForm = (props) => {
         headers: { Authorization: "Bearer " + token },
       })
         .then((res) => {
-          props.setUser(res.data);
-          props.setLoggedIn(true);
+          setUser(res.data);
+          setLoggedIn(true);
         })
         .catch(() => {
-          props.setUser("");
-          props.setLoggedIn(false);
+          setUser("");
+          setLoggedIn(false);
         });
     }
-  }, [token]);
+  }, [token, setUser, setLoggedIn]);
 
   return (
     <>

@@ -19,7 +19,7 @@ const ProductVariants = (props) => {
               }
             >
               <img
-                src={`http://localhost:4000/public/${varient.image}-1.jpg`}
+                src={`https://react-express-clothes.herokuapp.com/public/${varient.image}-1.jpg`}
                 className="c-ProductVariants__image"
                 alt={varient.colour}
                 onClick={() => {

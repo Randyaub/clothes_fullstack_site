@@ -1,0 +1,38 @@
+.c-CategorySubMenu {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  margin: 0px 0px 20px 0px;
+}
+
+.c-CategorySubMenu__list {
+  position: absolute;
+  z-index: 999999;
+  background-color: wheat;
+  padding: 20px;
+  width: 100%;
+  top: 20px;
+  user-select: none;
+}
+
+.c-CategorySubMenu__selected {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  padding: 0px 0px 3px 0px;
+}
+
+.c-CategorySubMenu__container {
+  position: absolute;
+  width: 100%;
+}
+
+@media only screen and (max-width: 750px) {
+  .c-CategorySubMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

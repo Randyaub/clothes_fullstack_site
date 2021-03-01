@@ -14,8 +14,8 @@ const PaymentPage = (props) => {
   const [sameAsShipping, setSameAsShipping] = useState(false);
 
   const goToOrder = () => {
-    history.push("/order-checkout");
     props.setHasVisitedPayment(true);
+    history.push("/order-checkout");
   };
 
   const handleChange = (event) => {
@@ -40,7 +40,7 @@ const PaymentPage = (props) => {
   };
 
   return !props.hasVisitedShipping ? (
-    <Redirect to="shipping-checkout" />
+    <Redirect to="/shipping-checkout" />
   ) : (
     <>
       <BreadCrumbIndicator checkoutPosition={"payment"} />
