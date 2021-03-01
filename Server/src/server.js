@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import path from "path";
 import helmet from "helmet";
 import cors from "cors";
 import _ from "./env";
@@ -13,15 +14,16 @@ require("dotenv").config();
 
 const app = express();
 
-app.use("/public", express.static("public"));
+app.use("/public", express.static(path.join(__dirname, "../src/public")));
 app.use(morgan("dev"));
 app.use(helmet());
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-);
+app.use(cors());
 app.use(express.json());
+
+app.get("/favicon.ico", (req, res) => {
+  res.status(204);
+  res.end();
+});
 
 //Routes
 app.use("/", productRoutes);
@@ -33,7 +35,7 @@ app.use(notFound);
 app.use(errorHandling);
 
 //Listening on
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
   console.log(`Listening on localhost:${PORT}`);
 });

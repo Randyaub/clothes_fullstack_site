@@ -144,12 +144,10 @@ exports.products_get_product = (req, res) => {
               };
             }),
           };
-          res
-            .status(200)
-            .json({
-              product_information: product_information,
-              product_variants: product_variants,
-            });
+          res.status(200).json({
+            product_information: product_information,
+            product_variants: product_variants,
+          });
         })
         .catch((err) => {
           console.log(err.message);

@@ -3,5 +3,7 @@
 
 # misc
 .env
-/db/clothesecommerce.sql
-/public
+src/db/clothesecommerce.sql
+
+#only for github
+#/public
