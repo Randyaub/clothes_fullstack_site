@@ -124,7 +124,7 @@ function App() {
       setCartCostTotal(parsedCart.cartCostTotal);
       // eslint-disable-next-line
     }
-  }, [localStorageCart]);
+  }, []);
 
   //Checks if the user was logged in previously
   useEffect(() => {

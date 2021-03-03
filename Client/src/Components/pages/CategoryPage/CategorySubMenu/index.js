@@ -19,7 +19,10 @@ const CategorySubMenu = (props) => {
         )}
       </div>
       {clicked && (
-        <div className="c-CategorySubMenu__container">
+        <div
+          onClick={() => setClicked(!clicked)}
+          className="c-CategorySubMenu__container"
+        >
           <ul className="c-CategorySubMenu__list">
             {props.categories.map((item) => {
               return (
