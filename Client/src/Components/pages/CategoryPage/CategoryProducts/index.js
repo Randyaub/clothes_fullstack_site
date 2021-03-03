@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams, useRouteMatch } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 import "./CategoryProducts.css";
 
-const CategoryProduct = (props) => {
+const CategoryProduct = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  let { category } = useParams();
   let { url } = useRouteMatch();
 
   useEffect(() => {
     axios.get(`${url}`).then((result) => {
       setProducts(result.data.products);
       setLoading(false);
-      props.setCurrentCategory(category);
     });
   }, [url]);
 

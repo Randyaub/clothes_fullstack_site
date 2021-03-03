@@ -1,9 +1,31 @@
 .c-ProductPage {
   position: relative;
-  width: 70%;
+  width: 65%;
+}
+
+.c-ProductPage__sku {
+  display: flex;
+  justify-content: center;
+  color: var(--main-text-colour);
 }
 
 .l-ProductPage__images {
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 1200px) {
+  .c-ProductPage {
+    width: 55%;
+  }
+
+  .l-ProductPage__images {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .c-ProductPage {
+    width: 100%;
+  }
 }

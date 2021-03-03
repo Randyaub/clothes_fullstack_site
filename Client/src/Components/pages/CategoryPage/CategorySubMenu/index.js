@@ -11,14 +11,25 @@ const CategorySubMenu = (props) => {
         onClick={() => setClicked(!clicked)}
         className="c-CategorySubMenu__selected"
       >
-        <span>CATEGORY</span>
-        <i className="fas fa-chevron-down"></i>
+        <span className={clicked ? "active" : ""}>CATEGORY</span>
+        {clicked ? (
+          <i className="fas fa-chevron-up  active"></i>
+        ) : (
+          <i className="fas fa-chevron-down"></i>
+        )}
       </div>
       {clicked && (
         <div className="c-CategorySubMenu__container">
           <ul className="c-CategorySubMenu__list">
             {props.categories.map((item) => {
-              return <SideBarItem key={item.category} item={item} />;
+              return (
+                <SideBarItem
+                  key={item.category}
+                  item={item}
+                  className={"c-CategorySubMenu__item"}
+                  subMenuClassName={"c-CategorySubMenu__subitem"}
+                />
+              );
             })}
           </ul>
         </div>

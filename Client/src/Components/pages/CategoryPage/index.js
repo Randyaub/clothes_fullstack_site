@@ -11,7 +11,6 @@ const Category = () => {
   let { type } = useParams();
   let { path } = useRouteMatch();
 
-  const [currentCategory, setCurrentCategory] = useState();
   const [categories, setCategories] = useState([]);
 
   return (
@@ -23,7 +22,6 @@ const Category = () => {
           <CategorySubMenu categories={categories} />
           <main className="c-Category">
             <CategorySideBar
-              currentCategory={currentCategory}
               type={type}
               setCategories={setCategories}
               categories={categories}
@@ -33,10 +31,10 @@ const Category = () => {
                 exact
                 path={`${path}/Shop-Category/:category/:subcategory`}
               >
-                <CategoryProduct setCurrentCategory={setCurrentCategory} />
+                <CategoryProduct />
               </Route>
               <Route exact path={`${path}/Shop-Category/:category`}>
-                <CategoryProduct setCurrentCategory={setCurrentCategory} />
+                <CategoryProduct />
               </Route>
             </Switch>
           </main>

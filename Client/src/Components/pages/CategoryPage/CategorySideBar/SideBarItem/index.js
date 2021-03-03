@@ -12,25 +12,35 @@ const SideBarItem = (props) => {
     <React.Fragment>
       <NavLink
         to={`${url}/Shop-Category/${props.item.category}`}
-        className="c-SideBarItem__link"
+        className={
+          props.className
+            ? `${props.className} c-SideBarItem__link`
+            : "c-SideBarItem__link"
+        }
         activeClassName="c-SideBarItem-active"
       >
         {formatCategory(props.item.category)}
       </NavLink>
-      <ul className="c-SideBarItem__submenu">
-        {props.item.subcategories.map((subitem) => {
-          return (
-            <NavLink
-              key={subitem}
-              to={`${url}/Shop-Category/${props.item.category}/${subitem}`}
-              className="c-SideBarItem__sublink"
-              activeClassName="c-SideBarItem__sublink-active"
-            >
-              {formatCategory(subitem)}
-            </NavLink>
-          );
-        })}
-      </ul>
+      {props.item.subcategories && (
+        <ul className="c-SideBarItem__submenu">
+          {props.item.subcategories.map((subitem) => {
+            return (
+              <NavLink
+                key={subitem}
+                to={`${url}/Shop-Category/${props.item.category}/${subitem}`}
+                className={
+                  props.subMenuClassName
+                    ? `${props.subMenuClassName} c-SideBarItem__sublink`
+                    : "c-SideBarItem__sublink"
+                }
+                activeClassName="c-SideBarItem__sublink-active"
+              >
+                {formatCategory(subitem)}
+              </NavLink>
+            );
+          })}
+        </ul>
+      )}
     </React.Fragment>
   );
 };

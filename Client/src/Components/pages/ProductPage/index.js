@@ -67,21 +67,24 @@ const ProductPage = (props) => {
   return loading ? (
     ""
   ) : (
-    <section className="c-ProductPage container">
-      <div className="l-ProductPage__images">
-        <ProductImage product={product} number={"1"} />
-        <ProductImage product={product} number={"2"} />
-      </div>
-      <ProductDetails
-        variants={variants}
-        product={product}
-        setError={setError}
-        setSize={setSize}
-        size={size}
-        error={error}
-        handleAddItem={handleAddItem}
-      />
-    </section>
+    <>
+      <div className="c-ProductPage__sku">SKU: {product.sku}</div>
+      <section className="c-ProductPage container">
+        <div className="l-ProductPage__images">
+          <ProductImage product={product} number={"1"} />
+          <ProductImage product={product} number={"2"} />
+        </div>
+        <ProductDetails
+          variants={variants}
+          product={product}
+          setError={setError}
+          setSize={setSize}
+          size={size}
+          error={error}
+          handleAddItem={handleAddItem}
+        />
+      </section>
+    </>
   );
 };
 

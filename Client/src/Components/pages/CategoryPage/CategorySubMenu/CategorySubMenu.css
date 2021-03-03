@@ -1,16 +1,17 @@
 .c-CategorySubMenu {
+  position: relative;
   display: none;
   justify-content: center;
   align-items: center;
   user-select: none;
   margin: 0px 0px 20px 0px;
+  padding: 0px 0px 8px 0px;
 }
 
 .c-CategorySubMenu__list {
   position: absolute;
   z-index: 999999;
-  background-color: wheat;
-  padding: 20px;
+  background-color: white;
   width: 100%;
   top: 20px;
   user-select: none;
@@ -20,8 +21,25 @@
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  width: 150px;
+  width: 110px;
   padding: 0px 0px 3px 0px;
+}
+
+.c-CategorySubMenu__item {
+  margin: 0px;
+  padding: 20px 20px;
+}
+
+.c-CategorySubMenu__subitem {
+  padding: 20px 40px;
+}
+
+.c-CategorySubMenu__item:hover {
+  background-color: rgb(255, 238, 205);
+}
+
+.c-CategorySubMenu__subitem:hover {
+  background-color: rgb(255, 238, 205);
 }
 
 .c-CategorySubMenu__container {

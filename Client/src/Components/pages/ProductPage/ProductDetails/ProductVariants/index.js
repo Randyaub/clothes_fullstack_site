@@ -18,15 +18,17 @@ const ProductVariants = (props) => {
                   : ""
               }
             >
-              <img
-                src={`https://react-express-clothes.herokuapp.com/public/${varient.image}-1.jpg`}
-                className="c-ProductVariants__image"
-                alt={varient.colour}
-                onClick={() => {
-                  props.setError("");
-                  props.setSize("");
-                }}
-              />
+              <div className="c-ProductVariants__container">
+                <img
+                  src={`https://react-express-clothes.herokuapp.com/public/${varient.image}-1.jpg`}
+                  className="c-ProductVariants__image"
+                  alt={varient.colour}
+                  onClick={() => {
+                    props.setError("");
+                    props.setSize("");
+                  }}
+                />
+              </div>
             </Link>
           );
         })}

@@ -1,4 +1,5 @@
 export const men = [
+  { category: "all" },
   {
     category: "hoodies-and-sweatshirts",
     subcategories: ["hoodies", "sweatshirts"],
@@ -14,6 +15,7 @@ export const men = [
 ];
 
 export const women = [
+  { category: "all" },
   {
     category: "jackets-and-coats",
     subcategories: ["jackets", "coats"],

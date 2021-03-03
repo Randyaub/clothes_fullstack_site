@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { men, women } from "./categories";
 import SideBarItem from "./SideBarItem";
 
@@ -16,10 +16,17 @@ const CategorySideBar = (props) => {
   return (
     <div className="c-CategorySideBar-container">
       <aside className="c-CategorySideBar">
-        <h2>Shop by Category</h2>
+        <h3 className="c-CategorySideBar__header">Shop by Category</h3>
         <ul>
           {props.categories.map((item) => {
-            return <SideBarItem key={item.category} item={item} />;
+            return (
+              <SideBarItem
+                key={item.category}
+                item={item}
+                className={"c-CategorySideBar__item"}
+                subMenuClassName={"c-CategorySideBar__subitem"}
+              />
+            );
           })}
         </ul>
       </aside>

@@ -10,9 +10,8 @@
 .c-SideBarItem__link,
 .c-SideBarItem__link-active {
   display: block;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
-  margin: 6px 0px;
 }
 
 .c-SideBarItem__link:not(.c-SideBarItem-active) + .c-SideBarItem__submenu {
@@ -27,12 +26,11 @@
 .c-SideBarItem__submenu {
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
 }
 
 .c-SideBarItem__sublink {
-  font-weight: 400;
-  margin: 5px 0px;
+  font-size: 15px;
+  margin: 3px 0px;
 }
 
 .c-SideBarItem__sublink:hover,

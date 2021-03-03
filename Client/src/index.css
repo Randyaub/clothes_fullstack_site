@@ -1,6 +1,6 @@
 :root {
   --border-colour: grey;
-  --highlight-text: red;
+  --highlight-text: rgb(248, 8, 8);
   --error-colour: red;
   --main-text-colour: #1b1b1b;
   --lighter-text-colour: rgb(39, 39, 39);
@@ -26,6 +26,10 @@ h4 {
 }
 h4 {
   font-size: 14px;
+}
+
+body {
+  background-color: #faf9f8;
 }
 
 * {

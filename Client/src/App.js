@@ -25,7 +25,6 @@ import useLocalStorageCart from "./utility/useLocalStorageCart";
 
 function App() {
   let history = useHistory();
-  const [loading, setLoading] = useState(true);
   const { token, setToken } = useToken();
   const { localStorageCart, setLocalStorageCart } = useLocalStorageCart();
 
@@ -118,12 +117,14 @@ function App() {
 
   //Retrieves the users previous cart
   useEffect(() => {
-    const parsedCart = JSON.parse(localStorageCart);
-    setCartItems(parsedCart.cartItems);
-    setCartCount(parsedCart.cartCount);
-    setCartCostTotal(parsedCart.cartCostTotal);
-    // eslint-disable-next-line
-  }, []);
+    if (localStorageCart) {
+      const parsedCart = JSON.parse(localStorageCart);
+      setCartItems(parsedCart.cartItems);
+      setCartCount(parsedCart.cartCount);
+      setCartCostTotal(parsedCart.cartCostTotal);
+      // eslint-disable-next-line
+    }
+  }, [localStorageCart]);
 
   //Checks if the user was logged in previously
   useEffect(() => {
@@ -182,7 +183,7 @@ function App() {
         <div className="switch-container">
           <Switch>
             <Route exact path="/">
-              <Redirect to="/men/Shop-Category/hoodies-and-sweatshirts" />
+              <Redirect to="/men/Shop-Category/all" />
             </Route>
             <Route path="/checkout/order-submitted">
               <PurchasedPage hasCompletedOrder={hasCompletedOrder} />

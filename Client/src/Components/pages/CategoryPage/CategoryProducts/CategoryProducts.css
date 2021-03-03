@@ -19,22 +19,22 @@
 }
 
 .c-CategoryProduct__details {
-  margin: 15px 0px;
+  margin: 10px 0px 10px 5px;
 }
 
 .c-CategoryProduct__title {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 200;
 }
 
 .c-CategoryProduct__price {
   display: inline-block;
   margin-top: 3px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 500;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1000px) {
   .c-CategoryProduct__product {
     width: calc(100% / 4 - 8px);
   }

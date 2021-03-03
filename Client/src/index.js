@@ -5,7 +5,7 @@ import "./index.css";
 import App from "./App";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://react-express-clothes.herokuapp.com/";
+axios.defaults.baseURL = "http://localhost:80/";
 
 ReactDOM.render(
   <BrowserRouter>
