@@ -11,11 +11,11 @@
   top: 20%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  padding: 2px 5px;
+  padding: 2.5px 5px;
   padding-bottom: 1px;
   background-color: var(--highlight-text);
   color: var(--secondary-text-colour);
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .c-CartAmountIcon {

@@ -8,7 +8,7 @@ const CartNavigationLink = (props) => {
     <>
       <Link className="c-Header__link" to="/cart">
         <CartAmountIcon total={props.cartCount} />
-        CART
+        <span className="small-phone-hide">Cart</span>
       </Link>
       <CartDropDown
         setProductAdded={props.setProductAdded}

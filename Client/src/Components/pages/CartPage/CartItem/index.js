@@ -10,7 +10,6 @@ const CartItem = (props) => {
     <div className="l-CartItem">
       <ItemDetails item={props.item} />
       <div className="c-CartItem__quantity">
-        <h4>QUANTITY</h4>
         <div className="l-CartItem__quantity">
           <ItemQuantity
             item={props.item}

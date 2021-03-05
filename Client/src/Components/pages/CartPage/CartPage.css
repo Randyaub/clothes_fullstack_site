@@ -23,3 +23,28 @@
   font-weight: 500;
   letter-spacing: 2px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .c-CartPage__summary {
+    width: 50%;
+  }
+
+  .l-CartPage__products {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .c-CartPage {
+    flex-direction: column;
+  }
+
+  .c-CartPage__summary {
+    padding: 0px;
+    width: 100%;
+  }
+
+  .l-CartPage__products {
+    width: 100%;
+  }
+}

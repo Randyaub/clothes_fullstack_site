@@ -4,7 +4,7 @@
 }
 
 .c-ItemDetails__image {
-  max-width: 130px;
+  max-width: 100px;
 }
 
 .c-ItemDetails__detail > p {
@@ -18,5 +18,11 @@
 }
 
 .c-CartDetails__name {
-  font-size: 24px;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .c-ItemDetails {
+    width: 100%;
+  }
 }

@@ -1,17 +1,4 @@
-.c-GuestOrderPage {
-  margin: 20px 0px;
-}
-
-.c-GuestOrderPage__details {
-  display: flex;
-  justify-content: space-between;
-}
-
 .c-GuestOrderPage__items {
   display: flex;
   margin: 0px 20px;
-}
-
-.c-GuestOrderPage-btn {
-  margin-top: 0px;
 }

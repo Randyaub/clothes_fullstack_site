@@ -27,3 +27,13 @@
   width: 30%;
   margin-top: 5px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .l-CartItem {
+    flex-direction: column;
+  }
+
+  .c-CartItem__quantity {
+    width: 100%;
+  }
+}

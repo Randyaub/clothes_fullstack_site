@@ -13,7 +13,8 @@ const AccountNavigationLink = (props) => {
     </>
   ) : (
     <Link className="c-Header__link" to="/account/login">
-      <i className="fas fa-user"></i> LOG IN / REGISTER
+      <i className="fas fa-user"></i>{" "}
+      <span className="small-phone-hide">Log in</span>
     </Link>
   );
 };

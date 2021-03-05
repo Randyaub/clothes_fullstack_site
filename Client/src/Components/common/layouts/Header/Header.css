@@ -6,12 +6,10 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 1px solid var(--border-colour);
 }
 
 .c-Header__column {
-  padding: 8px 12px 8px 12px;
-  border-left: 1px solid var(--border-colour);
+  padding: 8px 8px 8px 8px;
   margin: 6px 0px;
   display: inline-block;
   position: relative;
@@ -21,4 +19,13 @@
 .c-Header__bold,
 .c-Header__item:hover {
   color: var(--highlight-text);
+}
+
+@media only screen and (max-width: 430px) {
+  .c-Header__bar {
+    justify-content: space-between;
+  }
+  .small-phone-hide {
+    display: none;
+  }
 }

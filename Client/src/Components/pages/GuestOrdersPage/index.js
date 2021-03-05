@@ -19,7 +19,7 @@ const GuestOrdersPage = () => {
     ""
   ) : (
     <div>
-      <h1>THE 10 MOST RECENT GUEST ORDERS</h1>
+      <h1>RECENT GUEST ORDERS</h1>
       <Orders order={guestOrders} />
     </div>
   );

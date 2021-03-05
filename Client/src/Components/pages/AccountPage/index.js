@@ -21,11 +21,9 @@ const AccountPage = ({ user, logOutUser }) => {
   ) : (
     <div className="c-AccountPage">
       <div className="c-AccountPage__sidebar">
-        <div className="c-AccountPage__user">
-          Welcome {user.first_name} {user.last_name}
-        </div>
+        <div className="c-AccountPage__user">Welcome {user.first_name}</div>
         <div className="c-AccountPage__container">
-          <div className="c-AccountPage__heading">My Account</div>
+          <div className="c-AccountPage__heading"></div>
           <ul>
             <li>
               <div className="c-AccountPage__list">
