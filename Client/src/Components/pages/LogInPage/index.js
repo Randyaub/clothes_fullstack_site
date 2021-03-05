@@ -10,7 +10,7 @@ const LogInPage = (props) => {
     <Redirect to="/" />
   ) : (
     <section className="c-LogInPage container">
-      <div className="flex">
+      <div className="c-LogInPage-flex">
         <LoginSection setLoggedIn={props.setLoggedIn} setUser={props.setUser} />
         <div className="c-LogInPage__horizontal"></div>
         <RegisterSection />

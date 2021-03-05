@@ -7,8 +7,8 @@ const LoginSection = (props) => {
   return (
     <div className="c-LoginSection">
       <div>
-        <h1 className="main-header">LOGIN</h1>
-        <h3>HAVE AN ACCOUNT?</h3>
+        <h2 className="main-header">LOGIN</h2>
+        <h4>HAVE AN ACCOUNT?</h4>
       </div>
       <LoginForm setLoggedIn={props.setLoggedIn} setUser={props.setUser} />
     </div>

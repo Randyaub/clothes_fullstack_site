@@ -1,7 +1,7 @@
 .c-BreadCrumbIndicator {
   display: flex;
   margin: 30px 0px;
-  font-size: 20px;
+  font-size: 18px;
 }
 .c-BreadCrumbIndicator__crumb {
   width: 33.3%;

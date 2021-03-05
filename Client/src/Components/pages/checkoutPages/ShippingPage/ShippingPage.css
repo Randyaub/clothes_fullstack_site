@@ -2,9 +2,18 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 100px;
 }
 
 .c-Shipping {
   width: 59%;
+}
+
+@media only screen and (max-width: 950px) {
+  .l-Shipping {
+    flex-direction: column;
+  }
+
+  .c-Shipping {
+    width: 100%;
+  }
 }

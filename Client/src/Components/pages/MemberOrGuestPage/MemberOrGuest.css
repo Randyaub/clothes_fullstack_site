@@ -1,9 +1,22 @@
 .c-MemberOrGuest {
   width: 85%;
   margin: 50px auto 150px auto;
+  background-color: white;
 }
 
 .l-MemberOrGuest {
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 950px) {
+  .l-MemberOrGuest {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .c-MemberOrGuest {
+    width: 95%;
+  }
 }

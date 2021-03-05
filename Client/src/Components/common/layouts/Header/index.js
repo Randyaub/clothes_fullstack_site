@@ -17,6 +17,7 @@ const Header = (props) => {
           <AccountNavigationLink
             isLoggedIn={props.isLoggedIn}
             logOutUser={props.logOutUser}
+            user={props.user}
           />
         </span>
         <span className="c-Header__column">

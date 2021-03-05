@@ -7,8 +7,10 @@ import "./GuestCheckout.css";
 const GuestCheckout = () => {
   return (
     <div className="c-GuestCheckout">
-      <h1 className="main-header">GUEST CHECKOUT</h1>
-      <div>If you dont have an account, you can use guest checkout</div>
+      <h2 className="main-header">GUEST CHECKOUT</h2>
+      <div>
+        If you do not wish to create an account you can use the guest checkout.
+      </div>
       <LinkButton
         url={"/shipping-checkout"}
         buttonText={"GUEST CHECKOUT"}

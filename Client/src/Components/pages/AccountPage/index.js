@@ -23,7 +23,7 @@ const AccountPage = ({ user, logOutUser }) => {
       <div className="c-AccountPage__sidebar">
         <div className="c-AccountPage__user">Welcome {user.first_name}</div>
         <div className="c-AccountPage__container">
-          <div className="c-AccountPage__heading"></div>
+          <div className="c-AccountPage__underline"></div>
           <ul>
             <li>
               <div className="c-AccountPage__list">
@@ -42,7 +42,7 @@ const AccountPage = ({ user, logOutUser }) => {
       </div>
       <div className="c-AccountPage__orders">
         <div>
-          <h2>Orders</h2>
+          <h3 className="c-AccountPage__heading">Most Recent Orders</h3>
           <Orders order={userOrders} />
         </div>
       </div>

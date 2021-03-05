@@ -17,8 +17,8 @@ const LoginForm = (props) => {
   const [error, setError] = useState("");
   const { checkoutLogin, setUser, setLoggedIn } = props;
 
-  const goToHomePage = () => {
-    history.push("/");
+  const goToAccount = () => {
+    history.push("/account");
   };
 
   const goToCheckoutPage = () => {
@@ -42,7 +42,7 @@ const LoginForm = (props) => {
         .then((res) => {
           setError("");
           setToken(res.data.JWT);
-          checkoutLogin ? goToCheckoutPage() : goToHomePage();
+          checkoutLogin ? goToCheckoutPage() : goToAccount();
         })
         .catch((error) => {
           if (error.response) {

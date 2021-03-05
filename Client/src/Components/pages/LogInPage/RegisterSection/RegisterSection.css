@@ -1,7 +1,14 @@
 .c-RegisterSection {
-  width: 49%;
+  width: 48%;
 }
 
 .c-RegisterSection__paragraph {
-  margin: 5px 0px;
+  margin: 5px 0px 0px 0px;
+}
+
+@media only screen and (max-width: 950px) {
+  .c-RegisterSection {
+    width: 100%;
+    flex-direction: column;
+  }
 }

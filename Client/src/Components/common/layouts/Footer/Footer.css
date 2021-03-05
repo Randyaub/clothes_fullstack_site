@@ -1,12 +1,6 @@
 .c-Footer {
   display: flex;
-  justify-content: space-between;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.l-footer {
-  background-color: var(--secondary-background-colour);
-  max-width: none;
-  padding: 50px 0px;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
 }

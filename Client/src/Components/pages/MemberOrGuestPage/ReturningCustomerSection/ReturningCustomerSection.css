@@ -3,3 +3,9 @@
   width: 49.5%;
   padding: 20px;
 }
+
+@media only screen and (max-width: 950px) {
+  .c-ReturningCustomerSection {
+    width: 100%;
+  }
+}

@@ -12,11 +12,16 @@
 }
 
 .c-AccountPage__orders {
-  width: 75%;
+  width: 76%;
+}
+
+.c-AccountPage__underline {
+  border-bottom: 1px solid var(--border-colour);
 }
 
 .c-AccountPage__heading {
-  border-bottom: 1px solid var(--border-colour);
+  font-size: 22px;
+  font-weight: 00;
 }
 
 .c-AccountPage__list {
@@ -32,8 +37,4 @@
   margin-top: 15px;
   cursor: pointer;
   font-size: 14px;
-}
-
-.c-AccountPage__container > ul > li:hover > .c-AccountPage__list > span {
-  text-decoration: underline;
 }

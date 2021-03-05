@@ -3,9 +3,31 @@
   border: 1px solid var(--border-colour);
   width: 85%;
   margin: 50px auto 150px auto;
+  background-color: white;
 }
 
 .c-LogInPage__horizontal {
   border-left: 1px solid var(--border-colour);
   margin: 0px 20px;
+}
+
+.c-LogInPage-flex {
+  display: flex;
+}
+
+@media only screen and (max-width: 950px) {
+  .c-LogInPage-flex {
+    flex-direction: column;
+  }
+
+  .c-LogInPage__horizontal {
+    margin: 20px 0px;
+    border-bottom: 1px solid var(--border-colour);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .c-LogInPage {
+    width: 95%;
+  }
 }

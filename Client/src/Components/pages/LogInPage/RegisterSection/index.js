@@ -6,11 +6,10 @@ import "./RegisterSection.css";
 const RegisterSection = () => {
   return (
     <div className="c-RegisterSection">
-      <h1 className="main-header">REGISTER</h1>
-      <h3>NEW TO THE SITE?</h3>
+      <h2 className="main-header">REGISTER</h2>
+      <h4>NEW TO THE SITE?</h4>
       <p className="c-RegisterSection__paragraph">
-        Create an account to take advantage of special deals and coupons
-        delivered through email
+        Create an account to view your orders through your account page.
       </p>
       <LinkButton
         url={"/account/register"}

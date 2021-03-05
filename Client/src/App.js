@@ -179,6 +179,7 @@ function App() {
           displayMiniCart={displayMiniCart}
           isLoggedIn={isLoggedIn}
           logOutUser={logOutUser}
+          user={user}
         />
         <div className="switch-container">
           <Switch>
