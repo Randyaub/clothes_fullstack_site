@@ -4,7 +4,7 @@
 }
 
 .c-ItemDetails__image {
-  max-width: 100px;
+  width: 100px;
 }
 
 .c-ItemDetails__detail > p {
@@ -14,11 +14,16 @@
 }
 
 .c-ItemDetails__detail {
-  padding: 0px 20px;
+  padding: 0px 15px;
 }
 
 .c-CartDetails__name {
   font-size: 20px;
+}
+
+.c-ItemDetails__wrapper {
+  height: 0;
+  padding-bottom: 150%;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -8,11 +8,13 @@ const ItemDetails = (props) => {
   return (
     <div className="c-ItemDetails">
       <Link to={`Product-Page/${props.item.sku}`}>
-        <img
-          className="c-ItemDetails__image"
-          src={`https://react-express-clothes.herokuapp.com/public/${props.item.image}-1.jpg`}
-          alt={props.item.name}
-        ></img>
+        <div className="c-ItemDetails__wrapper">
+          <img
+            className="c-ItemDetails__image"
+            src={`https://react-express-clothes.herokuapp.com/public/${props.item.image}-1.jpg`}
+            alt={props.item.name}
+          ></img>
+        </div>
       </Link>
       <div className="c-ItemDetails__detail">
         <Link to={`Product-Page/${props.item.sku}`}>

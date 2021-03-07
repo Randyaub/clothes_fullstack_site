@@ -25,13 +25,15 @@ const CategoryProduct = () => {
           return (
             <React.Fragment key={i}>
               <div className="c-CategoryProduct__product">
-                <Link to={`/Product-Page/${item.SKU}`}>
-                  <img
-                    className="c-CategoryProduct__image"
-                    src={`https://react-express-clothes.herokuapp.com/public/${item.image}-1.jpg`}
-                    alt={item.name}
-                  ></img>
-                </Link>
+                <div className="c-CategoryProduct__wrapper">
+                  <Link to={`/Product-Page/${item.SKU}`}>
+                    <img
+                      className="c-CategoryProduct__image"
+                      src={`https://react-express-clothes.herokuapp.com/public/${item.image}-1.jpg`}
+                      alt={item.name}
+                    ></img>
+                  </Link>
+                </div>
                 <div className="c-CategoryProduct__details">
                   <h4 className="c-CategoryProduct__title">
                     <Link to={`/Product-Page/${item.SKU}`}>{item.name}</Link>

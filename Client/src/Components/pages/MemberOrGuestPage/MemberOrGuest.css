@@ -1,6 +1,7 @@
 .c-MemberOrGuest {
-  width: 85%;
-  margin: 50px auto 150px auto;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
 }
 
@@ -15,7 +16,7 @@
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   .c-MemberOrGuest {
     width: 95%;
   }

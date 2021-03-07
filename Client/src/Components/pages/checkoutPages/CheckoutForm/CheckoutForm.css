@@ -23,3 +23,12 @@
 .c-CheckoutForm__input {
   width: 100%;
 }
+
+@media only screen and (max-width: 600px) {
+  .c-CheckoutForm__row {
+    flex-direction: column;
+  }
+  .c-CheckoutForm__half {
+    width: 100%;
+  }
+}

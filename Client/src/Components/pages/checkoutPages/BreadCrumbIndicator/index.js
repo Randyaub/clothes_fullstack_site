@@ -11,21 +11,21 @@ const BreadCrumbIndicator = (props) => {
           "c-BreadCrumbIndicator-active"
         }`}
       >
-        SHIPPING INFO
+        SHIPPING
       </div>
       <div
         className={`c-BreadCrumbIndicator__crumb ${
           props.checkoutPosition === "payment" && "c-BreadCrumbIndicator-active"
         }`}
       >
-        PAYMENT INFO
+        PAYMENT
       </div>
       <div
         className={`c-BreadCrumbIndicator__crumb ${
           props.checkoutPosition === "order" && "c-BreadCrumbIndicator-active"
         }`}
       >
-        PLACE ORDER
+        ORDER
       </div>
     </div>
   );

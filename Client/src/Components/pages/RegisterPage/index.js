@@ -123,12 +123,12 @@ const RegisterPage = () => {
       </div>
       <section className="c-RegisterPage__container">
         <div className="c-RegisterPage__message">
-          <h1 className="main-header">PLEASE ENTER YOUR INFORMATION BELOW</h1>
+          <h2 className="main-header">PLEASE ENTER YOUR INFORMATION BELOW</h2>
           <h4>SIGN UP TO KEEP TRACK OFF YOUR ORDERS</h4>
         </div>
         <div className="c-RegisterPage__error">{generalError}</div>
         <form onSubmit={handleCreateAccount}>
-          <div className="c-RegisterPage__formItem flex">
+          <div className="c-RegisterPage__formItem ">
             <FormItem
               labelName={"EMAIL ADDRESS"}
               labelClassName={"c-RegisterPage__label"}
@@ -140,7 +140,7 @@ const RegisterPage = () => {
               error={emailError}
             />
           </div>
-          <div className="c-RegisterPage__formItem flex">
+          <div className="c-RegisterPage__formItem">
             <FormItem
               labelName={"CONFIRM EMAIL ADDRESS"}
               labelClassName={"c-RegisterPage__label"}
@@ -152,7 +152,7 @@ const RegisterPage = () => {
               error={confirmEmailError}
             />
           </div>
-          <div className="c-RegisterPage__formItem flex">
+          <div className="c-RegisterPage__formItem">
             <FormItem
               labelName={"PASSWORD"}
               labelClassName={"c-RegisterPage__label"}
@@ -165,7 +165,7 @@ const RegisterPage = () => {
               error={passwordError}
             />
           </div>
-          <div className="c-RegisterPage__formItem flex">
+          <div className="c-RegisterPage__formItem">
             <FormItem
               labelName={"CONFIRM PASSWORD"}
               labelClassName={"c-RegisterPage__label"}
@@ -178,7 +178,7 @@ const RegisterPage = () => {
               error={confirmPasswordError}
             />
           </div>
-          <div className="c-RegisterPage__formItem flex">
+          <div className="c-RegisterPage__formItem">
             <FormItem
               labelName={"FIRST NAME"}
               labelClassName={"c-RegisterPage__label"}
@@ -190,7 +190,7 @@ const RegisterPage = () => {
               error={firstNameError}
             />
           </div>
-          <div className="c-RegisterPage__formItem flex">
+          <div className="c-RegisterPage__formItem">
             <FormItem
               labelName={"LAST NAME"}
               labelClassName={"c-RegisterPage__label"}

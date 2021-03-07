@@ -6,7 +6,7 @@
 
 .c-CategoryProduct__product {
   margin: 4px;
-  width: calc(100% / 5 - 8px);
+  width: calc(100% / 6 - 8px);
 }
 
 .c-CategoryProduct__image {
@@ -19,18 +19,30 @@
 }
 
 .c-CategoryProduct__details {
-  margin: 10px 0px 10px 5px;
+  margin: 18px 0px 10px 5px;
+}
+
+.c-CategoryProduct__wrapper {
+  height: 0;
+  padding-bottom: 150%;
 }
 
 .c-CategoryProduct__title {
-  font-size: 16px;
-  font-weight: 200;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.c-CategoryProduct__title:hover {
+  color: var(--highlight-text);
 }
 
 .c-CategoryProduct__price {
   display: inline-block;
   margin-top: 3px;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 500;
 }
 

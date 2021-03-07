@@ -8,3 +8,9 @@
   width: 49%;
   margin: 2px 0px;
 }
+
+@media only screen and (max-width: 600px) {
+  .c-CheckoutPaymentInformation__half {
+    width: 100%;
+  }
+}

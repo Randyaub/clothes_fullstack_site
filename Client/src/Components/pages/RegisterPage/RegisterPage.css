@@ -1,7 +1,3 @@
-.c-RegisterPage {
-  margin: 0px 0px 150px;
-}
-
 .c-RegisterPage__container {
   border-top: 1px solid var(--border-colour);
   border-bottom: 1px solid var(--border-colour);
@@ -18,7 +14,8 @@
 }
 
 .c-RegisterPage__label {
-  width: 20%;
+  width: 250px;
+  margin-bottom: 3px;
 }
 
 .c-RegisterPage__formItem {
@@ -26,5 +23,17 @@
 }
 
 .c-RegisterPage__input {
-  width: 50%;
+  width: 600px;
+}
+
+@media only screen and (max-width: 720px) {
+  .c-RegisterPage__input {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .c-RegisterPage__input {
+    width: 100%;
+  }
 }

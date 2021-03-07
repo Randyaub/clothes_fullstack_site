@@ -9,7 +9,7 @@ const PurchasedPage = (props) => {
   ) : (
     <div className="c-PurchasedPage">
       <div className="c-PurchasedPage__text">
-        <h1>THANK YOU FOR YOUR PURCHASE</h1>
+        <h2>THANK YOU FOR YOUR PURCHASE</h2>
         <span>
           If you are logged in you may view your orders from the account page.
           Otherwise you can navigate to the guest purchases page to view the 10
@@ -28,7 +28,7 @@ const PurchasedPage = (props) => {
           <LinkButton
             className="default-btn small-btn"
             buttonText={"Continue Shopping"}
-            url={"/men"}
+            url={"/"}
           />
         </div>
       </div>

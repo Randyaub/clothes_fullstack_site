@@ -1,6 +1,7 @@
 .c-PurchasedPage__btns {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .l-PurchasedPage__btns {
@@ -13,13 +14,20 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  padding: 0px 10px;
 }
 
 .c-PurchasedPage__text > span {
   margin-top: 10px;
-  width: 580px;
+  max-width: 580px;
 }
 
 .c-PurchasedPage {
   margin-bottom: 150px;
+}
+
+@media only screen and (max-width: 600px) {
+  .c-PurchasedPage__btns {
+    flex-direction: column;
+  }
 }

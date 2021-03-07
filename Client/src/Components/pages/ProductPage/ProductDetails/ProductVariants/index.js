@@ -14,8 +14,8 @@ const ProductVariants = (props) => {
               to={varient.sku}
               className={
                 props.product.sku === varient.sku
-                  ? "c-ProductVariants-selected"
-                  : ""
+                  ? "c-ProductVariants-selected c-ProductVariants-spacing"
+                  : "c-ProductVariants-spacing"
               }
             >
               <div className="c-ProductVariants__container">

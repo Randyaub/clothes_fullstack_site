@@ -12,3 +12,14 @@
 .c-Payment__button {
   margin-bottom: 30px;
 }
+
+@media only screen and (max-width: 950px) {
+  .l-Payment {
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
+
+  .c-Payment {
+    width: 100%;
+  }
+}

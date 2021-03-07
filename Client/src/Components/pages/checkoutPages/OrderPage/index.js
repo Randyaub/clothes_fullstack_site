@@ -134,7 +134,7 @@ const OrderPage = (props) => {
         </div>
         <Button
           onClick={handleClick}
-          className="large-btn red-btn"
+          className="large-btn red-btn c-OrderPage-btn"
           buttonText="PLACE YOUR ORDER"
         />
       </div>

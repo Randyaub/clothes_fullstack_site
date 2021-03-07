@@ -42,19 +42,21 @@ const CreditCardExpiration = (props) => {
           setFunction={props.cardPaymentInfo.setCardExpirationYear}
         />
       </div>
-      <FormItem
-        labelName={"CVV"}
-        inputClassName={"c-Input__input c-CheckoutForm__half"}
-        inputName={"CVV"}
-        inputValue={props.cardPaymentInfo.cardCVV}
-        inputPlaceHolder={"CVV"}
-        inputSetFunction={props.cardPaymentInfo.setCardCVV}
-        error={props.cvvError}
-        subInfo={
-          "Your card verification value, on the back of your credit card"
-        }
-        maxLength={"3"}
-      />
+      <div>
+        <FormItem
+          labelName={"CVV"}
+          inputClassName={"c-Input__input c-CheckoutForm__half"}
+          inputName={"CVV"}
+          inputValue={props.cardPaymentInfo.cardCVV}
+          inputPlaceHolder={"CVV"}
+          inputSetFunction={props.cardPaymentInfo.setCardCVV}
+          error={props.cvvError}
+          subInfo={
+            "Your card verification value, on the back of your credit card"
+          }
+          maxLength={"3"}
+        />
+      </div>
     </>
   );
 };

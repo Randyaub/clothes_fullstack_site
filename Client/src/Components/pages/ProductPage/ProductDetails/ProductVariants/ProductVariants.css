@@ -5,7 +5,12 @@
 }
 
 .c-ProductVariants-selected {
-  border: 1px solid var(--main-text-colour);
+  border: 1.5px solid var(--main-text-colour);
+}
+
+.c-ProductVariants-spacing {
+  margin-right: 3px;
+  padding: 1px;
 }
 
 .c-ProductVariants__image {
@@ -15,7 +20,7 @@
 
 .c-ProductVariants__container {
   width: 60px;
-  margin-right: 3px;
+  height: 90px;
 }
 
 @media only screen and (max-width: 1000px) {

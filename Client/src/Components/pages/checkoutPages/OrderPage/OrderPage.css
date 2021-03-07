@@ -1,20 +1,13 @@
-.c-Order {
-  margin-bottom: 100px;
-}
 .l-Order {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .c-Order__information {
   width: 59%;
-}
-
-.c-Order__button {
-  margin-bottom: 30px;
 }
 
 .c-Order__review {
@@ -37,4 +30,28 @@
 
 .c-OrderPage__btn {
   display: flex;
+}
+
+@media only screen and (max-width: 950px) {
+  .l-Order {
+    flex-direction: column;
+  }
+
+  .c-Order__information {
+    width: 100%;
+  }
+
+  .c-Order__review {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .c-Order__section {
+    width: 100%;
+  }
+
+  .c-OrderPage-btn {
+    width: 100%;
+  }
 }
