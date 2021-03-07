@@ -4,7 +4,6 @@
 }
 
 .l-main {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 0px 30px 80px 30px;
 }
@@ -18,7 +17,10 @@
 }
 
 .switch-container {
-  margin: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: 30px auto;
 }
 
 @media only screen and (max-width: 370px) {
