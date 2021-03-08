@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import useToken from "../../../utility/useToken";
 import Orders from "../../common/Orders";
 import axios from "axios";
 import "./AccountPage.css";
@@ -6,14 +7,17 @@ import "./AccountPage.css";
 const AccountPage = ({ user, logOutUser }) => {
   const [loading, setLoading] = useState(true);
   const [userOrders, setUserOrders] = useState([]);
+  const { token } = useToken();
 
   useEffect(() => {
-    axios({ method: "GET", url: `user/account/user/${user.id}` }).then(
-      (result) => {
-        setUserOrders(result.data.user_orders);
-        setLoading(false);
-      }
-    );
+    axios({
+      method: "GET",
+      url: `user/account/user/${user.id}`,
+      headers: { Authorization: "Bearer " + token },
+    }).then((result) => {
+      setUserOrders(result.data.user_orders);
+      setLoading(false);
+    });
   }, [user.id]);
 
   return loading ? (

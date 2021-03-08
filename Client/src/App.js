@@ -148,7 +148,7 @@ function App() {
     } else {
       setInitialLoad(true);
     }
-  }, []);
+  }, [token]);
 
   //Sets localstorage when ever an item is added
   useEffect(() => {
