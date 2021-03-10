@@ -20,6 +20,7 @@ const FormItem = (props) => {
         type={props.type}
         subInfo={props.subInfo}
         maxLength={props.maxLength}
+        regex={props.regex}
       />
     </>
   );

@@ -35,11 +35,13 @@ const CreditCardExpiration = (props) => {
           list={months}
           value={props.cardPaymentInfo.cardExpirationMonth}
           setFunction={props.cardPaymentInfo.setCardExpirationMonth}
+          error={props.expirationMonthError}
         />
         <InputSelect
           list={years}
           value={props.cardPaymentInfo.cardExpirationYear}
           setFunction={props.cardPaymentInfo.setCardExpirationYear}
+          error={props.expirationYearError}
         />
       </div>
       <div>
@@ -55,6 +57,7 @@ const CreditCardExpiration = (props) => {
             "Your card verification value, on the back of your credit card"
           }
           maxLength={"3"}
+          regex={/^[0-9]*$/}
         />
       </div>
     </>

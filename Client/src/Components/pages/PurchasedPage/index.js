@@ -12,7 +12,7 @@ const PurchasedPage = (props) => {
         <h2>THANK YOU FOR YOUR PURCHASE</h2>
         <span>
           If you are logged in you may view your orders from the account page.
-          Otherwise you can navigate to the guest purchases page to view the 10
+          Otherwise you can navigate to the guest purchases page to view the
           most recent guest purchases.
         </span>
       </div>

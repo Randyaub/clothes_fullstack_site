@@ -18,6 +18,7 @@ const CheckoutPaymentForm = (props) => {
         inputSetFunction={props.cardPaymentInfo.setNameOnCard}
         error={props.nameOnCardError}
         maxLength={"40"}
+        regex={/^[A-Za-z]+$/}
       />
       <FormItem
         inputClassName={"c-Input__input c-CheckoutPaymentInformation__half"}
@@ -28,6 +29,7 @@ const CheckoutPaymentForm = (props) => {
         inputSetFunction={props.cardPaymentInfo.setCardNumber}
         error={props.cardNumberError}
         maxLength={"16"}
+        regex={/^[0-9]*$/}
       />
       <CreditCardExpiration
         cardPaymentInfo={props.cardPaymentInfo}

@@ -155,7 +155,7 @@ const CheckoutForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleNavigate}>
+    <form autoComplete="off" onSubmit={handleNavigate}>
       <div className="c-CheckoutForm">
         {props.formInfo.email != null && (
           <FormItem
@@ -180,6 +180,7 @@ const CheckoutForm = (props) => {
               inputSetFunction={props.formInfo.setFirstName}
               error={firstNameError}
               maxLength={"40"}
+              regex={/^[A-Za-z]+$/}
             />
           </div>
           <div className="c-CheckoutForm__half">
@@ -191,6 +192,7 @@ const CheckoutForm = (props) => {
               inputSetFunction={props.formInfo.setLastName}
               error={lastNameError}
               maxLength={"40"}
+              regex={/^[A-Za-z]+$/}
             />
           </div>
         </div>
@@ -228,6 +230,7 @@ const CheckoutForm = (props) => {
               inputSetFunction={props.formInfo.setCity}
               error={cityError}
               maxLength={"40"}
+              regex={/^[A-Za-z]+$/}
             />
           </div>
           <div className="c-CheckoutForm__half">
@@ -236,6 +239,7 @@ const CheckoutForm = (props) => {
               value={props.formInfo.province}
               setFunction={props.formInfo.setProvince}
               list={provinces}
+              regex={/^[A-Za-z]+$/}
             />
             <div className="c-Input__error">{provinceError}</div>
           </div>

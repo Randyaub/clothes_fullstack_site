@@ -14,3 +14,7 @@
 .c-InputSelectValue {
   font-size: 15px;
 }
+
+.c-InputSelectValue__error {
+  background-color: bisque;
+}

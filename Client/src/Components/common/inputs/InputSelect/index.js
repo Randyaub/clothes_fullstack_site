@@ -17,7 +17,7 @@ const InputSelect = (props) => {
         setIsOpen(false);
       }}
     >
-      <InputSelectValue value={props.value} />
+      <InputSelectValue value={props.value} error={props.error} />
       <InputSelectMenu
         isOpen={isOpen}
         list={props.list}
