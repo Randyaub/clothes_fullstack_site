@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 import "./ShippingPage.css";
 import CheckoutForm from "../CheckoutForm";
@@ -14,7 +14,9 @@ const ShippingPage = (props) => {
     history.push("/billing-checkout");
   };
 
-  return (
+  return !props.cartCount > 0 ? (
+    <Redirect to="/" />
+  ) : (
     <>
       <BreadCrumbIndicator checkoutPosition={"shipping"} />
       <div className="l-Shipping">

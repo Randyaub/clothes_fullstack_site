@@ -7,7 +7,7 @@ import "./MemberOrGuest.css";
 import { Redirect } from "react-router-dom";
 
 const MemberOrGuest = (props) => {
-  return props.isLoggedIn ? (
+  return props.isLoggedIn || !props.cartCount > 0 ? (
     <Redirect to="/" />
   ) : (
     <div className="c-MemberOrGuest container">

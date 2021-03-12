@@ -39,7 +39,7 @@ const PaymentPage = (props) => {
     }
   };
 
-  return !props.hasVisitedShipping ? (
+  return !props.hasVisitedShipping || !props.cartCount > 0 ? (
     <Redirect to="/shipping-checkout" />
   ) : (
     <>

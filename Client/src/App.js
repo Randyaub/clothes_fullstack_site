@@ -200,6 +200,7 @@ function App() {
                   setLoggedIn={setLoggedIn}
                   setUser={setUser}
                   isLoggedIn={isLoggedIn}
+                  cartCount={cartCount}
                 />
               </Route>
               <Route exact path="/shipping-checkout">

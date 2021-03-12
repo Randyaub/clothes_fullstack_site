@@ -64,7 +64,9 @@ const OrderPage = (props) => {
       });
     }
   };
-  return !props.hasVisitedPayment || !props.hasVisitedShipping ? (
+  return !props.hasVisitedPayment ||
+    !props.hasVisitedShipping ||
+    !props.cartCount > 0 ? (
     <Redirect to="shipping-checkout" />
   ) : (
     <>
