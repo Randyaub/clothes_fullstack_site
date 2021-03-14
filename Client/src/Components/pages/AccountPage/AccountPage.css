@@ -4,15 +4,16 @@
 }
 
 .c-AccountPage__user {
-  font-size: 22px;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .c-AccountPage__sidebar {
-  width: 20%;
+  width: 15%;
 }
 
 .c-AccountPage__orders {
-  width: 76%;
+  width: 83%;
 }
 
 .c-AccountPage__underline {
@@ -22,6 +23,11 @@
 .c-AccountPage__heading {
   font-size: 22px;
   font-weight: 00;
+  margin-bottom: 5px;
+}
+
+.c-AccountPage__flex {
+  display: flex;
 }
 
 .c-AccountPage__list {
@@ -29,12 +35,30 @@
   justify-content: space-between;
 }
 
-.c-AccountPage__container {
-  margin: 10px 0px;
-}
-
-.c-AccountPage__container > ul > li {
-  margin-top: 15px;
+.c-AccountPage__item {
+  margin-top: 10px;
   cursor: pointer;
   font-size: 14px;
+}
+
+.c-AccountPage__item:hover {
+  color: var(--highlight-text);
+}
+
+@media only screen and (max-width: 1000px) {
+  .c-AccountPage {
+    display: block;
+  }
+
+  .c-AccountPage__orders {
+    width: 100%;
+  }
+
+  .c-AccountPage__sidebar {
+    display: none;
+  }
+
+  .c-AccountPage__user {
+    display: none;
+  }
 }

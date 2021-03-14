@@ -1,0 +1,91 @@
+.c-AccountPageMobileNav {
+  display: none;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.c-AccountPageMobileNav:hover > .c-AccountPageMobileNav__bars {
+  transform: scale(1.1);
+}
+
+.c-AccountPageMobileNav__name {
+  margin-left: 10px;
+  font-weight: 400;
+}
+
+.c-AccountPageMobileNav__bars {
+  font-size: 25px;
+}
+
+.c-AccountPageMobileNav__underline {
+  padding-top: 10px;
+  border-bottom: 1px solid var(--border-colour);
+}
+
+.c-AccountPageMobileNav__side {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  max-width: 100px;
+  height: 100vh;
+  background-color: white;
+  padding: 30px;
+  padding-top: 60px;
+  transition: all 0.2s;
+  visibility: hidden;
+  overflow: hidden;
+  z-index: 999999999;
+}
+
+.c-AccountPageMobileNav__x {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.c-AccountPageMobileNav__x:hover {
+  color: var(--highlight-text);
+}
+
+.c-AccountPageMobileNav-show {
+  visibility: visible;
+  opacity: 1;
+  min-width: 500px;
+}
+
+.c-AccountPageMobileNav-hidden {
+  visibility: hidden;
+  opacity: 0;
+  min-width: 100px;
+}
+
+.c-AccountPageMobileNav__item {
+  margin: 30px 0px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.c-AccountPageMobileNav__item:hover {
+  color: var(--highlight-text);
+}
+
+@media only screen and (max-width: 1000px) {
+  .c-AccountPageMobileNav {
+    display: inline-flex;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .c-AccountPageMobileNav__side {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .c-AccountPageMobileNav-show {
+    min-width: 100%;
+  }
+}

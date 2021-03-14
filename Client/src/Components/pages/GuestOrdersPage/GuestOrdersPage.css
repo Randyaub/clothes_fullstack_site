@@ -2,3 +2,9 @@
   display: flex;
   margin: 0px 20px;
 }
+
+@media only screen and (max-width: 430px) {
+  .c-GuestOrdersPage__title {
+    font-size: 25px;
+  }
+}
