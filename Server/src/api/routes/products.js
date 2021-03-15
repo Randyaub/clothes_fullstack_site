@@ -7,10 +7,10 @@ router.get(
   "/:gender/Shop-Category/:category/:subcategory",
   productsController.products_get_subcategory
 );
+router.get("/:gender/Shop-Category/all", productsController.products_get_all);
 router.get(
   "/:gender/Shop-Category/:category",
   productsController.products_get_category
 );
 router.get("/Product-Page/:sku", productsController.products_get_product);
-
 export default router;

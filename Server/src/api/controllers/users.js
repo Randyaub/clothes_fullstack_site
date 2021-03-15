@@ -116,8 +116,6 @@ exports.user_create_account = (req, res) => {
 //RETURNS THE 10 MOST RECENT GUEST ORDERS AND THE ORDERS ITEMS
 exports.user_guest_orders = (req, res) => {
   //Select the 10 most recent guest orders
-  let response = [];
-
   pool
     .query(
       `
@@ -130,46 +128,51 @@ exports.user_guest_orders = (req, res) => {
       `
     )
     .then((orders) => {
-      //Iterate through all orders
-      orders.rows.map((order, index) => {
-        //Find all items that has order_id equal to orders id
-        pool
-          .query(
-            `
-            SELECT
-              * 
-            FROM order_item
-            WHERE order_item.order_id IN ($1)`,
-            [order.id]
-          )
-          //Return the order and map out the orders items
-          .then((items) => {
-            //guest order details
-            let guest_order = {
-              order_number: order.id,
-              status: order.order_status,
-              method: order.order_method,
-              placed: order.order_placed,
-              items: items.rows.map((item) => {
-                return {
-                  name: item.name,
-                  sku: item.sku,
-                  colour: item.colour,
-                  size: item.size,
-                  quantity: item.quantity,
+      const waitForAllOrders = async () => {
+        const unresolvedPromises = orders.rows.map((order) => {
+          //Find all items that has order_id equal to orders id
+          return (
+            pool
+              .query(
+                `
+              SELECT
+                *
+              FROM order_item
+              WHERE order_item.order_id IN ($1)`,
+                [order.id]
+              )
+              //Return the order and map out the orders items
+              .then((items) => {
+                //guest order details
+                let guest_order = {
+                  order_number: order.id,
+                  status: order.order_status,
+                  method: order.order_method,
+                  placed: order.order_placed,
+                  items: items.rows.map((item) => {
+                    return {
+                      name: item.name,
+                      sku: item.sku,
+                      colour: item.colour,
+                      size: item.size,
+                      quantity: item.quantity,
+                    };
+                  }),
                 };
-              }),
-            };
-            //Append order to end of response
-            response.push(guest_order);
-          })
-          //return response when all orders iterated through
-          .then(() => {
-            if (orders.rowCount === index + 1) {
-              res.status(200).json({ guest_orders: response });
-            }
-          });
-      });
+                return guest_order;
+              })
+              .catch((error) => {
+                return res.status(500).json({
+                  error: error.message,
+                });
+              })
+          );
+        });
+        const guest_orders = await Promise.all(unresolvedPromises);
+        res.status(200).json({ guest_orders });
+      };
+
+      waitForAllOrders();
     })
     .catch((error) => {
       return res.status(500).json({
@@ -181,7 +184,6 @@ exports.user_guest_orders = (req, res) => {
 exports.user_user_orders = (req, res) => {
   //Select the 10 most recent guest orders
   const { id } = req.params;
-  let response = [];
 
   pool
     .query(
@@ -196,46 +198,51 @@ exports.user_user_orders = (req, res) => {
       [id]
     )
     .then((orders) => {
-      //Iterate through all orders
-      orders.rows.map((order, index) => {
-        //Find all items that has order_id equal to orders id
-        pool
-          .query(
-            `
+      const waitForAllOrders = async () => {
+        const unresolvedPromises = orders.rows.map((order) => {
+          //Find all items that has order_id equal to orders id
+          return (
+            pool
+              .query(
+                `
             SELECT
-              * 
+              *
             FROM order_item
             WHERE order_item.order_id IN ($1)`,
-            [order.id]
-          )
-          //Return the order and map out the orders items
-          .then((items) => {
-            //user order details
-            let user_order = {
-              order_number: order.id,
-              status: order.order_status,
-              method: order.order_method,
-              placed: order.order_placed,
-              items: items.rows.map((item) => {
-                return {
-                  name: item.name,
-                  sku: item.sku,
-                  colour: item.colour,
-                  size: item.size,
-                  quantity: item.quantity,
+                [order.id]
+              )
+              //Return the order and map out the orders items
+              .then((items) => {
+                //guest order details
+                let user_order = {
+                  order_number: order.id,
+                  status: order.order_status,
+                  method: order.order_method,
+                  placed: order.order_placed,
+                  items: items.rows.map((item) => {
+                    return {
+                      name: item.name,
+                      sku: item.sku,
+                      colour: item.colour,
+                      size: item.size,
+                      quantity: item.quantity,
+                    };
+                  }),
                 };
-              }),
-            };
-            //Append order to end of response
-            response.push(user_order);
-          })
-          //return response when all orders iterated through
-          .then(() => {
-            if (orders.rowCount === index + 1) {
-              res.status(200).json({ user_orders: response });
-            }
-          });
-      });
+                return user_order;
+              })
+              .catch((error) => {
+                return res.status(500).json({
+                  error: error.message,
+                });
+              })
+          );
+        });
+        const user_orders = await Promise.all(unresolvedPromises);
+        res.status(200).json({ user_orders });
+      };
+
+      waitForAllOrders();
     })
     .catch((error) => {
       return res.status(500).json({

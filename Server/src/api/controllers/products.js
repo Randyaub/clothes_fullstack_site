@@ -163,3 +163,38 @@ exports.products_get_product = (req, res) => {
       });
     });
 };
+
+exports.products_get_all = (req, res) => {
+  const { gender } = req.params;
+
+  const query_for_all_products = `
+  SELECT clothes.name, clothes_variation.price, clothes_variation.sku, image.image FROM clothes_variation 
+      INNER JOIN clothes ON clothes_variation.clothes_id = clothes.id
+      INNER JOIN category ON category.id = clothes.category_id
+      INNER JOIN gender ON clothes.gender_id = gender.id
+      INNER JOIN variation_colour ON clothes_variation.id = variation_colour.id
+      INNER JOIN image ON variation_colour.id = image.variation_colour_id
+        WHERE gender.gender = $1`;
+
+  pool
+    .query(query_for_all_products, [gender])
+    .then((query) => {
+      const response = {
+        count: query.rowCount,
+        products: query.rows.map((item) => {
+          return {
+            name: item.name,
+            price: item.price,
+            SKU: item.sku,
+            image: item.image,
+          };
+        }),
+      };
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: err.message,
+      });
+    });
+};
