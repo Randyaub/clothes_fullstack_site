@@ -25,6 +25,7 @@
 .c-CategoryProduct__wrapper {
   height: 0;
   padding-bottom: 150%;
+  background-color: var(--secondary-background-colour);
 }
 
 .c-CategoryProduct__title {
