@@ -8,7 +8,7 @@ const AccountPageMobileNav = (props) => {
         className="c-AccountPageMobileNav"
         onClick={() => props.setIsNavOpen(!props.isNavOpen)}
       >
-        <i class="fas fa-bars c-AccountPageMobileNav__bars"></i>
+        <i className="fas fa-bars c-AccountPageMobileNav__bars"></i>
         <h3 className="c-AccountPageMobileNav__name">{props.name}</h3>
       </span>
       <div

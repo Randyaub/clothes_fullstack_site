@@ -144,6 +144,7 @@ function App() {
           setUser("");
           setLoggedIn(false);
           setInitialLoad(true);
+          setToken();
         });
     } else {
       setInitialLoad(true);

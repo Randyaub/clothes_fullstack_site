@@ -1,5 +1,5 @@
 .c-MemberOrGuest {
-  width: 60%;
+  width: 800px;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
@@ -14,10 +14,9 @@
   .l-MemberOrGuest {
     flex-direction: column;
   }
-}
 
-@media only screen and (max-width: 650px) {
   .c-MemberOrGuest {
     width: 95%;
   }
 }
+

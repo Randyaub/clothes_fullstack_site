@@ -59,6 +59,7 @@ const Footer = () => {
       {/* <FooterCategory info={shop} />
       <FooterCategory info={about} />
       <FooterCategory info={help} /> */}
+      Created by Randy Aubichon
     </footer>
   );
 };
