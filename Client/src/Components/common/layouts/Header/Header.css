@@ -34,7 +34,7 @@
   color: var(--highlight-text);
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 665px) {
   .c-Header__left {
     display: none;
   }
