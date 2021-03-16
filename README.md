@@ -1,4 +1,4 @@
-# Clothes store website - In Development
+# Clothes store website
 
 This is a clothing store website where customers are able to browse and purchase clothes. This website was built using the PERN stack.
 
@@ -31,6 +31,14 @@ Prettier
 ### Register Page
 
 ![](Images/Register.jpg)
+
+### Guest Orders Page
+
+![](Images/Guest-Orders.jpg)
+
+### Shipping Page
+
+![](Images/Shipping-Page.jpg)
 
 ## Tech/Framework/Modules/API's
 
