@@ -4,7 +4,7 @@ This is a clothing store website where customers are able to browse and purchase
 
 ## Motivation
 
-I decided to start creating a clothing store because I was interested in what goes on behind clothing stores such as uniqlo and h&m both of which inspired the design of the website.
+I decided to start creating a clothing store because I was interested in what goes on behind clothing stores such as Uniqlo and H&M both of which inspired the design of the website.
 
 ## Code Style
 
@@ -64,23 +64,22 @@ Prettier
 - pg
 - jsonwebtoken
 - bcrypt
-
-**TECH/MODULES very likely to change throughout the creation of this site**
+- nodemon
 
 ## Features
 
 **Current features:**
 
--Browse the men's catalogue of clothes
+-Browse the men's and womens catalogue of clothes
 
--Navigate to the login/register pages that have client side form validation
+-Sign up with an account that uses bcrypt to hash passwords and jsonweb tokens to check if the user is logged in.
 
--Add clothes into a cart the keeps track of customers purchases and
+-Log in and view your ten most recent previously submitted orders. 
 
--View the cart at any time
+-Add clothes into the cart from the product page where you can select size and a colour variant.
 
--Edit the quantity of the item in the cart / or remove item from the cart
+-View the shopping cart at any time and delete or change quantity of items.
 
-**More features are planned and to be added**
+-Fill in shipping and billing information and confirm order.
 
-Currently working on the user sign in and login with JWT's
+-View the guest orders page that displays the ten most recent guest orders. So you do not need an account to view a successful order.
