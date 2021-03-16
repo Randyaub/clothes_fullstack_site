@@ -22,6 +22,7 @@ import PurchasedPage from "./Components/pages/PurchasedPage";
 import ProtectedRoute from "./ProtectedRoute";
 import useToken from "./utility/useToken";
 import useLocalStorageCart from "./utility/useLocalStorageCart";
+import Button from "./Components/common/buttons/Button";
 
 function App() {
   let history = useHistory();
@@ -31,6 +32,7 @@ function App() {
   const [hasVisitedShipping, setHasVisitedShipping] = useState();
   const [hasVisitedPayment, setHasVisitedPayment] = useState();
   const [hasCompletedOrder, setHasCompletedOrder] = useState();
+  const [isDisclaimerClicked, setIsDisclaimerClicked] = useState(false);
 
   //website globals
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -163,6 +165,14 @@ function App() {
     history.push("/");
   };
 
+  //if disclaimer is accepted dont show again
+  useEffect(() => {
+    let isClicked = sessionStorage.getItem("disclaimerClicked");
+    if (isClicked === "true") {
+      setIsDisclaimerClicked(true);
+    }
+  }, []);
+
   //cart pop up displays for 3 seconds on add
   //if clicked again resets timer
   useEffect(() => {
@@ -176,128 +186,157 @@ function App() {
 
   return (
     initialLoad && (
-      <div className="App">
-        <div className="l-main">
-          <Header
-            cartCount={cartCount}
-            cartItems={cartItems}
-            cartCostTotal={cartCostTotal}
-            productAdded={productAdded}
-            displayMiniCart={displayMiniCart}
-            isLoggedIn={isLoggedIn}
-            logOutUser={logOutUser}
-            user={user}
-          />
-          <div className="switch-container">
-            <Switch>
-              <Route exact path="/">
-                <Redirect to="/men/Shop-Category/all" />
-              </Route>
-              <Route path="/checkout/order-submitted">
-                <PurchasedPage hasCompletedOrder={hasCompletedOrder} />
-              </Route>
-              <Route exact path="/login/checkout">
-                <MemberOrGuest
-                  setLoggedIn={setLoggedIn}
-                  setUser={setUser}
-                  isLoggedIn={isLoggedIn}
-                  cartCount={cartCount}
-                />
-              </Route>
-              <Route exact path="/shipping-checkout">
-                <ShippingPage
-                  cartItems={cartItems}
-                  cartCount={cartCount}
-                  cartCostTotal={cartCostTotal}
-                  formInfo={shippingInfo}
-                  setHasVisitedShipping={setHasVisitedShipping}
-                />
-              </Route>
-              <Route exact path="/billing-checkout">
-                <PaymentPage
-                  cartItems={cartItems}
-                  cartCount={cartCount}
-                  cartCostTotal={cartCostTotal}
-                  formInfo={billingInfo}
-                  shippingInfo={shippingInfo}
-                  hasVisitedShipping={hasVisitedShipping}
-                  setHasVisitedPayment={setHasVisitedPayment}
-                />
-              </Route>
-              <Route exact path="/order-checkout">
-                <OrderPage
-                  cartItems={cartItems}
-                  cartCount={cartCount}
-                  cartCostTotal={cartCostTotal}
-                  shippingInfo={shippingInfo}
-                  billingInfo={billingInfo}
-                  setCartCount={setCartCount}
-                  setCartCostTotal={setCartCostTotal}
-                  setCartItems={setCartItems}
-                  isLoggedIn={isLoggedIn}
-                  hasVisitedShipping={hasVisitedShipping}
-                  hasVisitedPayment={hasVisitedPayment}
-                  setHasCompletedOrder={setHasCompletedOrder}
-                />
-              </Route>
-              <Route exact path="/Product-Page/:sku">
-                <ProductPage
-                  productAdded={productAdded}
-                  displayMiniCart={displayMiniCart}
-                  setCartCount={setCartCount}
-                  cartCount={cartCount}
-                  setCartItems={setCartItems}
-                  cartItems={cartItems}
-                  setCartCostTotal={setCartCostTotal}
-                  cartCostTotal={cartCostTotal}
-                />
-              </Route>
-              <Route exact path="/account/login">
-                <LogInPage
-                  setLoggedIn={setLoggedIn}
-                  setUser={setUser}
-                  isLoggedIn={isLoggedIn}
-                />
-              </Route>
-              <Route exact path="/account/register">
-                <RegisterPage />
-              </Route>
-              <Route exact path="/account/guest">
-                <GuestOrdersPage />
-              </Route>
-              <ProtectedRoute
-                path="/account"
-                isAuth={isLoggedIn}
-                Component={AccountPage}
-                properties={{
-                  logOutUser: logOutUser,
-                  user: user,
+      <>
+        <div className="App">
+          <div
+            className={
+              isDisclaimerClicked === false
+                ? "heroku__disclaimer"
+                : "heroku__disclaimer disclaimer-hidden"
+            }
+          >
+            <div className="disclaimer__box">
+              <h3>This Is A Heroku Hobby App</h3>
+              <img
+                src={window.location.origin + "/loading.svg"}
+                alt="loading"
+              ></img>
+              <div>
+                If you wish to view this page correctly, please wait around 15
+                seconds for the Heroku Dyno to wake up.
+              </div>
+              <h4>Thank you for your patience.</h4>
+              <Button
+                buttonText={"I Understand"}
+                onClick={() => {
+                  setIsDisclaimerClicked(true);
+                  sessionStorage.setItem("disclaimerClicked", "true");
                 }}
               />
-              <Route exact path="/cart">
-                <CartPage
-                  cartItems={cartItems}
-                  setCartItems={setCartItems}
-                  cartCount={cartCount}
-                  setCartCount={setCartCount}
-                  cartCostTotal={cartCostTotal}
-                  setCartCostTotal={setCartCostTotal}
-                  isLoggedIn={isLoggedIn}
+            </div>
+          </div>
+          <div className="l-main">
+            <Header
+              cartCount={cartCount}
+              cartItems={cartItems}
+              cartCostTotal={cartCostTotal}
+              productAdded={productAdded}
+              displayMiniCart={displayMiniCart}
+              isLoggedIn={isLoggedIn}
+              logOutUser={logOutUser}
+              user={user}
+            />
+            <div className="switch-container">
+              <Switch>
+                <Route exact path="/">
+                  <Redirect to="/men/Shop-Category/all" />
+                </Route>
+                <Route path="/checkout/order-submitted">
+                  <PurchasedPage hasCompletedOrder={hasCompletedOrder} />
+                </Route>
+                <Route exact path="/login/checkout">
+                  <MemberOrGuest
+                    setLoggedIn={setLoggedIn}
+                    setUser={setUser}
+                    isLoggedIn={isLoggedIn}
+                    cartCount={cartCount}
+                  />
+                </Route>
+                <Route exact path="/shipping-checkout">
+                  <ShippingPage
+                    cartItems={cartItems}
+                    cartCount={cartCount}
+                    cartCostTotal={cartCostTotal}
+                    formInfo={shippingInfo}
+                    setHasVisitedShipping={setHasVisitedShipping}
+                  />
+                </Route>
+                <Route exact path="/billing-checkout">
+                  <PaymentPage
+                    cartItems={cartItems}
+                    cartCount={cartCount}
+                    cartCostTotal={cartCostTotal}
+                    formInfo={billingInfo}
+                    shippingInfo={shippingInfo}
+                    hasVisitedShipping={hasVisitedShipping}
+                    setHasVisitedPayment={setHasVisitedPayment}
+                  />
+                </Route>
+                <Route exact path="/order-checkout">
+                  <OrderPage
+                    cartItems={cartItems}
+                    cartCount={cartCount}
+                    cartCostTotal={cartCostTotal}
+                    shippingInfo={shippingInfo}
+                    billingInfo={billingInfo}
+                    setCartCount={setCartCount}
+                    setCartCostTotal={setCartCostTotal}
+                    setCartItems={setCartItems}
+                    isLoggedIn={isLoggedIn}
+                    hasVisitedShipping={hasVisitedShipping}
+                    hasVisitedPayment={hasVisitedPayment}
+                    setHasCompletedOrder={setHasCompletedOrder}
+                  />
+                </Route>
+                <Route exact path="/Product-Page/:sku">
+                  <ProductPage
+                    productAdded={productAdded}
+                    displayMiniCart={displayMiniCart}
+                    setCartCount={setCartCount}
+                    cartCount={cartCount}
+                    setCartItems={setCartItems}
+                    cartItems={cartItems}
+                    setCartCostTotal={setCartCostTotal}
+                    cartCostTotal={cartCostTotal}
+                  />
+                </Route>
+                <Route exact path="/account/login">
+                  <LogInPage
+                    setLoggedIn={setLoggedIn}
+                    setUser={setUser}
+                    isLoggedIn={isLoggedIn}
+                  />
+                </Route>
+                <Route exact path="/account/register">
+                  <RegisterPage />
+                </Route>
+                <Route exact path="/account/guest">
+                  <GuestOrdersPage />
+                </Route>
+                <ProtectedRoute
+                  path="/account"
+                  isAuth={isLoggedIn}
+                  Component={AccountPage}
+                  properties={{
+                    logOutUser: logOutUser,
+                    user: user,
+                  }}
                 />
-              </Route>
-              <Route path="/:type">
-                <CategoryPage />
-              </Route>
-              <Route path="*">
-                <NotFoundPage />
-              </Route>
-            </Switch>
+                <Route exact path="/cart">
+                  <CartPage
+                    cartItems={cartItems}
+                    setCartItems={setCartItems}
+                    cartCount={cartCount}
+                    setCartCount={setCartCount}
+                    cartCostTotal={cartCostTotal}
+                    setCartCostTotal={setCartCostTotal}
+                    isLoggedIn={isLoggedIn}
+                  />
+                </Route>
+                <Route path="/:type">
+                  <CategoryPage />
+                </Route>
+                <Route path="*">
+                  <NotFoundPage />
+                </Route>
+              </Switch>
+            </div>
+          </div>
+          <div className="l-footer">
+            <Footer />
           </div>
         </div>
-        <div className="l-footer">
-          <Footer />
-        </div>
-      </div>
+      </>
     )
   );
 }

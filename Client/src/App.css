@@ -23,6 +23,35 @@
   margin: 30px auto;
 }
 
+.heroku__disclaimer {
+  visibility: visible;
+  opacity: 1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999999999;
+}
+
+.disclaimer-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.disclaimer__box {
+  padding: 110px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 600px;
+  height: 500px;
+}
+
 @media only screen and (max-width: 370px) {
   .l-main {
     padding: 0px 10px 80px 10px;
