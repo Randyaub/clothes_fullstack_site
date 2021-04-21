@@ -2,7 +2,8 @@ import { useState } from "react";
 
 export default function useLocalStorageCart() {
   const getLocalStorageCart = () => {
-    return localStorage.getItem("cart");
+    const previousCart = localStorage.getItem("cart");
+    return previousCart && JSON.parse(previousCart);
   };
 
   const [localStorageCart, setLocalStorageCart] = useState(

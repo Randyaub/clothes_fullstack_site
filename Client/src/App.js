@@ -121,11 +121,9 @@ function App() {
   //Retrieves the users previous cart
   useEffect(() => {
     if (localStorageCart) {
-      const parsedCart = JSON.parse(localStorageCart);
-      setCartItems(parsedCart.cartItems);
-      setCartCount(parsedCart.cartCount);
-      setCartCostTotal(parsedCart.cartCostTotal);
-      // eslint-disable-next-line
+      setCartItems(localStorageCart.cartItems);
+      setCartCount(localStorageCart.cartCount);
+      setCartCostTotal(localStorageCart.cartCostTotal);
     }
   }, []);
 
