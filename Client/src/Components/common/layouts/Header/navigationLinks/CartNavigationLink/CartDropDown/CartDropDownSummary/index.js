@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import LinkButton from "../../../../../../buttons/LinkButton";
+import { UserContext } from "../../../../../../../../utility/context/UserContext";
 import "./CartDropDownSummary.css";
 
-import LinkButton from "../../../../../../buttons/LinkButton";
+const CartDropDownSummary = ({ cartCount, cartCostTotal }) => {
+  const user = useContext(UserContext);
 
-const CartDropDownSummary = (props) => {
   return (
     <div className="c-CartDropDownSummary">
       <div className="c-CartDropDownSummary__price">
-        <h3>TOTAL ({props.cartCount})</h3>
-        <h3>${props.cartCostTotal.toFixed(2)}</h3>
+        <h3>TOTAL ({cartCount})</h3>
+        <h3>${cartCostTotal.toFixed(2)}</h3>
       </div>
       <LinkButton
-        url={props.isLoggedIn ? "/shipping-checkout" : "/login/checkout"}
+        url={user.isAuth ? "/shipping-checkout" : "/login/checkout"}
         buttonText={"CHECKOUT"}
       />
       <LinkButton

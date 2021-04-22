@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import CartDropDownItemDetails from "./CartDropDownItemDetails";
 import "./CartDropDownItem.css";
 
-const CartDropDownItem = (props) => {
+const CartDropDownItem = ({ index, item }) => {
   return (
     <div className="c-CartDopDownItem">
       <Link
-        key={props.index}
+        key={index}
         className="c-CartDropDownItem__item"
-        to={`/Product-Page/${props.item.sku}`}
+        to={`/Product-Page/${item.sku}`}
       >
         <img
           className="c-CartDropDownItem__image"
-          src={`https://react-express-clothes.herokuapp.com/public/${props.item.image}-1.jpg`}
-          alt={props.item.name}
+          src={`https://react-express-clothes.herokuapp.com/public/${item.image}-1.jpg`}
+          alt={item.name}
         />
-        <CartDropDownItemDetails item={props.item} />
+        <CartDropDownItemDetails item={item} />
       </Link>
     </div>
   );

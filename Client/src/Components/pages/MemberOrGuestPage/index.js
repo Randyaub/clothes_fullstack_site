@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import ReturningCustomerSection from "./ReturningCustomerSection";
 import GuestCheckout from "./GuestCheckout";
 
-import "./MemberOrGuest.css";
 import { Redirect } from "react-router-dom";
+import { UserContext } from "../../../utility/context/UserContext";
+import "./MemberOrGuest.css";
 
 const MemberOrGuest = (props) => {
-  return props.isLoggedIn || !props.cartCount > 0 ? (
+  const user = useContext(UserContext);
+
+  return user.isAuth || !props.cartCount > 0 ? (
     <Redirect to="/" />
   ) : (
     <div className="c-MemberOrGuest container">
       <div className="l-MemberOrGuest">
-        <ReturningCustomerSection
-          setLoggedIn={props.setLoggedIn}
-          setUser={props.setUser}
-        />
+        <ReturningCustomerSection />
         <GuestCheckout />
       </div>
     </div>

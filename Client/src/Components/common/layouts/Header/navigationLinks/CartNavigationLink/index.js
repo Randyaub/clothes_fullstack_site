@@ -16,7 +16,6 @@ const CartNavigationLink = (props) => {
         cartCount={props.cartCount}
         cartItems={props.cartItems}
         cartCostTotal={props.cartCostTotal}
-        isLoggedIn={props.isLoggedIn}
       />
     </>
   );

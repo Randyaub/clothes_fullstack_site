@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import useToken from "../../../utility/useToken";
 import Orders from "../../common/Orders";
 import axios from "axios";
 import "./AccountPage.css";
 import AccountPageMobileNav from "./AccountPageMobileNav";
+import { UserContext } from "../../../utility/context/UserContext";
 
-const AccountPage = ({ user, logOutUser }) => {
+const AccountPage = () => {
+  const user = useContext(UserContext);
   const [loading, setLoading] = useState(true);
   const [userOrders, setUserOrders] = useState([]);
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -14,19 +16,19 @@ const AccountPage = ({ user, logOutUser }) => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `user/account/user/${user.id}`,
+      url: `user/account/user/${user.user.id}`,
       headers: { Authorization: "Bearer " + token },
     }).then((result) => {
       setUserOrders(result.data.user_orders);
       setLoading(false);
     });
-  }, [user.id]);
+  }, [user.user.id]);
 
   return loading ? (
     ""
   ) : (
     <>
-      <div className="c-AccountPage__user">Welcome {user.first_name}</div>
+      <div className="c-AccountPage__user">Welcome {user.user.first_name}</div>
       <div className="c-AccountPage">
         <div className="c-AccountPage__sidebar">
           <div>
@@ -44,15 +46,14 @@ const AccountPage = ({ user, logOutUser }) => {
                 <i className="fas fa-arrow-right"></i>
               </div>
             </li> */}
-              <li className="c-AccountPage__item" onClick={() => logOutUser()}>
+              <li className="c-AccountPage__item" onClick={() => user.logOut()}>
                 Sign Out
               </li>
             </ul>
           </div>
         </div>
         <AccountPageMobileNav
-          name={user.first_name}
-          logOutUser={logOutUser}
+          name={user.user.first_name}
           isNavOpen={isNavOpen}
           setIsNavOpen={setIsNavOpen}
         />

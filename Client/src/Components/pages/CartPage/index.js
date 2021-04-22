@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../../utility/context/UserContext";
 import LinkButton from "../../common/buttons/LinkButton";
 import CartItem from "./CartItem";
 
@@ -6,6 +7,8 @@ import "./CartPage.css";
 import CartSummary from "./CartSummary";
 
 const CartPage = (props) => {
+  const user = useContext(UserContext);
+
   return (
     <>
       <h1 className="main-header">Shopping Cart</h1>
@@ -40,7 +43,7 @@ const CartPage = (props) => {
               <h5>* Item prices include tax</h5>
             </div>
             <LinkButton
-              url={props.isLoggedIn ? "/shipping-checkout" : "/login/checkout"}
+              url={user.isAuth ? "/shipping-checkout" : "/login/checkout"}
               buttonText={"PROCEED TO CHECKOUT"}
               className={"red-btn"}
             />

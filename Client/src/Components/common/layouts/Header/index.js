@@ -18,11 +18,7 @@ const Header = (props) => {
             <GuestOrdersNavigationLink />
           </span>
           <span className="c-Header__column">
-            <AccountNavigationLink
-              isLoggedIn={props.isLoggedIn}
-              logOutUser={props.logOutUser}
-              user={props.user}
-            />
+            <AccountNavigationLink />
           </span>
           <span className="c-Header__column">
             <CartNavigationLink

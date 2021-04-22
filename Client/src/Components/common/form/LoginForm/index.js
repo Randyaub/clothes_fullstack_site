@@ -1,81 +1,44 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+// import { useHistory } from "react-router-dom";
 import useToken from "../../../../utility/useToken";
 import axios from "axios";
-
-import "./LoginForm.css";
 import SubmitButton from "../../buttons/SubmitButton";
 import FormItem from "../FormItem";
+import "./LoginForm.css";
 
 import { emailValid, passwordValid } from "../../../../utility/utilities";
+import { UserContext } from "../../../../utility/context/UserContext";
 
-const LoginForm = (props) => {
-  const history = useHistory();
-  const { token, setToken } = useToken();
+const LoginForm = ({ checkoutLogin, setUser, setLoggedIn }) => {
+  const user = useContext(UserContext);
+  const { token } = useToken();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { checkoutLogin, setUser, setLoggedIn } = props;
+  // const history = useHistory();
 
-  const goToAccount = () => {
-    history.push("/account");
-  };
+  // const goToAccount = () => {
+  //   history.push("/account");
+  // };
 
-  const goToCheckoutPage = () => {
-    history.push("/shipping-checkout");
-  };
+  // const goToCheckoutPage = () => {
+  //   history.push("/shipping-checkout");
+  // };
 
   const isValid = () => {
-    if (emailValid(email, setError) === false) return false;
-    if (passwordValid(password, setError) === false) return false;
-    return true;
+    if (!emailValid(email, setError) || !passwordValid(password, setError)) {
+      return false;
+    } else {
+      return true;
+    }
   };
 
   const handleLogIn = (event) => {
     event.preventDefault();
     if (isValid()) {
-      axios
-        .post("user/login", {
-          email: email.trim(),
-          password: password.trim(),
-        })
-        .then((res) => {
-          setError("");
-          setToken(res.data.JWT);
-          checkoutLogin ? goToCheckoutPage() : goToAccount();
-        })
-        .catch((error) => {
-          if (error.response) {
-            setError(
-              "The email and password you entered did not match our records. Please double check and try again"
-            );
-          }
-          setUser("");
-          setLoggedIn(false);
-          setEmail("");
-          setPassword("");
-        });
-      setError("");
+      user.logIn(email, password, setError);
     }
   };
-
-  useEffect(() => {
-    if (token) {
-      axios({
-        method: "GET",
-        url: "user/account",
-        headers: { Authorization: "Bearer " + token },
-      })
-        .then((res) => {
-          setUser(res.data);
-          setLoggedIn(true);
-        })
-        .catch(() => {
-          setUser("");
-          setLoggedIn(false);
-        });
-    }
-  }, [token, setUser, setLoggedIn]);
 
   return (
     <>

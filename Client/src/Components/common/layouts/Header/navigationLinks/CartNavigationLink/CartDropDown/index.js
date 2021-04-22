@@ -21,7 +21,6 @@ const CartDropDown = (props) => {
           <CartDropDownSummary
             cartCount={props.cartCount}
             cartCostTotal={props.cartCostTotal}
-            isLoggedIn={props.isLoggedIn}
           />
         </>
       ) : (

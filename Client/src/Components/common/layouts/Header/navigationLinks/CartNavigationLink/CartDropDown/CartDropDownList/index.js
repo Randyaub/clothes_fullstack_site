@@ -3,10 +3,10 @@ import "./CartDropDownList.css";
 
 import CartDropDownItem from "./CartDropDownItem";
 
-const CartDropDownList = (props) => {
+const CartDropDownList = ({ cartItems }) => {
   return (
     <div className="c-CartDropDownList">
-      {props.cartItems.map((item, index) => {
+      {cartItems.map((item, index) => {
         return <CartDropDownItem key={index} item={item} />;
       })}
     </div>

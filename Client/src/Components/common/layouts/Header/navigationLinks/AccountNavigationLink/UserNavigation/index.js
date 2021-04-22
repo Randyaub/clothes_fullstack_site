@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../../../../../../utility/context/UserContext";
 import "./UserNavigation.css";
 
-const UserNavigation = (props) => {
+const UserNavigation = () => {
+  const user = useContext(UserContext);
+
   return (
     <div className="c-UserNavigation__menu">
       <ul>
         <li>
-          <Link to="/account">My Account </Link>
+          <Link to="/account">My Account</Link>
         </li>
         <li
           onClick={() => {
-            props.logOutUser();
+            user.logOut();
           }}
           className="c-UserNavigation__logout"
         >

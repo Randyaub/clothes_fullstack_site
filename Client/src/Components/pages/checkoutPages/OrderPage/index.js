@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory, Redirect } from "react-router-dom";
 import axios from "axios";
 import "./OrderPage.css";
@@ -9,8 +9,11 @@ import Button from "../../../common/buttons/Button";
 import CheckoutSummary from "../CheckoutSummary";
 import useLocalStorageCart from "../../../../utility/useLocalStorageCart";
 import useToken from "../../../../utility/useToken";
+import { UserContext } from "../../../../utility/context/UserContext";
 
 const OrderPage = (props) => {
+  const user = useContext(UserContext);
+
   let history = useHistory();
   const { shippingInfo } = props;
   const { billingInfo } = props;
@@ -54,7 +57,7 @@ const OrderPage = (props) => {
   };
 
   const handleClick = () => {
-    if (props.isLoggedIn) {
+    if (user.isAuth) {
       axios(loggedInAxiosRequest).then(() => {
         resetCartAndGoToNextPage();
       });

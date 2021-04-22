@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserNavigation from "./UserNavigation";
 import "./AccountNavigationLink.css";
+import { UserContext } from "../../../../../../utility/context/UserContext";
 
-const AccountNavigationLink = (props) => {
-  return props.isLoggedIn ? (
+const AccountNavigationLink = () => {
+  const user = useContext(UserContext);
+
+  return user.isAuth ? (
     <>
       <Link className="c-Header__link" to="/account">
-        <i className="fas fa-user"></i> {props.user.first_name}
+        <i className="fas fa-user"></i> {user.user.first_name}
       </Link>
-      <UserNavigation logOutUser={props.logOutUser} />
+      <UserNavigation />
     </>
   ) : (
     <Link className="c-Header__link" to="/account/login">
