@@ -9,6 +9,7 @@
 
 # production
 /build
+.netlify
 
 # misc
 /debug.log
