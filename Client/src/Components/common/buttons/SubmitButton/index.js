@@ -1,11 +1,11 @@
 import React from "react";
 
-const SubmitButton = (props) => {
+const SubmitButton = ({ className, buttonText }) => {
   return (
     <input
-      className={`${props.className ? props.className : "default-btn"} `}
+      className={`${className ? className : "default-btn"} `}
       type="submit"
-      value={props.buttonText}
+      value={buttonText}
     ></input>
   );
 };

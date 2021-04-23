@@ -1,7 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-// import { useHistory } from "react-router-dom";
-import useToken from "../../../../utility/useToken";
-import axios from "axios";
+import React, { useState, useContext } from "react";
 import SubmitButton from "../../buttons/SubmitButton";
 import FormItem from "../FormItem";
 import "./LoginForm.css";
@@ -9,21 +6,11 @@ import "./LoginForm.css";
 import { emailValid, passwordValid } from "../../../../utility/utilities";
 import { UserContext } from "../../../../utility/context/UserContext";
 
-const LoginForm = ({ checkoutLogin, setUser, setLoggedIn }) => {
+const LoginForm = () => {
   const user = useContext(UserContext);
-  const { token } = useToken();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // const history = useHistory();
-
-  // const goToAccount = () => {
-  //   history.push("/account");
-  // };
-
-  // const goToCheckoutPage = () => {
-  //   history.push("/shipping-checkout");
-  // };
 
   const isValid = () => {
     if (!emailValid(email, setError) || !passwordValid(password, setError)) {

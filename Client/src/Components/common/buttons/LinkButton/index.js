@@ -3,16 +3,14 @@ import { Link } from "react-router-dom";
 
 import "./LinkButton.css";
 
-const LinkButton = (props) => {
+const LinkButton = ({ className, url, leftArrow, buttonText }) => {
   return (
-    <Link to={props.url}>
-      <button
-        className={`${props.className ? props.className : "default-btn"} `}
-      >
-        {props.leftArrow === true && (
-          <i className="fas fa-arrow-left c-LinkButton__arrow"></i>
+    <Link to={url}>
+      <button className={`${className ? className : "default-btn"} `}>
+        {leftArrow === true && (
+          <i className="fas fa-arrow-left c-LinkButton__arrow" />
         )}
-        {props.buttonText}
+        {buttonText}
       </button>
     </Link>
   );

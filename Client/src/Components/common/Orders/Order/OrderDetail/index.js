@@ -1,10 +1,10 @@
 import React from "react";
 
-const OrderDetail = (props) => {
+const OrderDetail = ({ heading, detail }) => {
   return (
     <div>
-      <h4>{props.heading}</h4>
-      <span>{props.detail}</span>
+      <h4>{heading}</h4>
+      <span>{detail}</span>
     </div>
   );
 };

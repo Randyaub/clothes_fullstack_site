@@ -1,17 +1,17 @@
 import React from "react";
 import InputOption from "./InputOption";
 
-const InputRadio = (props) => {
+const InputRadio = ({ options, selectedOption, setSelectedOption }) => {
   return (
     <>
-      {props.options.map((option, index) => {
+      {options.map((option, index) => {
         return (
           <InputOption
             key={index}
             value={option.value}
             text={option.text}
-            selectedOption={props.selectedOption}
-            setSelectedOption={props.setSelectedOption}
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
           />
         );
       })}

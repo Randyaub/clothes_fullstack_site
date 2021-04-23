@@ -3,20 +3,20 @@ import "./InputSelectMenu.css";
 
 import InputSelectMenuItem from "./InputSelectMenuItem";
 
-const InputSelectMenu = (props) => {
+const InputSelectMenu = ({ isOpen, list, setFunction }) => {
   return (
     <div className="c-InputDropDownList">
       <ul
         className={`c-InputDropDownList__list ${
-          props.isOpen && `c-InputDropDownList-active`
+          isOpen && `c-InputDropDownList-active`
         }`}
       >
-        {props.list.map((item, index) => {
+        {list.map((item, index) => {
           return (
             <InputSelectMenuItem
               key={index}
               item={item}
-              setFunction={props.setFunction}
+              setFunction={setFunction}
             />
           );
         })}

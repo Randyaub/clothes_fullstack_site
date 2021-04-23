@@ -1,16 +1,16 @@
 import React from "react";
 import "./InputOption.css";
 
-const InputOption = (props) => {
+const InputOption = ({ text, value, selectedOption, setSelectedOption }) => {
   return (
     <label className="c-InputOption">
-      {props.text}
+      {text}
       <input
         className="c-InputOption__checkbox"
         type="radio"
-        value={props.value}
-        checked={props.selectedOption === `${props.value}`}
-        onChange={(event) => props.setSelectedOption(event.target.value)}
+        value={value}
+        checked={selectedOption === `${value}`}
+        onChange={(event) => setSelectedOption(event.target.value)}
       ></input>
       <span className="c-InputOption__checkmark"></span>
     </label>

@@ -2,15 +2,15 @@ import React from "react";
 
 import "./InputSelectMenuItem.css";
 
-const InputSelectMenuItem = (props) => {
+const InputSelectMenuItem = ({ setFunction, item }) => {
   return (
     <li
       onClick={() => {
-        props.setFunction(props.item);
+        setFunction(item);
       }}
       className="c-InputDropDownItem"
     >
-      {props.item}
+      {item}
     </li>
   );
 };

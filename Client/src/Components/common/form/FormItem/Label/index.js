@@ -2,11 +2,11 @@ import React from "react";
 
 import "./Label.css";
 
-const Label = (props) => {
+const Label = ({ className, name, error }) => {
   return (
-    <div className={props.className ? props.className : "c-Label"}>
-      {props.name}
-      {props.error && <span className="c-Label__error">*</span>}
+    <div className={className ? className : "c-Label"}>
+      {name}
+      {error && <span className="c-Label__error">*</span>}
     </div>
   );
 };

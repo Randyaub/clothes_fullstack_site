@@ -4,7 +4,7 @@ import "./InputDropDown.css";
 import InputSelectValue from "./InputSelectValue";
 import InputSelectMenu from "./InputSelectMenu";
 
-const InputSelect = (props) => {
+const InputSelect = ({ value, error, list, setFunction }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,12 +17,8 @@ const InputSelect = (props) => {
         setIsOpen(false);
       }}
     >
-      <InputSelectValue value={props.value} error={props.error} />
-      <InputSelectMenu
-        isOpen={isOpen}
-        list={props.list}
-        setFunction={props.setFunction}
-      />
+      <InputSelectValue value={value} error={error} />
+      <InputSelectMenu isOpen={isOpen} list={list} setFunction={setFunction} />
     </div>
   );
 };
