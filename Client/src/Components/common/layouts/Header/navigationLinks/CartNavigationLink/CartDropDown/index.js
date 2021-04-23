@@ -1,26 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Cart.css";
 
 import CartDropDownList from "./CartDropDownList";
 import CartDropDownSummary from "./CartDropDownSummary";
 
-const CartDropDown = (props) => {
-  const [isCartFixed, setIsCartFixed] = useState(false);
-
+const CartDropDown = ({
+  productAdded,
+  cartCostTotal,
+  cartCount,
+  cartItems,
+}) => {
   return (
-    <div
-      className={
-        props.productAdded
-          ? `c-Cart show ${isCartFixed && `fixed`}`
-          : `c-Cart hidden ${isCartFixed && `fixed`}`
-      }
-    >
-      {props.cartCount !== 0 ? (
+    <div className={productAdded ? `c-Cart show` : `c-Cart hidden`}>
+      {cartCount !== 0 ? (
         <>
-          <CartDropDownList cartItems={props.cartItems} />
+          <CartDropDownList cartItems={cartItems} />
           <CartDropDownSummary
-            cartCount={props.cartCount}
-            cartCostTotal={props.cartCostTotal}
+            cartCount={cartCount}
+            cartCostTotal={cartCostTotal}
           />
         </>
       ) : (

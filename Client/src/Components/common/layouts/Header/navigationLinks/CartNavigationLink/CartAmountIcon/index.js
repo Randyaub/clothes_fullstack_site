@@ -1,10 +1,10 @@
 import React from "react";
 import "./CartAmountIcon.css";
 
-const CartAmountIcon = (props) => {
+const CartAmountIcon = ({ total }) => {
   return (
     <i className="fas fa-shopping-cart c-CartAmountIcon">
-      <span>{props.total}</span>
+      <span>{total}</span>
     </i>
   );
 };

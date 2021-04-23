@@ -25,7 +25,6 @@ import { UserContext } from "./utility/context/UserContext";
 
 function App() {
   const value = useContext(UserContext);
-
   const { localStorageCart, setLocalStorageCart } = useLocalStorageCart();
 
   const [hasVisitedShipping, setHasVisitedShipping] = useState();
@@ -131,7 +130,7 @@ function App() {
   //if disclaimer is accepted dont show again
   useEffect(() => {
     let isClicked = sessionStorage.getItem("disclaimerClicked");
-    if (isClicked === "true") {
+    if (isClicked) {
       setIsDisclaimerClicked(true);
     }
   }, []);
