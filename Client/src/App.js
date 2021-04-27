@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import { UserContext } from "./utility/context/UserContext";
 import "./App.css";
 
 import Header from "./Components/common/layouts/Header";
@@ -13,7 +14,6 @@ import NotFoundPage from "./Components/pages/NotFoundPage";
 import AccountPage from "./Components/pages/AccountPage";
 import MemberOrGuest from "./Components/pages/MemberOrGuestPage";
 import GuestOrdersPage from "./Components/pages/GuestOrdersPage";
-
 import ShippingPage from "./Components/pages/checkoutPages/ShippingPage";
 import PaymentPage from "./Components/pages/checkoutPages/PaymentPage";
 import OrderPage from "./Components/pages/checkoutPages/OrderPage";
@@ -21,18 +21,18 @@ import PurchasedPage from "./Components/pages/PurchasedPage";
 import ProtectedRoute from "./ProtectedRoute";
 import useLocalStorageCart from "./utility/useLocalStorageCart";
 import Button from "./Components/common/buttons/Button";
-import { UserContext } from "./utility/context/UserContext";
 
 function App() {
   const value = useContext(UserContext);
   const { localStorageCart, setLocalStorageCart } = useLocalStorageCart();
 
+  //State to help determing if user may enter checkout pages through url
   const [hasVisitedShipping, setHasVisitedShipping] = useState();
   const [hasVisitedPayment, setHasVisitedPayment] = useState();
   const [hasCompletedOrder, setHasCompletedOrder] = useState();
-  const [isDisclaimerClicked, setIsDisclaimerClicked] = useState(false);
 
   //website globals
+  const [isDisclaimerClicked, setIsDisclaimerClicked] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [cartCostTotal, setCartCostTotal] = useState(0);
@@ -65,6 +65,7 @@ function App() {
   const [cardExpirationYear, setCardExpirationYear] = useState("YEAR*");
   const [cardCVV, setCardCVV] = useState("");
 
+  //Putting all the shipping information into object
   const shippingInfo = {
     email: shippingEmail,
     setEmail: setShippingEmail,
@@ -86,6 +87,7 @@ function App() {
     setShippingMethod: setShippingMethod,
   };
 
+  //Putting all the billing information into object
   const billingInfo = {
     firstName: billingFirstName,
     setFirstName: setBillingFirstName,
