@@ -35,7 +35,7 @@ app.use(notFound);
 app.use(errorHandling);
 
 //Listening on
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 2800;
 app.listen(PORT, () => {
   console.log(`Listening on localhost:${PORT}`);
 });

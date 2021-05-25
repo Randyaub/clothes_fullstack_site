@@ -4,10 +4,10 @@ import userController from "../controllers/users";
 
 const router = express.Router();
 
-router.post("/login", userController.user_log_in);
-router.get("/account", checkAuth, userController.user_account);
-router.get("/account/guest", userController.user_guest_orders);
-router.get("/account/user/:id", checkAuth, userController.user_user_orders);
-router.post("/register", userController.user_create_account);
+router.post("/login", userController.logIn);
+router.get("/account", checkAuth, userController.getSpecificUser);
+router.get("/account/guest", userController.getGuestOrders);
+router.get("/account/user/:id", userController.getUserOrders);
+router.post("/register", userController.createAccount);
 
 export default router;
