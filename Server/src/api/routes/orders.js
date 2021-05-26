@@ -4,11 +4,7 @@ import orderController from "../controllers/order";
 
 const router = express.Router();
 
-router.post("/confirm-order-guest", orderController.order_confirm_order_guest);
-router.post(
-  "/confirm-order-user",
-  checkAuth,
-  orderController.order_confirm_order_user
-);
+router.post("/confirm-order-guest", orderController.addGuestOrder);
+router.post("/confirm-order-user", checkAuth, orderController.addUserOrder);
 
 export default router;
