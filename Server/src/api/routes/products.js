@@ -3,14 +3,15 @@ import productsController from "../controllers/products";
 
 const router = express.Router();
 
-router.get(
-  "/:gender/Shop-Category/:category/:subcategory",
-  productsController.products_get_subcategory
-);
-router.get("/:gender/Shop-Category/all", productsController.products_get_all);
+router.get("/:gender/Shop-Category/all", productsController.getAllProducts);
 router.get(
   "/:gender/Shop-Category/:category",
-  productsController.products_get_category
+  productsController.getProductByCategories
 );
-router.get("/Product-Page/:sku", productsController.products_get_product);
+router.get(
+  "/:gender/Shop-Category/:category/:subcategory",
+  productsController.getProductBySubCategory
+);
+router.get("/Product-Page/:sku", productsController.getSpecificProduct);
+
 export default router;
