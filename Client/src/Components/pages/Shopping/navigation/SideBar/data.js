@@ -1,31 +1,31 @@
 export const men = [
-  { category: "all" },
+  { name: "all" },
   {
-    category: "hoodies-and-sweatshirts",
+    name: "hoodies-and-sweatshirts",
     subcategories: ["hoodies", "sweatshirts"],
   },
   {
-    category: "shirts",
+    name: "shirts",
     subcategories: ["casual", "dress-shirts", "flannels"],
   },
   {
-    category: "jeans",
+    name: "jeans",
     subcategories: ["regular", "skinny"],
   },
 ];
 
 export const women = [
-  { category: "all" },
+  { name: "all" },
   {
-    category: "jackets-and-coats",
+    name: "jackets-and-coats",
     subcategories: ["jackets", "coats"],
   },
   {
-    category: "pants",
+    name: "pants",
     subcategories: ["leggings", "dress-pants", "chinos"],
   },
   {
-    category: "shirts-and-blouses",
+    name: "shirts-and-blouses",
     subcategories: ["dress-shirts", "blouses"],
   },
 ];

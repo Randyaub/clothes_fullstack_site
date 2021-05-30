@@ -1,4 +1,4 @@
-.c-CategorySubMenu {
+.c-MobileMenu {
   position: relative;
   display: none;
   justify-content: center;
@@ -8,7 +8,20 @@
   padding: 0px 0px 8px 0px;
 }
 
-.c-CategorySubMenu__list {
+.c-MobileMenu__selected {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: 110px;
+  padding: 0px 0px 3px 0px;
+}
+
+.l-MobileMenu__dropdown {
+  position: absolute;
+  width: 100%;
+}
+
+.c-MobileMenu__dropdown {
   position: absolute;
   z-index: 999999;
   background-color: white;
@@ -17,38 +30,22 @@
   user-select: none;
 }
 
-.c-CategorySubMenu__selected {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  width: 110px;
-  padding: 0px 0px 3px 0px;
-}
-
-.c-CategorySubMenu__item {
+.c-MobileMenu__category {
   margin: 0px;
   padding: 20px 20px;
 }
 
-.c-CategorySubMenu__subitem {
+.c-MobileMenu__subCategory {
   padding: 20px 40px;
 }
 
-.c-CategorySubMenu__item:hover {
+.c-MobileMenu__category:hover,
+.c-MobileMenu__subCategory:hover {
   background-color: rgb(255, 238, 205);
-}
-
-.c-CategorySubMenu__subitem:hover {
-  background-color: rgb(255, 238, 205);
-}
-
-.c-CategorySubMenu__container {
-  position: absolute;
-  width: 100%;
 }
 
 @media only screen and (max-width: 750px) {
-  .c-CategorySubMenu {
+  .c-MobileMenu {
     display: flex;
     justify-content: center;
     align-items: center;

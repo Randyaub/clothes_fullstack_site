@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 import { Route, Switch, useParams, useRouteMatch } from "react-router-dom";
-
-import "./Category.css";
-import CategorySideBar from "./CategorySideBar";
-import CategoryProduct from "./CategoryProducts";
+import SideBar from "./navigation/SideBar";
+import ListOfProducts from "./ListOfProducts";
 import NotFoundPage from "../NotFoundPage";
-import CategorySubMenu from "./CategorySubMenu";
+import MobileMenu from "./navigation/MobileMenu";
 
-const Category = () => {
-  let { type } = useParams();
+import "./Shopping.css";
+
+const Shopping = () => {
+  let { gender } = useParams();
   let { path } = useRouteMatch();
 
   const [categories, setCategories] = useState([]);
 
   return (
     <>
-      {type !== "men" && type !== "women" ? (
+      {gender !== "men" && gender !== "women" ? (
         <NotFoundPage />
       ) : (
         <>
-          <CategorySubMenu categories={categories} />
-          <main className="c-Category">
-            <CategorySideBar
-              type={type}
+          <MobileMenu categories={categories} />
+          <main className="c-Shopping">
+            <SideBar
+              gender={gender}
               setCategories={setCategories}
               categories={categories}
             />
@@ -31,10 +31,10 @@ const Category = () => {
                 exact
                 path={`${path}/Shop-Category/:category/:subcategory`}
               >
-                <CategoryProduct />
+                <ListOfProducts />
               </Route>
               <Route exact path={`${path}/Shop-Category/:category`}>
-                <CategoryProduct />
+                <ListOfProducts />
               </Route>
             </Switch>
           </main>
@@ -44,4 +44,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Shopping;

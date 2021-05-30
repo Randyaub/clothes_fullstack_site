@@ -1,0 +1,38 @@
+.c-Category-active,
+.c-Category__sublink-active {
+  color: var(--highlight-text);
+}
+
+.c-Category__sublink-active {
+  text-decoration: underline;
+}
+
+.c-Category__link {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.c-Category__link:not(.c-Category-active) + .c-Category__submenu {
+  visibility: hidden;
+  display: none;
+}
+
+.c-Category__submenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-Category__sublink {
+  font-size: 15px;
+  margin: 3px 0px;
+}
+
+.c-Category__sublink:hover,
+.c-Category__link:hover {
+  color: var(--highlight-text);
+}
+
+.c-Category__sublink:hover {
+  text-decoration: underline;
+}

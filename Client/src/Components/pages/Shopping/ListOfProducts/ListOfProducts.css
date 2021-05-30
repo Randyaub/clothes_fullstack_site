@@ -1,0 +1,11 @@
+.c-ListOfProducts {
+  display: flex;
+  flex-wrap: wrap;
+  width: 83%;
+}
+
+@media only screen and (max-width: 750px) {
+  .c-ListOfProducts {
+    width: 100%;
+  }
+}

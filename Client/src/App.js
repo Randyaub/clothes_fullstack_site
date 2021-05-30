@@ -8,7 +8,7 @@ import Footer from "./Components/common/layouts/Footer";
 import LogInPage from "./Components/pages/LogInPage";
 import RegisterPage from "./Components/pages/RegisterPage";
 import CartPage from "./Components/pages/CartPage";
-import CategoryPage from "./Components/pages/CategoryPage";
+import Shopping from "./Components/pages/Shopping";
 import ProductPage from "./Components/pages/ProductPage";
 import NotFoundPage from "./Components/pages/NotFoundPage";
 import AccountPage from "./Components/pages/AccountPage";
@@ -268,8 +268,8 @@ function App() {
                   setCartCostTotal={setCartCostTotal}
                 />
               </Route>
-              <Route path="/:type">
-                <CategoryPage />
+              <Route path="/:gender">
+                <Shopping />
               </Route>
               <Route path="*">
                 <NotFoundPage />
