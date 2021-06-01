@@ -1,9 +1,9 @@
 import React from "react";
+import RemoveItem from "./RemoveItem";
+import ItemDetails from "./ItemDetails";
+import Quantity from "./Quantity";
 
 import "./CartItem.css";
-import ItemDelete from "./ItemDelete";
-import ItemDetails from "./ItemDetails";
-import ItemQuantity from "./ItemQuantity";
 
 const CartItem = (props) => {
   return (
@@ -11,7 +11,7 @@ const CartItem = (props) => {
       <ItemDetails item={props.item} />
       <div className="c-CartItem__quantity">
         <div className="l-CartItem__quantity">
-          <ItemQuantity
+          <Quantity
             item={props.item}
             cartCount={props.cartCount}
             setCartCount={props.setCartCount}
@@ -20,7 +20,7 @@ const CartItem = (props) => {
             cartItems={props.cartItems}
             setCartItems={props.setCartItems}
           />
-          <ItemDelete
+          <RemoveItem
             item={props.item}
             cartCount={props.cartCount}
             setCartCount={props.setCartCount}
@@ -30,9 +30,7 @@ const CartItem = (props) => {
             setCartItems={props.setCartItems}
           />
         </div>
-        <h4>
-          SUBTOTAL: ${(props.item.price * props.item.quantity).toFixed(2)}
-        </h4>
+        <h4>SUBTOTAL ${(props.item.price * props.item.quantity).toFixed(2)}</h4>
       </div>
     </div>
   );

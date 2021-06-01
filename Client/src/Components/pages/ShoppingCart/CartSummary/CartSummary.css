@@ -1,0 +1,36 @@
+.c-CartSummary {
+  padding: 20px;
+  width: 35%;
+}
+
+.c-CartSummary__row:first-child {
+  padding-top: 0px;
+  border-top: none;
+}
+
+.c-CartSummary__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  border-top: 1px solid grey;
+  font-size: 15px;
+}
+
+.c-CartSummary__disclaimer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .c-CartSummary {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .c-CartSummary {
+    padding: 0px;
+    width: 100%;
+  }
+}

@@ -1,15 +1,15 @@
-.c-ItemQuantity {
+.c-Quantity {
   width: 70px;
 }
 
 @media only screen and (max-width: 1000px) {
-  .c-ItemQuantity {
+  .c-Quantity {
     width: 180px;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .c-ItemQuantity {
+  .c-Quantity {
     width: 100%;
   }
 }

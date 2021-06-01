@@ -1,0 +1,8 @@
+.c-ItemPicture__wrapper {
+  height: 0;
+  padding-bottom: 150%;
+}
+
+.c-ItemPicture {
+  width: 100px;
+}

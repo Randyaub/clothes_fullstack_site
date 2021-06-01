@@ -7,7 +7,7 @@ import Header from "./Components/common/layouts/Header";
 import Footer from "./Components/common/layouts/Footer";
 import LogInPage from "./Components/pages/LogInPage";
 import RegisterPage from "./Components/pages/RegisterPage";
-import CartPage from "./Components/pages/CartPage";
+import ShoppingCart from "./Components/pages/ShoppingCart";
 import Shopping from "./Components/pages/Shopping";
 import ProductPage from "./Components/pages/ProductPage";
 import NotFoundPage from "./Components/pages/NotFoundPage";
@@ -259,7 +259,7 @@ function App() {
                 Component={AccountPage}
               />
               <Route exact path="/cart">
-                <CartPage
+                <ShoppingCart
                   cartItems={cartItems}
                   setCartItems={setCartItems}
                   cartCount={cartCount}

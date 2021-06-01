@@ -1,22 +1,12 @@
-.c-CartPage {
+.c-ShoppingCart {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
 }
 
-.c-CartPage__summary {
-  padding: 20px;
-  width: 35%;
-}
-
-.l-CartPage__products {
+.c-ShoppingCart__products {
   padding: 30px 0px;
   width: 60%;
-}
-
-.c-CartPage__disclaimer {
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .c-CartPage__btn > h3 {
@@ -25,26 +15,17 @@
 }
 
 @media only screen and (max-width: 1000px) {
-  .c-CartPage__summary {
-    width: 50%;
-  }
-
-  .l-CartPage__products {
+  .c-ShoppingCart__products {
     width: 45%;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .c-CartPage {
+  .c-ShoppingCart {
     flex-direction: column;
   }
 
-  .c-CartPage__summary {
-    padding: 0px;
-    width: 100%;
-  }
-
-  .l-CartPage__products {
+  .c-ShoppingCart__products {
     width: 100%;
   }
 }
