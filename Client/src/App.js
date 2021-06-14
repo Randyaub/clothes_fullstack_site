@@ -17,7 +17,7 @@ import GuestOrdersPage from "./Components/pages/GuestOrdersPage";
 import ShippingPage from "./Components/pages/checkoutPages/ShippingPage";
 import PaymentPage from "./Components/pages/checkoutPages/PaymentPage";
 import OrderPage from "./Components/pages/checkoutPages/OrderPage";
-import PurchasedPage from "./Components/pages/PurchasedPage";
+import AfterPurchase from "./Components/pages/AfterPurchase";
 import ProtectedRoute from "./ProtectedRoute";
 import useLocalStorageCart from "./utility/useLocalStorageCart";
 import Button from "./Components/common/buttons/Button";
@@ -160,10 +160,7 @@ function App() {
         >
           <div className="disclaimer__box">
             <h3>This Is A Heroku Hobby App</h3>
-            <img
-              src={window.location.origin + "/loading.svg"}
-              alt="loading"
-            ></img>
+            <img src={window.location.origin + "/loading.svg"} alt="loading" />
             <div>
               If you wish to view this page correctly, please wait around 15
               seconds for the Heroku Dyno to wake up.
@@ -192,7 +189,7 @@ function App() {
                 <Redirect to="/men/Shop-Category/all" />
               </Route>
               <Route path="/checkout/order-submitted">
-                <PurchasedPage hasCompletedOrder={hasCompletedOrder} />
+                <AfterPurchase hasCompletedOrder={hasCompletedOrder} />
               </Route>
               <Route exact path="/login/checkout">
                 <MemberOrGuest cartCount={cartCount} />

@@ -1,14 +1,14 @@
-.c-PurchasedPage__btns {
+.c-AfterPurchase__btns {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.l-PurchasedPage__btns {
+.l-AfterPurchase__btns {
   margin-right: 10px;
 }
 
-.c-PurchasedPage__text {
+.c-AfterPurchase__text {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,17 +17,17 @@
   padding: 0px 10px;
 }
 
-.c-PurchasedPage__text > span {
+.c-AfterPurchase__text > span {
   margin-top: 10px;
   max-width: 580px;
 }
 
-.c-PurchasedPage {
+.c-AfterPurchase {
   margin-bottom: 150px;
 }
 
 @media only screen and (max-width: 600px) {
-  .c-PurchasedPage__btns {
+  .c-AfterPurchase__btns {
     flex-direction: column;
   }
 }
